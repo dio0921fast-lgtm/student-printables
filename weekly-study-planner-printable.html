@@ -91,6 +91,7 @@
       color: #6b7280;
     }
   </style>
+<link rel="stylesheet" href="printable-worksheets.css" />
 </head>
 
 <body>
@@ -131,9 +132,42 @@
     <section class="card download-box">
       <h2>Free Printable Download</h2>
 
-      <p>
-        PDF download will be added here later.
+      <p class="download-note">
+        Print this weekly planner now, or choose Save as PDF in your browser print window.
       </p>
+
+      <button class="print-button" type="button" onclick="window.print()">Print or Save as PDF</button>
+
+      <div class="printable-sheet">
+        <h3>Weekly Study Planner</h3>
+        <p class="sheet-subtitle">Plan your classes, homework, study blocks, and exam prep for the week.</p>
+
+        <div class="field-row">
+          <div class="field">Week of:</div>
+          <div class="field">Name:</div>
+          <div class="field">Top goal:</div>
+        </div>
+
+        <table class="worksheet-table">
+          <thead>
+            <tr>
+              <th>Day</th>
+              <th>Classes</th>
+              <th>Homework</th>
+              <th>Study Block</th>
+              <th>Done</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Monday</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Tuesday</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Wednesday</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Thursday</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Friday</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Weekend</td><td></td><td></td><td></td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
 
       <a class="button" href="index.html">
         Back to homepage

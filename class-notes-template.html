@@ -95,6 +95,7 @@
       color: #667085;
     }
   </style>
+<link rel="stylesheet" href="printable-worksheets.css" />
 </head>
 <body>
   <header>
@@ -127,7 +128,26 @@
 
     <section class="card download-box">
       <h2>Free Printable Download</h2>
-      <p>PDF download will be added here later.</p>
+      <p class="download-note">Print this class notes template now, or choose Save as PDF in your browser print window.</p>
+      <button class="print-button" type="button" onclick="window.print()">Print or Save as PDF</button>
+
+      <div class="printable-sheet">
+        <h3>Class Notes Template</h3>
+        <p class="sheet-subtitle">Capture lesson topics, key ideas, vocabulary, questions, and follow-up tasks.</p>
+
+        <div class="field-row">
+          <div class="field">Course:</div>
+          <div class="field">Date:</div>
+          <div class="field">Topic:</div>
+        </div>
+
+        <div class="worksheet-grid">
+          <div class="worksheet-box"><strong>Main notes</strong></div>
+          <div class="worksheet-box"><strong>Key terms</strong></div>
+          <div class="worksheet-box"><strong>Questions</strong></div>
+          <div class="worksheet-box"><strong>Follow-up tasks</strong></div>
+        </div>
+      </div>
       <a class="button" href="index.html">Back to homepage</a>
     </section>
   </main>

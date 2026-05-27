@@ -91,6 +91,7 @@
       color: #6b7280;
     }
   </style>
+<link rel="stylesheet" href="printable-worksheets.css" />
 </head>
 
 <body>
@@ -132,9 +133,29 @@
     <section class="card download-box">
       <h2>Free Printable Download</h2>
 
-      <p>
-        PDF download will be added here later.
+      <p class="download-note">
+        Print this daily planner now, or choose Save as PDF in your browser print window.
       </p>
+
+      <button class="print-button" type="button" onclick="window.print()">Print or Save as PDF</button>
+
+      <div class="printable-sheet">
+        <h3>Daily Study Planner</h3>
+        <p class="sheet-subtitle">Organize today's study goals, assignments, priorities, and breaks.</p>
+
+        <div class="field-row">
+          <div class="field">Date:</div>
+          <div class="field">Main goal:</div>
+          <div class="field">Study time:</div>
+        </div>
+
+        <div class="worksheet-grid">
+          <div class="worksheet-box"><strong>Top priorities</strong></div>
+          <div class="worksheet-box"><strong>Homework due</strong></div>
+          <div class="worksheet-box"><strong>Study schedule</strong></div>
+          <div class="worksheet-box"><strong>Notes and reminders</strong></div>
+        </div>
+      </div>
 
       <a class="button" href="index.html">
         Back to homepage
