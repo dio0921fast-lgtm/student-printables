@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dio0921fast-lgtm.github.io/student-printables/sitemap.xml

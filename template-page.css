@@ -84,6 +84,22 @@ ol li {
   gap: 10px;
 }
 
+.language-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 20px;
+  background: white;
+  border-bottom: 1px solid #dbe3ee;
+}
+
+.language-switcher a {
+  color: #2457d6;
+  font-weight: 700;
+  text-decoration: none;
+}
+
 footer {
   text-align: center;
   padding: 30px 20px;
