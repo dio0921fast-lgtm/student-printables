@@ -340,6 +340,124 @@ function pageDescription(cfg, title) {
   return `${title} - ${cfg.homeDescription}`;
 }
 
+const terms = {
+  "zh-cn": {
+    "Week of:": "周次：", "Name:": "姓名：", "Top goal:": "主要目标：", "Date:": "日期：", "Main goal:": "主要目标：", "Study time:": "学习时间：", "Class:": "课程：", "Term:": "学期：", "Goal:": "目标：", "Subject:": "科目：", "Exam date:": "考试日期：", "Target grade:": "目标成绩：", "Course:": "课程：", "Topic:": "主题：", "Student:": "学生：", "Grade:": "年级：", "School year:": "学年：", "Move-in date:": "入住日期：", "Dorm:": "宿舍：", "Month:": "月份：", "Reward:": "奖励：", "School:": "学校：", "Project:": "项目：", "Due date:": "截止日期：", "Reading goal:": "阅读目标：", "Essay type:": "作文类型：", "Semester:": "学期：", "Start date:": "开始日期：",
+    "Day": "日期", "Classes": "课程", "Homework": "作业", "Study Block": "学习时段", "Done": "完成", "Priority": "优先级", "Notes": "备注", "Task": "任务", "Course": "课程", "Due Date": "截止日期", "Status": "状态", "Score": "分数", "Possible": "满分", "Book": "书名", "Pages": "页数", "Minutes": "分钟", "Summary or Notes": "摘要或备注", "Topic": "主题", "Review Task": "复习任务", "Practice Needed": "需要练习", "Confidence": "掌握程度",
+    "Monday": "星期一", "Tuesday": "星期二", "Wednesday": "星期三", "Thursday": "星期四", "Friday": "星期五", "Weekend": "周末", "Week 1 focus": "第 1 周重点", "Week 2 focus": "第 2 周重点", "Week 3 focus": "第 3 周重点", "Week 4 focus": "第 4 周重点", "Top priorities": "重点事项", "Homework due": "到期作业", "Study schedule": "学习安排", "Notes and reminders": "备注和提醒",
+    "Bedding": "床上用品", "Sheets": "床单", "Pillows": "枕头", "Blanket": "毯子", "Mattress pad": "床垫保护垫", "Study supplies": "学习用品", "Laptop": "笔记本电脑", "Chargers": "充电器", "Notebooks": "笔记本", "Pens": "钢笔", "Room essentials": "宿舍用品", "Desk lamp": "台灯", "Laundry basket": "洗衣篮", "Storage bins": "收纳盒", "Fan": "风扇", "Personal items": "个人用品", "Toiletries": "洗漱用品", "Towels": "毛巾", "Clothes": "衣物", "Medicine": "药品",
+    "Pencils": "铅笔", "Highlighters": "荧光笔", "Folders": "文件夹", "Binders": "活页夹", "Backpack": "书包", "Calculator": "计算器", "Sticky notes": "便利贴", "Index cards": "索引卡", "Tablet": "平板电脑", "Headphones": "耳机", "Planner": "计划本",
+    "Main notes": "主要笔记", "Key terms": "重点词汇", "Questions": "问题", "Follow-up tasks": "后续任务", "Prompt": "题目要求", "Thesis statement": "中心论点", "Body paragraph 1": "正文段落 1", "Body paragraph 2": "正文段落 2", "Body paragraph 3": "正文段落 3", "Conclusion notes": "结论备注",
+  },
+  "zh-tw": {
+    "Week of:": "週次：", "Name:": "姓名：", "Top goal:": "主要目標：", "Date:": "日期：", "Main goal:": "主要目標：", "Study time:": "讀書時間：", "Class:": "課程：", "Term:": "學期：", "Goal:": "目標：", "Subject:": "科目：", "Exam date:": "考試日期：", "Target grade:": "目標成績：", "Course:": "課程：", "Topic:": "主題：", "Student:": "學生：", "Grade:": "年級：", "School year:": "學年：", "Move-in date:": "入住日期：", "Dorm:": "宿舍：", "Month:": "月份：", "Reward:": "獎勵：", "School:": "學校：", "Project:": "專題：", "Due date:": "截止日期：", "Reading goal:": "閱讀目標：", "Essay type:": "作文類型：", "Semester:": "學期：", "Start date:": "開始日期：",
+    "Day": "日期", "Classes": "課程", "Homework": "作業", "Study Block": "讀書時段", "Done": "完成", "Priority": "優先順序", "Notes": "備註", "Task": "任務", "Course": "課程", "Due Date": "截止日期", "Status": "狀態", "Score": "分數", "Possible": "滿分", "Book": "書名", "Pages": "頁數", "Minutes": "分鐘", "Summary or Notes": "摘要或備註", "Topic": "主題", "Review Task": "複習任務", "Practice Needed": "需要練習", "Confidence": "掌握程度",
+    "Monday": "星期一", "Tuesday": "星期二", "Wednesday": "星期三", "Thursday": "星期四", "Friday": "星期五", "Weekend": "週末", "Week 1 focus": "第 1 週重點", "Week 2 focus": "第 2 週重點", "Week 3 focus": "第 3 週重點", "Week 4 focus": "第 4 週重點", "Top priorities": "重點事項", "Homework due": "到期作業", "Study schedule": "讀書安排", "Notes and reminders": "備註和提醒",
+    "Bedding": "寢具", "Sheets": "床單", "Pillows": "枕頭", "Blanket": "毯子", "Mattress pad": "床墊保護墊", "Study supplies": "學習用品", "Laptop": "筆電", "Chargers": "充電器", "Notebooks": "筆記本", "Pens": "筆", "Room essentials": "宿舍用品", "Desk lamp": "檯燈", "Laundry basket": "洗衣籃", "Storage bins": "收納盒", "Fan": "風扇", "Personal items": "個人物品", "Toiletries": "盥洗用品", "Towels": "毛巾", "Clothes": "衣物", "Medicine": "藥品",
+    "Pencils": "鉛筆", "Highlighters": "螢光筆", "Folders": "資料夾", "Binders": "活頁夾", "Backpack": "書包", "Calculator": "計算機", "Sticky notes": "便利貼", "Index cards": "索引卡", "Tablet": "平板", "Headphones": "耳機", "Planner": "計畫本",
+    "Main notes": "主要筆記", "Key terms": "重點詞彙", "Questions": "問題", "Follow-up tasks": "後續任務", "Prompt": "題目要求", "Thesis statement": "中心論點", "Body paragraph 1": "正文段落 1", "Body paragraph 2": "正文段落 2", "Body paragraph 3": "正文段落 3", "Conclusion notes": "結論備註",
+  },
+  ja: {
+    "Week of:": "週：", "Name:": "名前：", "Top goal:": "主な目標：", "Date:": "日付：", "Main goal:": "主な目標：", "Study time:": "学習時間：", "Class:": "科目：", "Term:": "学期：", "Goal:": "目標：", "Subject:": "科目：", "Exam date:": "試験日：", "Target grade:": "目標成績：", "Course:": "授業：", "Topic:": "テーマ：", "Student:": "学生：", "Grade:": "学年：", "School year:": "年度：", "Move-in date:": "入寮日：", "Dorm:": "寮：", "Month:": "月：", "Reward:": "ごほうび：", "School:": "学校：", "Project:": "プロジェクト：", "Due date:": "期限：", "Reading goal:": "読書目標：", "Essay type:": "作文タイプ：", "Semester:": "学期：", "Start date:": "開始日：",
+    "Day": "曜日", "Classes": "授業", "Homework": "宿題", "Study Block": "学習時間", "Done": "完了", "Priority": "優先度", "Notes": "メモ", "Task": "タスク", "Course": "科目", "Due Date": "期限", "Status": "状態", "Score": "点数", "Possible": "満点", "Book": "本", "Pages": "ページ", "Minutes": "分", "Summary or Notes": "要約・メモ", "Topic": "範囲", "Review Task": "復習内容", "Practice Needed": "練習内容", "Confidence": "理解度",
+    "Monday": "月曜", "Tuesday": "火曜", "Wednesday": "水曜", "Thursday": "木曜", "Friday": "金曜", "Weekend": "週末", "Week 1 focus": "第1週の重点", "Week 2 focus": "第2週の重点", "Week 3 focus": "第3週の重点", "Week 4 focus": "第4週の重点", "Top priorities": "優先事項", "Homework due": "提出宿題", "Study schedule": "学習予定", "Notes and reminders": "メモ・リマインダー",
+    "Bedding": "寝具", "Sheets": "シーツ", "Pillows": "枕", "Blanket": "毛布", "Mattress pad": "マットレスパッド", "Study supplies": "学習用品", "Laptop": "ノートPC", "Chargers": "充電器", "Notebooks": "ノート", "Pens": "ペン", "Room essentials": "寮生活用品", "Desk lamp": "デスクライト", "Laundry basket": "洗濯かご", "Storage bins": "収納ケース", "Fan": "扇風機", "Personal items": "身の回り品", "Toiletries": "洗面用品", "Towels": "タオル", "Clothes": "衣類", "Medicine": "薬",
+    "Pencils": "鉛筆", "Highlighters": "蛍光ペン", "Folders": "フォルダー", "Binders": "バインダー", "Backpack": "リュック", "Calculator": "電卓", "Sticky notes": "付箋", "Index cards": "単語カード", "Tablet": "タブレット", "Headphones": "ヘッドホン", "Planner": "手帳",
+    "Main notes": "主なノート", "Key terms": "重要語句", "Questions": "質問", "Follow-up tasks": "復習タスク", "Prompt": "課題文", "Thesis statement": "主張", "Body paragraph 1": "本文1", "Body paragraph 2": "本文2", "Body paragraph 3": "本文3", "Conclusion notes": "結論メモ",
+  },
+};
+
+terms.ko = Object.assign({}, terms.ja, {
+  "Week of:": "주:", "Name:": "이름:", "Top goal:": "주요 목표:", "Date:": "날짜:", "Main goal:": "주요 목표:", "Study time:": "공부 시간:", "Subject:": "과목:", "Student:": "학생:", "Done": "완료", "Task": "할 일", "Course": "과목", "Due Date": "마감일", "Notes": "메모", "Monday": "월요일", "Tuesday": "화요일", "Wednesday": "수요일", "Thursday": "목요일", "Friday": "금요일", "Weekend": "주말", "Bedding": "침구", "Study supplies": "학습용품", "Room essentials": "기숙사 용품", "Personal items": "개인용품", "School supplies": "학용품", "Main notes": "주요 노트", "Key terms": "핵심 용어", "Questions": "질문", "Follow-up tasks": "후속 과제"
+});
+terms.es = Object.assign({}, {
+  "Week of:": "Semana de:", "Name:": "Nombre:", "Top goal:": "Meta principal:", "Date:": "Fecha:", "Main goal:": "Meta principal:", "Study time:": "Tiempo de estudio:", "Class:": "Clase:", "Term:": "Periodo:", "Goal:": "Meta:", "Subject:": "Materia:", "Exam date:": "Fecha del examen:", "Target grade:": "Nota objetivo:", "Course:": "Curso:", "Topic:": "Tema:", "Student:": "Estudiante:", "Grade:": "Grado:", "School year:": "Año escolar:", "Move-in date:": "Fecha de mudanza:", "Dorm:": "Dormitorio:", "Month:": "Mes:", "Reward:": "Recompensa:", "School:": "Escuela:", "Project:": "Proyecto:", "Due date:": "Fecha límite:", "Reading goal:": "Meta de lectura:", "Essay type:": "Tipo de ensayo:", "Semester:": "Semestre:", "Start date:": "Fecha de inicio:",
+  "Day": "Día", "Classes": "Clases", "Homework": "Tarea", "Study Block": "Bloque de estudio", "Done": "Hecho", "Priority": "Prioridad", "Notes": "Notas", "Task": "Tarea", "Course": "Curso", "Due Date": "Fecha límite", "Status": "Estado", "Score": "Puntaje", "Possible": "Total", "Book": "Libro", "Pages": "Páginas", "Minutes": "Minutos", "Summary or Notes": "Resumen o notas", "Topic": "Tema", "Review Task": "Repaso", "Practice Needed": "Práctica", "Confidence": "Confianza",
+  "Monday": "Lunes", "Tuesday": "Martes", "Wednesday": "Miércoles", "Thursday": "Jueves", "Friday": "Viernes", "Weekend": "Fin de semana", "Week 1 focus": "Enfoque semana 1", "Week 2 focus": "Enfoque semana 2", "Week 3 focus": "Enfoque semana 3", "Week 4 focus": "Enfoque semana 4", "Top priorities": "Prioridades", "Homework due": "Tarea pendiente", "Study schedule": "Horario de estudio", "Notes and reminders": "Notas y recordatorios",
+  "Bedding": "Ropa de cama", "Sheets": "Sábanas", "Pillows": "Almohadas", "Blanket": "Manta", "Mattress pad": "Protector de colchón", "Study supplies": "Útiles de estudio", "Laptop": "Portátil", "Chargers": "Cargadores", "Notebooks": "Cuadernos", "Pens": "Bolígrafos", "Room essentials": "Dormitorio", "Desk lamp": "Lámpara", "Laundry basket": "Cesto de ropa", "Storage bins": "Cajas", "Fan": "Ventilador", "Personal items": "Artículos personales", "Toiletries": "Aseo", "Towels": "Toallas", "Clothes": "Ropa", "Medicine": "Medicinas",
+  "Pencils": "Lápices", "Highlighters": "Resaltadores", "Folders": "Carpetas", "Binders": "Archivadores", "Backpack": "Mochila", "Calculator": "Calculadora", "Sticky notes": "Notas adhesivas", "Index cards": "Tarjetas", "Tablet": "Tableta", "Headphones": "Auriculares", "Planner": "Agenda",
+  "Main notes": "Notas principales", "Key terms": "Términos clave", "Questions": "Preguntas", "Follow-up tasks": "Tareas de seguimiento", "Prompt": "Consigna", "Thesis statement": "Tesis", "Body paragraph 1": "Párrafo 1", "Body paragraph 2": "Párrafo 2", "Body paragraph 3": "Párrafo 3", "Conclusion notes": "Conclusión",
+});
+terms.fr = Object.assign({}, terms.es, {
+  "Week of:": "Semaine du :", "Name:": "Nom :", "Top goal:": "Objectif principal :", "Date:": "Date :", "Main goal:": "Objectif principal :", "Study time:": "Temps d'étude :", "Class:": "Classe :", "Term:": "Période :", "Goal:": "Objectif :", "Subject:": "Matière :", "Exam date:": "Date d'examen :", "Target grade:": "Note visée :", "Course:": "Cours :", "Topic:": "Sujet :", "Student:": "Élève :", "Grade:": "Niveau :", "School year:": "Année scolaire :", "Month:": "Mois :", "Project:": "Projet :", "Due date:": "Date limite :", "Day": "Jour", "Classes": "Cours", "Homework": "Devoirs", "Task": "Tâche", "Notes": "Notes", "Done": "Fait", "Monday": "Lundi", "Tuesday": "Mardi", "Wednesday": "Mercredi", "Thursday": "Jeudi", "Friday": "Vendredi", "Weekend": "Week-end", "Bedding": "Literie", "Study supplies": "Fournitures d'étude", "Room essentials": "Chambre", "Personal items": "Objets personnels", "School supplies": "Fournitures scolaires", "Main notes": "Notes principales", "Key terms": "Mots clés", "Questions": "Questions", "Follow-up tasks": "À faire"
+});
+
+Object.assign(terms["zh-cn"], {
+  "Date": "日期", "Time": "时间", "Subject": "科目", "Teacher": "老师", "Target grade": "目标成绩", "Exam date": "考试日期", "Before school": "上学前", "After school": "放学后", "Evening": "晚上", "Review": "复习", "Period 1": "第 1 节", "Period 2": "第 2 节", "Period 3": "第 3 节", "Period 4": "第 4 节", "Period 5": "第 5 节", "Project goal": "项目目标", "Materials or sources": "材料或资料来源", "Review notes": "复习笔记", "Finish homework": "完成作业", "Read or practice": "阅读或练习", "Prepare backpack": "整理书包"
+});
+Object.assign(terms["zh-tw"], {
+  "Date": "日期", "Time": "時間", "Subject": "科目", "Teacher": "老師", "Target grade": "目標成績", "Exam date": "考試日期", "Before school": "上學前", "After school": "放學後", "Evening": "晚上", "Review": "複習", "Period 1": "第 1 節", "Period 2": "第 2 節", "Period 3": "第 3 節", "Period 4": "第 4 節", "Period 5": "第 5 節", "Project goal": "專題目標", "Materials or sources": "材料或資料來源", "Review notes": "複習筆記", "Finish homework": "完成作業", "Read or practice": "閱讀或練習", "Prepare backpack": "整理書包"
+});
+Object.assign(terms.ja, {
+  "Date": "日付", "Time": "時間", "Subject": "科目", "Teacher": "先生", "Target grade": "目標成績", "Exam date": "試験日", "Before school": "登校前", "After school": "放課後", "Evening": "夜", "Review": "復習", "Period 1": "1時間目", "Period 2": "2時間目", "Period 3": "3時間目", "Period 4": "4時間目", "Period 5": "5時間目", "Project goal": "目標", "Materials or sources": "資料・出典", "Review notes": "ノート復習", "Finish homework": "宿題完了", "Read or practice": "読書・練習", "Prepare backpack": "持ち物準備"
+});
+Object.assign(terms.ko, {
+  "Date": "날짜", "Time": "시간", "Subject": "과목", "Teacher": "교사", "Target grade": "목표 성적", "Exam date": "시험일", "Before school": "등교 전", "After school": "방과 후", "Evening": "저녁", "Review": "복습", "Period 1": "1교시", "Period 2": "2교시", "Period 3": "3교시", "Period 4": "4교시", "Period 5": "5교시", "Project goal": "프로젝트 목표", "Materials or sources": "자료 또는 출처", "Review notes": "노트 복습", "Finish homework": "숙제 완료", "Read or practice": "읽기 또는 연습", "Prepare backpack": "가방 준비"
+});
+Object.assign(terms.es, {
+  "Date": "Fecha", "Time": "Hora", "Subject": "Materia", "Teacher": "Profesor", "Target grade": "Nota objetivo", "Exam date": "Fecha del examen", "Before school": "Antes de clases", "After school": "Después de clases", "Evening": "Noche", "Review": "Repaso", "Period 1": "Periodo 1", "Period 2": "Periodo 2", "Period 3": "Periodo 3", "Period 4": "Periodo 4", "Period 5": "Periodo 5", "Project goal": "Meta del proyecto", "Materials or sources": "Materiales o fuentes", "Review notes": "Repasar notas", "Finish homework": "Terminar tarea", "Read or practice": "Leer o practicar", "Prepare backpack": "Preparar mochila"
+});
+Object.assign(terms.fr, {
+  "Date": "Date", "Time": "Heure", "Subject": "Matière", "Teacher": "Professeur", "Target grade": "Note visée", "Exam date": "Date d'examen", "Before school": "Avant les cours", "After school": "Après les cours", "Evening": "Soir", "Review": "Révision", "Period 1": "Période 1", "Period 2": "Période 2", "Period 3": "Période 3", "Period 4": "Période 4", "Period 5": "Période 5", "Project goal": "Objectif du projet", "Materials or sources": "Matériel ou sources", "Review notes": "Relire les notes", "Finish homework": "Finir les devoirs", "Read or practice": "Lire ou pratiquer", "Prepare backpack": "Préparer le sac"
+});
+
+function tr(code, value) {
+  return (terms[code] && terms[code][value]) || value;
+}
+
+function fieldRow(code, labels) {
+  return `<div class="field-row">\n          ${labels.map((label) => `<div class="field">${esc(tr(code, label))}</div>`).join("\n          ")}\n        </div>`;
+}
+
+function table(code, headings, rows) {
+  return `<table class="worksheet-table">
+          <thead>
+            <tr>${headings.map((heading) => `<th>${esc(tr(code, heading))}</th>`).join("")}</tr>
+          </thead>
+          <tbody>
+            ${rows.map((row) => `<tr>${headings.map((_, index) => `<td>${esc(tr(code, row[index] || ""))}</td>`).join("")}</tr>`).join("\n            ")}
+          </tbody>
+        </table>`;
+}
+
+function checklist(code, items) {
+  return `<ul class="checklist-columns">\n          ${items.map((item) => `<li>${esc(tr(code, item))}</li>`).join("\n          ")}\n        </ul>`;
+}
+
+function boxes(code, groups) {
+  return `<div class="worksheet-grid">\n          ${groups.map(([title, items = []]) => `<div class="worksheet-box"><strong>${esc(tr(code, title))}</strong>${items.map((item) => `<br />${esc(tr(code, item))}`).join("")}</div>`).join("\n          ")}\n        </div>`;
+}
+
+function blankRows(count, cells) {
+  return Array.from({ length: count }, () => Array.from({ length: cells }, () => ""));
+}
+
+function renderWorksheet(code, cfg, key, title) {
+  const sheetTitle = `<h3>${esc(title)}</h3>\n        <p class="sheet-subtitle">${esc(cfg.sheetSubtitle)}</p>`;
+  const common = {
+    "weekly study planner": () => `${fieldRow(code, ["Week of:", "Name:", "Top goal:"])}\n        ${table(code, ["Day", "Classes", "Homework", "Study Block", "Done"], [["Monday"], ["Tuesday"], ["Wednesday"], ["Thursday"], ["Friday"], ["Weekend"]])}`,
+    "daily study planner": () => `${fieldRow(code, ["Date:", "Main goal:", "Study time:"])}\n        ${boxes(code, [["Top priorities"], ["Homework due"], ["Study schedule"], ["Notes and reminders"]])}`,
+    "homework tracker": () => `${fieldRow(code, ["Name:", "Week of:", "Class:"])}\n        ${table(code, ["Subject", "Task", "Due Date", "Priority", "Done"], blankRows(6, 5))}`,
+    "assignment tracker": () => `${fieldRow(code, ["Student:", "Term:", "Goal:"])}\n        ${table(code, ["Course", "Task", "Due Date", "Status", "Notes"], blankRows(6, 5))}`,
+    "exam study checklist": () => `${fieldRow(code, ["Subject:", "Exam date:", "Target grade:"])}\n        ${checklist(code, ["Review class notes", "Read textbook chapters", "Make a revision schedule", "Practice sample questions", "Review incorrect answers", "Memorize key terms", "Prepare formulas or facts", "Pack exam supplies", "Sleep well before the exam", "Arrive early"])}`,
+    "study schedule": () => `${fieldRow(code, ["Week of:", "Subject:", "Exam date:"])}\n        ${table(code, ["Time", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], [["Before school"], ["After school"], ["Evening"], ["Review"]])}`,
+    "class notes": () => `${fieldRow(code, ["Course:", "Date:", "Topic:"])}\n        ${boxes(code, [["Main notes"], ["Key terms"], ["Questions"], ["Follow-up tasks"]])}`,
+    "school supplies checklist": () => `${fieldRow(code, ["Student:", "Grade:", "School year:"])}\n        ${checklist(code, ["Notebooks", "Pens", "Pencils", "Highlighters", "Folders", "Binders", "Backpack", "Calculator", "Sticky notes", "Index cards", "Laptop", "Tablet", "Chargers", "Headphones", "Planner"])}`,
+    "college packing list": () => `${fieldRow(code, ["Student:", "Move-in date:", "Dorm:"])}\n        ${boxes(code, [["Bedding", ["Sheets", "Pillows", "Blanket", "Mattress pad"]], ["Study supplies", ["Laptop", "Chargers", "Notebooks", "Pens"]], ["Room essentials", ["Desk lamp", "Laundry basket", "Storage bins", "Fan"]], ["Personal items", ["Toiletries", "Towels", "Clothes", "Medicine"]]])}`,
+    "grade tracker": () => `${fieldRow(code, ["Class:", "Term:", "Target grade:"])}\n        ${table(code, ["Date", "Task", "Score", "Possible", "Notes"], blankRows(6, 5))}`,
+    "monthly study planner": () => `${fieldRow(code, ["Month:", "Main goal:", "Reward:"])}\n        ${boxes(code, [["Week 1 focus"], ["Week 2 focus"], ["Week 3 focus"], ["Week 4 focus"]])}\n        ${table(code, ["Date", "Course", "Task", "Notes"], blankRows(4, 4))}`,
+    "class schedule": () => `${fieldRow(code, ["Student:", "Term:", "School:"])}\n        ${table(code, ["Time", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], [["Period 1"], ["Period 2"], ["Period 3"], ["Period 4"], ["Period 5"], ["After school"]])}`,
+    "project planner": () => `${fieldRow(code, ["Project:", "Class:", "Due date:"])}\n        ${boxes(code, [["Project goal"], ["Materials or sources"]])}\n        ${table(code, ["Task", "Due Date", "Notes", "Done"], blankRows(5, 4))}`,
+    "reading log": () => `${fieldRow(code, ["Student:", "Month:", "Reading goal:"])}\n        ${table(code, ["Date", "Book", "Pages", "Minutes", "Summary or Notes"], blankRows(6, 5))}`,
+    "essay planner": () => `${fieldRow(code, ["Class:", "Due date:", "Essay type:"])}\n        ${boxes(code, [["Prompt"], ["Thesis statement"], ["Body paragraph 1"], ["Body paragraph 2"], ["Body paragraph 3"], ["Conclusion notes"]])}`,
+    "study habit tracker": () => `${fieldRow(code, ["Week of:", "Main goal:", "Goal:"])}\n        ${table(code, ["Task", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Weekend"], [["Review notes"], ["Finish homework"], ["Read or practice"], ["Prepare backpack"]])}`,
+    "test prep planner": () => `${fieldRow(code, ["Subject:", "Exam date:", "Target grade:"])}\n        ${table(code, ["Topic", "Review Task", "Practice Needed", "Confidence", "Done"], blankRows(5, 5))}`,
+    "semester planner": () => `${fieldRow(code, ["Semester:", "Main goal:", "Start date:"])}\n        ${table(code, ["Course", "Teacher", "Due Date", "Target grade", "Notes"], blankRows(5, 5))}`,
+    "assignment calendar": () => `${fieldRow(code, ["Week of:", "Student:", "Top goal:"])}\n        ${table(code, ["Day", "Task", "Exam date", "Priority", "Done"], [["Monday"], ["Tuesday"], ["Wednesday"], ["Thursday"], ["Friday"], ["Weekend"]])}`,
+  };
+  return `${sheetTitle}\n        ${common[key]()}`;
+}
+
 function renderIndex(code, cfg) {
   const cards = pages
     .map(([file, , key]) => {
@@ -430,19 +548,7 @@ function renderPage(code, cfg, file, key) {
       <p class="download-note">${esc(cfg.sheetSubtitle)}</p>
       <button class="print-button" type="button" onclick="window.print()">${esc(cfg.print)}</button>
       <div class="printable-sheet">
-        <h3>${esc(title)}</h3>
-        <p class="sheet-subtitle">${esc(cfg.sheetSubtitle)}</p>
-        <div class="field-row">
-          ${cfg.fields.map((field) => `<div class="field">${esc(field)}</div>`).join("\n          ")}
-        </div>
-        <table class="worksheet-table">
-          <thead>
-            <tr>${cfg.table.map((heading) => `<th>${esc(heading)}</th>`).join("")}</tr>
-          </thead>
-          <tbody>
-            ${Array.from({ length: 6 }, () => `<tr>${cfg.table.map(() => "<td></td>").join("")}</tr>`).join("\n            ")}
-          </tbody>
-        </table>
+        ${renderWorksheet(code, cfg, key, title)}
       </div>
       <a class="button" href="index.html">${esc(cfg.back)}</a>
     </section>
