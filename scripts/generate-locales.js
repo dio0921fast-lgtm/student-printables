@@ -335,17 +335,8 @@ function languageSwitcher(file, active) {
     es: "Inicio",
     fr: "Accueil",
   };
-  const mainHomeLabels = {
-    "zh-cn": "主站首页",
-    "zh-tw": "主站首頁",
-    ja: "メインホーム",
-    ko: "메인 홈",
-    es: "Inicio principal",
-    fr: "Accueil principal",
-  };
   const items = [
-    ["", homeLabels[active] || "Home", "index.html"],
-    ["", mainHomeLabels[active] || "Main Home", "../index.html"],
+    ["", homeLabels[active] || "Home", "../index.html"],
     ["en", "English", `../${file}`],
     ...Object.entries(locales).map(([code, cfg]) => [code, cfg.label, code === active ? file : `../${code}/${file}`]),
   ];
