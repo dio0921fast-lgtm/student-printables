@@ -1,520 +1,760 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Free Printable Student Templates</title>
-  <meta name="description" content="Download free printable student templates including study planners, homework trackers, grade trackers, class schedules, reading logs, and college packing lists." />
-  <link rel="alternate" hreflang="en" href="https://dio0921fast-lgtm.github.io/student-printables/index.html" />
-  <link rel="alternate" hreflang="zh-cn" href="https://dio0921fast-lgtm.github.io/student-printables/zh-cn/index.html" />
-  <link rel="alternate" hreflang="zh-tw" href="https://dio0921fast-lgtm.github.io/student-printables/zh-tw/index.html" />
-  <link rel="alternate" hreflang="ja" href="https://dio0921fast-lgtm.github.io/student-printables/ja/index.html" />
-  <link rel="alternate" hreflang="ko" href="https://dio0921fast-lgtm.github.io/student-printables/ko/index.html" />
-  <link rel="alternate" hreflang="es" href="https://dio0921fast-lgtm.github.io/student-printables/es/index.html" />
-  <link rel="alternate" hreflang="fr" href="https://dio0921fast-lgtm.github.io/student-printables/fr/index.html" />
-  <link rel="alternate" hreflang="x-default" href="https://dio0921fast-lgtm.github.io/student-printables/index.html" />
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    :root {
-      --ink: #172033;
-      --muted: #5f6b7a;
-      --line: #dbe3ee;
-      --paper: #ffffff;
-      --wash: #f4f7fb;
-      --blue: #2457d6;
-      --teal: #0f8f8c;
-      --gold: #b7791f;
-      --rose: #c2415d;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      color: var(--ink);
-      background: var(--wash);
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-    }
-
-    .hero {
-      background:
-        linear-gradient(rgba(20, 32, 52, 0.72), rgba(20, 32, 52, 0.66)),
-        url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1800&q=80");
-      background-position: center;
-      background-size: cover;
-      color: white;
-      min-height: 62vh;
-      display: flex;
-      align-items: center;
-      padding: 56px 20px 44px;
-    }
-
-    .hero-inner {
-      width: min(1120px, 100%);
-      margin: 0 auto;
-    }
-
-    .eyebrow {
-      margin: 0 0 12px;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #c8f7f4;
-    }
-
-    h1 {
-      max-width: 760px;
-      margin: 0;
-      font-size: clamp(38px, 7vw, 76px);
-      line-height: 1;
-      letter-spacing: 0;
-    }
-
-    .hero p {
-      max-width: 680px;
-      margin: 22px 0 28px;
-      color: #eef5ff;
-      font-size: 20px;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 12px 18px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 700;
-    }
-
-    .button.primary {
-      background: #ffffff;
-      color: var(--blue);
-    }
-
-    .button.secondary {
-      border: 1px solid rgba(255, 255, 255, 0.58);
-      color: white;
-    }
-
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 2;
-      background: rgba(255, 255, 255, 0.94);
-      border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(12px);
-    }
-
-    .nav-inner {
-      width: min(1120px, 100%);
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 14px 20px;
-    }
-
-    .brand {
-      font-weight: 800;
-      color: var(--ink);
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .nav-links a {
-      color: #344256;
-      font-size: 14px;
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    .language-switcher {
-      background: white;
-      border-bottom: 1px solid var(--line);
-      padding: 12px 20px;
-      text-align: center;
-    }
-
-    .language-switcher a {
-      color: var(--blue);
-      display: inline-block;
-      font-size: 14px;
-      font-weight: 700;
-      margin: 4px 8px;
-      text-decoration: none;
-    }
-
-    main {
-      width: min(1120px, 100%);
-      margin: 0 auto;
-      padding: 42px 20px 56px;
-    }
-
-    .intro {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(260px, 0.6fr);
-      gap: 28px;
-      align-items: end;
-      margin-bottom: 28px;
-    }
-
-    .section-kicker {
-      margin: 0 0 8px;
-      color: var(--teal);
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .section-title {
-      margin: 0;
-      font-size: 34px;
-      line-height: 1.15;
-    }
-
-    .intro p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
-      gap: 18px;
-    }
-
-    .card {
-      min-height: 230px;
-      display: flex;
-      flex-direction: column;
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 22px;
-      box-shadow: 0 10px 26px rgba(23, 32, 51, 0.07);
-    }
-
-    .card .tag {
-      width: fit-content;
-      margin-bottom: 16px;
-      padding: 5px 9px;
-      border-radius: 6px;
-      background: #e8f3ff;
-      color: var(--blue);
-      font-size: 12px;
-      font-weight: 800;
-    }
-
-    .card:nth-child(3n + 2) .tag {
-      background: #e6f7f4;
-      color: var(--teal);
-    }
-
-    .card:nth-child(3n) .tag {
-      background: #fff3dc;
-      color: var(--gold);
-    }
-
-    .card h3 {
-      margin: 0 0 10px;
-      font-size: 21px;
-      line-height: 1.25;
-    }
-
-    .card p {
-      margin: 0 0 20px;
-      color: var(--muted);
-    }
-
-    .card a {
-      margin-top: auto;
-      color: var(--blue);
-      font-weight: 800;
-      text-decoration: none;
-    }
-
-    .feature-band {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 38px;
-      padding: 26px;
-      background: #ffffff;
-      color: var(--ink);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-    }
-
-    .feature h2 {
-      margin: 0 0 8px;
-      font-size: 18px;
-    }
-
-    .feature p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    footer {
-      text-align: center;
-      color: #667085;
-      padding: 30px 20px;
-      border-top: 1px solid var(--line);
-      background: white;
-    }
-
-    @media (max-width: 760px) {
-      .hero {
-        min-height: 68vh;
-        padding-top: 42px;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free Printable Student Templates</title>
+    <meta
+      name="description"
+      content="Download free printable student templates including study planners, homework trackers, grade trackers, class schedules, reading logs, and college packing lists."
+    />
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://dio0921fast-lgtm.github.io/student-printables/index.html"
+    />
+    <link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://dio0921fast-lgtm.github.io/student-printables/zh-cn/index.html"
+    />
+    <link
+      rel="alternate"
+      hreflang="zh-tw"
+      href="https://dio0921fast-lgtm.github.io/student-printables/zh-tw/index.html"
+    />
+    <link
+      rel="alternate"
+      hreflang="ja"
+      href="https://dio0921fast-lgtm.github.io/student-printables/ja/index.html"
+    />
+    <link
+      rel="alternate"
+      hreflang="ko"
+      href="https://dio0921fast-lgtm.github.io/student-printables/ko/index.html"
+    />
+    <link
+      rel="alternate"
+      hreflang="es"
+      href="https://dio0921fast-lgtm.github.io/student-printables/es/index.html"
+    />
+    <link
+      rel="alternate"
+      hreflang="fr"
+      href="https://dio0921fast-lgtm.github.io/student-printables/fr/index.html"
+    />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://dio0921fast-lgtm.github.io/student-printables/index.html"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
       }
 
-      .nav-inner,
-      .intro,
-      .feature-band {
-        display: block;
+      :root {
+        --ink: #172033;
+        --muted: #5f6b7a;
+        --line: #dbe3ee;
+        --paper: #ffffff;
+        --wash: #f4f7fb;
+        --blue: #2457d6;
+        --teal: #0f8f8c;
+        --gold: #b7791f;
+        --rose: #c2415d;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        color: var(--ink);
+        background: var(--wash);
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .hero {
+        background: linear-gradient(
+            rgba(20, 32, 52, 0.72),
+            rgba(20, 32, 52, 0.66)
+          ),
+          url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1800&q=80");
+        background-position: center;
+        background-size: cover;
+        color: white;
+        min-height: 62vh;
+        display: flex;
+        align-items: center;
+        padding: 56px 20px 44px;
+      }
+
+      .hero-inner {
+        width: min(1120px, 100%);
+        margin: 0 auto;
+      }
+
+      .eyebrow {
+        margin: 0 0 12px;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #c8f7f4;
+      }
+
+      h1 {
+        max-width: 760px;
+        margin: 0;
+        font-size: clamp(38px, 7vw, 76px);
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      .hero p {
+        max-width: 680px;
+        margin: 22px 0 28px;
+        color: #eef5ff;
+        font-size: 20px;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 12px 18px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      .button.primary {
+        background: #ffffff;
+        color: var(--blue);
+      }
+
+      .button.secondary {
+        border: 1px solid rgba(255, 255, 255, 0.58);
+        color: white;
+      }
+
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        background: rgba(255, 255, 255, 0.94);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(12px);
+      }
+
+      .nav-inner {
+        width: min(1120px, 100%);
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 14px 20px;
+      }
+
+      .brand {
+        font-weight: 800;
+        color: var(--ink);
+        text-decoration: none;
       }
 
       .nav-links {
-        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .nav-links a {
+        color: #344256;
+        font-size: 14px;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .language-switcher {
+        background: white;
+        border-bottom: 1px solid var(--line);
+        padding: 12px 20px;
+        text-align: center;
+      }
+
+      .language-switcher a {
+        color: var(--blue);
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 700;
+        margin: 4px 8px;
+        text-decoration: none;
+      }
+
+      main {
+        width: min(1120px, 100%);
+        margin: 0 auto;
+        padding: 42px 20px 56px;
+      }
+
+      .intro {
+        display: grid;
+        grid-template-columns: minmax(0, 1.4fr) minmax(260px, 0.6fr);
+        gap: 28px;
+        align-items: end;
+        margin-bottom: 28px;
+      }
+
+      .section-kicker {
+        margin: 0 0 8px;
+        color: var(--teal);
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .section-title {
+        margin: 0;
+        font-size: 34px;
+        line-height: 1.15;
       }
 
       .intro p {
-        margin-top: 12px;
+        margin: 0;
+        color: var(--muted);
       }
 
-      .feature {
-        margin-bottom: 18px;
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+        gap: 18px;
       }
 
-      .feature:last-child {
-        margin-bottom: 0;
+      .category-entry {
+        margin-bottom: 42px;
       }
-    }
-  </style>
-<link rel="stylesheet" href="printable-worksheets.css" />
-</head>
-<body>
-  <header class="hero">
-    <div class="hero-inner">
-      <p class="eyebrow">Free student printables</p>
-      <h1>Printable Student Templates</h1>
-      <p>Clean planners, trackers, and checklists for homework, study sessions, exams, grades, reading, supplies, notes, and college prep.</p>
-      <div class="actions">
-        <a class="button primary" href="#templates">Browse templates</a>
-        <a class="button secondary" href="weekly-study-planner-printable.html">Open weekly planner</a>
-      </div>
-    </div>
-  </header>
 
-  <nav>
-    <div class="nav-inner">
-      <a class="brand" href="index.html">Student Printables</a>
-      <div class="nav-links">
-        <a href="#templates">Templates</a>
-        <a href="about.html">About</a>
-      </div>
-    </div>
-  </nav>
+      .category-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 14px;
+      }
 
-  <div class="language-switcher" aria-label="Language selector">
-    <a href="index.html" hreflang="en">English</a>
-    <a href="zh-cn/index.html" hreflang="zh-cn">简体中文</a>
-    <a href="zh-tw/index.html" hreflang="zh-tw">繁體中文</a>
-    <a href="ja/index.html" hreflang="ja">日本語</a>
-    <a href="ko/index.html" hreflang="ko">한국어</a>
-    <a href="es/index.html" hreflang="es">Español</a>
-    <a href="fr/index.html" hreflang="fr">Français</a>
-  </div>
+      .category-link {
+        min-height: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 16px 18px;
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        color: var(--ink);
+        font-weight: 800;
+        text-decoration: none;
+        box-shadow: 0 8px 22px rgba(23, 32, 51, 0.06);
+      }
 
-  <main>
-    <section id="templates">
-      <div class="intro">
-        <div>
-          <p class="section-kicker">Template library</p>
-          <h2 class="section-title">Choose a printable and start organizing today.</h2>
+      .category-link span {
+        color: var(--teal);
+        font-size: 13px;
+        white-space: nowrap;
+      }
+
+      .template-category {
+        margin-top: 42px;
+        scroll-margin-top: 86px;
+      }
+
+      .template-category:first-of-type {
+        margin-top: 0;
+      }
+
+      .category-heading {
+        margin: 0 0 6px;
+        font-size: 26px;
+        line-height: 1.2;
+      }
+
+      .category-note {
+        margin: 0 0 16px;
+        color: var(--muted);
+      }
+
+      .card {
+        min-height: 230px;
+        display: flex;
+        flex-direction: column;
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 22px;
+        box-shadow: 0 10px 26px rgba(23, 32, 51, 0.07);
+      }
+
+      .card .tag {
+        width: fit-content;
+        margin-bottom: 16px;
+        padding: 5px 9px;
+        border-radius: 6px;
+        background: #e8f3ff;
+        color: var(--blue);
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .card:nth-child(3n + 2) .tag {
+        background: #e6f7f4;
+        color: var(--teal);
+      }
+
+      .card:nth-child(3n) .tag {
+        background: #fff3dc;
+        color: var(--gold);
+      }
+
+      .card h3 {
+        margin: 0 0 10px;
+        font-size: 21px;
+        line-height: 1.25;
+      }
+
+      .card p {
+        margin: 0 0 20px;
+        color: var(--muted);
+      }
+
+      .card a {
+        margin-top: auto;
+        color: var(--blue);
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .feature-band {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        margin-top: 38px;
+        padding: 26px;
+        background: #ffffff;
+        color: var(--ink);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+
+      .feature h2 {
+        margin: 0 0 8px;
+        font-size: 18px;
+      }
+
+      .feature p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 15px;
+      }
+
+      footer {
+        text-align: center;
+        color: #667085;
+        padding: 30px 20px;
+        border-top: 1px solid var(--line);
+        background: white;
+      }
+
+      @media (max-width: 760px) {
+        .hero {
+          min-height: 68vh;
+          padding-top: 42px;
+        }
+
+        .nav-inner,
+        .intro,
+        .feature-band {
+          display: block;
+        }
+
+        .nav-links {
+          margin-top: 10px;
+        }
+
+        .intro p {
+          margin-top: 12px;
+        }
+
+        .feature {
+          margin-bottom: 18px;
+        }
+
+        .feature:last-child {
+          margin-bottom: 0;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="printable-worksheets.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero-inner">
+        <p class="eyebrow">Free student printables</p>
+        <h1>Printable Student Templates</h1>
+        <p>
+          Clean planners, trackers, and checklists for homework, study sessions,
+          exams, grades, reading, supplies, notes, and college prep.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="#templates">Browse templates</a>
+          <a class="button secondary" href="weekly-study-planner-printable.html"
+            >Open weekly planner</a
+          >
         </div>
-        <p>Each page is made for students who want a simple worksheet they can print, fill in, and reuse without extra setup.</p>
       </div>
+    </header>
 
-      <div class="grid">
-        <article class="card">
-          <span class="tag">Weekly planning</span>
-          <h3>Weekly Study Planner Printable</h3>
-          <p>Plan classes, study blocks, assignments, exams, and revision time for the week.</p>
-          <a href="weekly-study-planner-printable.html">View template</a>
-        </article>
-
-        <article class="card">
-          <span class="tag">Daily planning</span>
-          <h3>Daily Study Planner Printable</h3>
-          <p>Map out today&apos;s study goals, tasks, breaks, and priorities in one place.</p>
-          <a href="daily-study-planner-printable.html">View template</a>
-        </article>
-
-        <article class="card">
-          <span class="tag">Homework</span>
-          <h3>Homework Tracker Printable</h3>
-          <p>Track homework deadlines, subjects, priority, and completion status.</p>
-          <a href="homework-tracker-printable.html">View tracker</a>
-        </article>
-
-        <article class="card">
-          <span class="tag">Assignments</span>
-          <h3>Assignment Tracker Printable</h3>
-          <p>Keep projects, essays, quizzes, and due dates organized by subject.</p>
-          <a href="assignment-tracker-printable.html">View tracker</a>
-        </article>
-
-        <article class="card">
-          <span class="tag">Exams</span>
-          <h3>Exam Study Checklist</h3>
-          <p>Prepare for tests with a clear checklist for review, practice, and exam-day items.</p>
-          <a href="exam-study-checklist.html">View checklist</a>
-        </article>
-
-        <article class="card">
-          <span class="tag">Schedules</span>
-          <h3>Study Schedule Template</h3>
-          <p>Create a study schedule for homework, review sessions, and exam preparation.</p>
-          <a href="study-schedule-template.html">View template</a>
-        </article>
-
-        <article class="card">
-          <span class="tag">Notes</span>
-          <h3>Class Notes Template</h3>
-          <p>Capture lecture topics, key terms, questions, and follow-up tasks after class.</p>
-          <a href="class-notes-template.html">View template</a>
-        </article>
-
-        <article class="card">
-          <span class="tag">Supplies</span>
-          <h3>School Supplies Checklist</h3>
-          <p>Prepare notebooks, pens, folders, backpacks, and classroom essentials.</p>
-          <a href="school-supplies-checklist.html">View checklist</a>
-        </article>
-
-        <article class="card">
-          <span class="tag">College</span>
-          <h3>College Packing List</h3>
-          <p>Pack dorm essentials, study supplies, room items, and personal basics.</p>
-          <a href="college-packing-list.html">View checklist</a>
-        </article>
-
-        <article class="card">
-          <span class="tag">Grades</span>
-          <h3>Grade Tracker Printable</h3>
-          <p>Record assignments, quiz scores, test grades, points, and class progress.</p>
-          <a href="grade-tracker-printable.html">View tracker</a>
-        </article>
-
-        <article class="card">
-          <span class="tag">Monthly planning</span>
-          <h3>Monthly Study Planner Printable</h3>
-          <p>Plan exams, projects, study goals, and important academic deadlines for the month.</p>
-          <a href="monthly-study-planner-printable.html">View template</a>
-        </article>
-
-        <article class="card">
-          <span class="tag">Schedules</span>
-          <h3>Class Schedule Template</h3>
-          <p>Organize courses, teachers, rooms, and weekly class times in one printable schedule.</p>
-          <a href="class-schedule-template.html">View template</a>
-        </article>
-
-        <article class="card">
-          <span class="tag">Projects</span>
-          <h3>Project Planner Printable</h3>
-          <p>Break school projects into milestones, resources, task steps, and deadlines.</p>
-          <a href="project-planner-printable.html">View planner</a>
-        </article>
-
-        <article class="card">
-          <span class="tag">Reading</span>
-          <h3>Reading Log Printable</h3>
-          <p>Track books, pages, reading minutes, summaries, and vocabulary notes.</p>
-          <a href="reading-log-printable.html">View log</a>
-        </article>
-
-        <article class="card">
-          <span class="tag">Writing</span>
-          <h3>Essay Planner Template</h3>
-          <p>Outline prompts, thesis statements, body paragraphs, evidence, and revisions.</p>
-          <a href="essay-planner-template.html">View template</a>
-        </article>
-
-        <article class="card">
-          <span class="tag">Habits</span>
-          <h3>Study Habit Tracker Printable</h3>
-          <p>Build consistent routines by checking off daily study and homework habits.</p>
-          <a href="study-habit-tracker-printable.html">View tracker</a>
-        </article>
-
-        <article class="card">
-          <span class="tag">Test prep</span>
-          <h3>Test Prep Planner Printable</h3>
-          <p>Organize exam topics, review tasks, practice questions, and test-day supplies.</p>
-          <a href="test-prep-planner-printable.html">View planner</a>
-        </article>
-
-        <article class="card">
-          <span class="tag">Semester</span>
-          <h3>Semester Planner Printable</h3>
-          <p>Map courses, major deadlines, exams, projects, and academic goals for the term.</p>
-          <a href="semester-planner-printable.html">View planner</a>
-        </article>
-
-        <article class="card">
-          <span class="tag">Assignments</span>
-          <h3>Assignment Calendar Printable</h3>
-          <p>See homework, due dates, tests, projects, and weekly school tasks at a glance.</p>
-          <a href="assignment-calendar-printable.html">View calendar</a>
-        </article>
+    <nav>
+      <div class="nav-inner">
+        <a class="brand" href="index.html">Student Printables</a>
+        <div class="nav-links">
+          <a href="#templates">Templates</a>
+          <a href="about.html">About</a>
+        </div>
       </div>
-    </section>
+    </nav>
 
-    <section class="feature-band" aria-label="Site features">
-      <div class="feature">
-        <h2>Simple layouts</h2>
-        <p>Made for quick printing and writing by hand, with no account or app required.</p>
-      </div>
-      <div class="feature">
-        <h2>Student focused</h2>
-        <p>Covers planning, homework, exams, grades, schedules, reading, writing, supplies, and notes.</p>
-      </div>
-      <div class="feature">
-        <h2>Easy to expand</h2>
-        <p>New printable pages can be added as separate SEO-friendly HTML templates.</p>
-      </div>
-    </section>
-  </main>
+    <div class="language-switcher" aria-label="Language selector">
+      <a href="index.html" hreflang="en">English</a>
+      <a href="zh-cn/index.html" hreflang="zh-cn">简体中文</a>
+      <a href="zh-tw/index.html" hreflang="zh-tw">繁體中文</a>
+      <a href="ja/index.html" hreflang="ja">日本語</a>
+      <a href="ko/index.html" hreflang="ko">한국어</a>
+      <a href="es/index.html" hreflang="es">Español</a>
+      <a href="fr/index.html" hreflang="fr">Français</a>
+    </div>
 
-  <footer>
-    <p><a href="about.html">About</a> · <a href="contact.html">Contact</a></p>
-    <p>Copyright 2026 Free Printable Student Templates. All rights reserved.</p>
-  </footer>
-</body>
+    <main>
+      <section id="templates">
+        <div class="intro">
+          <div>
+            <p class="section-kicker">Template library</p>
+            <h2 class="section-title">
+              Choose a printable and start organizing today.
+            </h2>
+          </div>
+          <p>
+            Each page is made for students who want a simple worksheet they can
+            print, fill in, and reuse without extra setup.
+          </p>
+        </div>
+
+        <div class="category-entry" aria-label="Template categories">
+          <div class="category-grid">
+            <a class="category-link" href="#study-planners"
+              >Study Planners <span>6 templates</span></a
+            >
+            <a class="category-link" href="#trackers"
+              >Trackers <span>4 templates</span></a
+            >
+            <a class="category-link" href="#checklists"
+              >Checklists <span>2 templates</span></a
+            >
+            <a class="category-link" href="#schedules"
+              >Schedules <span>2 templates</span></a
+            >
+            <a class="category-link" href="#college"
+              >College <span>1 template</span></a
+            >
+            <a class="category-link" href="#reading-writing"
+              >Reading &amp; Writing <span>4 templates</span></a
+            >
+          </div>
+        </div>
+
+        <section class="template-category" id="study-planners">
+          <h3 class="category-heading">Study Planners</h3>
+          <p class="category-note">
+            Printable planners for daily, weekly, monthly, semester, schedule,
+            and test prep organization.
+          </p>
+          <div class="grid">
+            <article class="card">
+              <span class="tag">Weekly planning</span>
+              <h3>Weekly Study Planner Printable</h3>
+              <p>
+                Plan classes, study blocks, assignments, exams, and revision
+                time for the week.
+              </p>
+              <a href="weekly-study-planner-printable.html">View template</a>
+            </article>
+
+            <article class="card">
+              <span class="tag">Daily planning</span>
+              <h3>Daily Study Planner Printable</h3>
+              <p>
+                Map out today&apos;s study goals, tasks, breaks, and priorities
+                in one place.
+              </p>
+              <a href="daily-study-planner-printable.html">View template</a>
+            </article>
+
+            <article class="card">
+              <span class="tag">Monthly planning</span>
+              <h3>Monthly Study Planner Printable</h3>
+              <p>
+                Plan exams, projects, study goals, and important academic
+                deadlines for the month.
+              </p>
+              <a href="monthly-study-planner-printable.html">View template</a>
+            </article>
+
+            <article class="card">
+              <span class="tag">Semester</span>
+              <h3>Semester Planner Printable</h3>
+              <p>
+                Map courses, major deadlines, exams, projects, and academic
+                goals for the term.
+              </p>
+              <a href="semester-planner-printable.html">View planner</a>
+            </article>
+
+            <article class="card">
+              <span class="tag">Schedules</span>
+              <h3>Study Schedule Template</h3>
+              <p>
+                Create a study schedule for homework, review sessions, and exam
+                preparation.
+              </p>
+              <a href="study-schedule-template.html">View template</a>
+            </article>
+
+            <article class="card">
+              <span class="tag">Test prep</span>
+              <h3>Test Prep Planner Printable</h3>
+              <p>
+                Organize exam topics, review tasks, practice questions, and
+                test-day supplies.
+              </p>
+              <a href="test-prep-planner-printable.html">View planner</a>
+            </article>
+          </div>
+        </section>
+
+        <section class="template-category" id="trackers">
+          <h3 class="category-heading">Trackers</h3>
+          <p class="category-note">
+            Track homework, assignments, grades, and repeatable study habits.
+          </p>
+          <div class="grid">
+            <article class="card">
+              <span class="tag">Homework</span>
+              <h3>Homework Tracker Printable</h3>
+              <p>
+                Track homework deadlines, subjects, priority, and completion
+                status.
+              </p>
+              <a href="homework-tracker-printable.html">View tracker</a>
+            </article>
+
+            <article class="card">
+              <span class="tag">Assignments</span>
+              <h3>Assignment Tracker Printable</h3>
+              <p>
+                Keep projects, essays, quizzes, and due dates organized by
+                subject.
+              </p>
+              <a href="assignment-tracker-printable.html">View tracker</a>
+            </article>
+
+            <article class="card">
+              <span class="tag">Grades</span>
+              <h3>Grade Tracker Printable</h3>
+              <p>
+                Record assignments, quiz scores, test grades, points, and class
+                progress.
+              </p>
+              <a href="grade-tracker-printable.html">View tracker</a>
+            </article>
+
+            <article class="card">
+              <span class="tag">Habits</span>
+              <h3>Study Habit Tracker Printable</h3>
+              <p>
+                Build consistent routines by checking off daily study and
+                homework habits.
+              </p>
+              <a href="study-habit-tracker-printable.html">View tracker</a>
+            </article>
+          </div>
+        </section>
+
+        <section class="template-category" id="checklists">
+          <h3 class="category-heading">Checklists</h3>
+          <p class="category-note">
+            Simple printable lists for exam preparation and school supplies.
+          </p>
+          <div class="grid">
+            <article class="card">
+              <span class="tag">Exams</span>
+              <h3>Exam Study Checklist</h3>
+              <p>
+                Prepare for tests with a clear checklist for review, practice,
+                and exam-day items.
+              </p>
+              <a href="exam-study-checklist.html">View checklist</a>
+            </article>
+
+            <article class="card">
+              <span class="tag">Supplies</span>
+              <h3>School Supplies Checklist</h3>
+              <p>
+                Prepare notebooks, pens, folders, backpacks, and classroom
+                essentials.
+              </p>
+              <a href="school-supplies-checklist.html">View checklist</a>
+            </article>
+          </div>
+        </section>
+
+        <section class="template-category" id="schedules">
+          <h3 class="category-heading">Schedules</h3>
+          <p class="category-note">
+            Build a weekly class schedule or see assignments on a calendar
+            layout.
+          </p>
+          <div class="grid">
+            <article class="card">
+              <span class="tag">Schedules</span>
+              <h3>Class Schedule Template</h3>
+              <p>
+                Organize courses, teachers, rooms, and weekly class times in one
+                printable schedule.
+              </p>
+              <a href="class-schedule-template.html">View template</a>
+            </article>
+
+            <article class="card">
+              <span class="tag">Assignments</span>
+              <h3>Assignment Calendar Printable</h3>
+              <p>
+                See homework, due dates, tests, projects, and weekly school
+                tasks at a glance.
+              </p>
+              <a href="assignment-calendar-printable.html">View calendar</a>
+            </article>
+          </div>
+        </section>
+
+        <section class="template-category" id="college">
+          <h3 class="category-heading">College</h3>
+          <p class="category-note">
+            Printable organization pages for college prep, dorm packing, and
+            supplies.
+          </p>
+          <div class="grid">
+            <article class="card">
+              <span class="tag">College</span>
+              <h3>College Packing List</h3>
+              <p>
+                Pack dorm essentials, study supplies, room items, and personal
+                basics.
+              </p>
+              <a href="college-packing-list.html">View checklist</a>
+            </article>
+          </div>
+        </section>
+
+        <section class="template-category" id="reading-writing">
+          <h3 class="category-heading">Reading &amp; Writing</h3>
+          <p class="category-note">
+            Templates for notes, reading logs, essays, and longer school
+            projects.
+          </p>
+          <div class="grid">
+            <article class="card">
+              <span class="tag">Notes</span>
+              <h3>Class Notes Template</h3>
+              <p>
+                Capture lecture topics, key terms, questions, and follow-up
+                tasks after class.
+              </p>
+              <a href="class-notes-template.html">View template</a>
+            </article>
+
+            <article class="card">
+              <span class="tag">Reading</span>
+              <h3>Reading Log Printable</h3>
+              <p>
+                Track books, pages, reading minutes, summaries, and vocabulary
+                notes.
+              </p>
+              <a href="reading-log-printable.html">View log</a>
+            </article>
+
+            <article class="card">
+              <span class="tag">Writing</span>
+              <h3>Essay Planner Template</h3>
+              <p>
+                Outline prompts, thesis statements, body paragraphs, evidence,
+                and revisions.
+              </p>
+              <a href="essay-planner-template.html">View template</a>
+            </article>
+
+            <article class="card">
+              <span class="tag">Projects</span>
+              <h3>Project Planner Printable</h3>
+              <p>
+                Break school projects into milestones, resources, task steps,
+                and deadlines.
+              </p>
+              <a href="project-planner-printable.html">View planner</a>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section class="feature-band" aria-label="Site features">
+        <div class="feature">
+          <h2>Simple layouts</h2>
+          <p>
+            Made for quick printing and writing by hand, with no account or app
+            required.
+          </p>
+        </div>
+        <div class="feature">
+          <h2>Student focused</h2>
+          <p>
+            Covers planning, homework, exams, grades, schedules, reading,
+            writing, supplies, and notes.
+          </p>
+        </div>
+        <div class="feature">
+          <h2>Easy to expand</h2>
+          <p>
+            New printable pages can be added as separate SEO-friendly HTML
+            templates.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p><a href="about.html">About</a> · <a href="contact.html">Contact</a></p>
+      <p>
+        Copyright 2026 Free Printable Student Templates. All rights reserved.
+      </p>
+    </footer>
+  </body>
 </html>
