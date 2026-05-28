@@ -570,7 +570,7 @@ function renderPage(code, cfg, file, key) {
   <meta name="description" content="${esc(pageDescription(cfg, title))}" />
   ${altLinks(file, code)}
   <link rel="stylesheet" href="../template-page.css" />
-  <link rel="stylesheet" href="../printable-worksheets.css" />
+  <link rel="stylesheet" href="../printable-worksheets.css?v=checkboxes-1" />
 </head>
 <body>
   <header>
