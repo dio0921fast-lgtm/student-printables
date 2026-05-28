@@ -420,6 +420,25 @@ Object.assign(terms.fr, {
   "Review class notes": "Relire les notes de cours", "Read textbook chapters": "Lire les chapitres du manuel", "Make a revision schedule": "Créer un planning de révision", "Practice sample questions": "S'entraîner avec des questions types", "Review incorrect answers": "Revoir les mauvaises réponses", "Memorize key terms": "Mémoriser les mots clés", "Prepare formulas or facts": "Préparer les formules ou faits", "Pack exam supplies": "Préparer le matériel d'examen", "Sleep well before the exam": "Bien dormir avant l'examen", "Arrive early": "Arriver en avance"
 });
 
+Object.assign(terms["zh-cn"], {
+  "Saturday": "星期六", "Sunday": "星期天", "Period 6": "第 6 节", "Period 7": "第 7 节", "Period 8": "第 8 节", "Evening class": "晚课"
+});
+Object.assign(terms["zh-tw"], {
+  "Saturday": "星期六", "Sunday": "星期日", "Period 6": "第 6 節", "Period 7": "第 7 節", "Period 8": "第 8 節", "Evening class": "晚課"
+});
+Object.assign(terms.ja, {
+  "Saturday": "土曜", "Sunday": "日曜", "Period 6": "6時間目", "Period 7": "7時間目", "Period 8": "8時間目", "Evening class": "夜間授業"
+});
+Object.assign(terms.ko, {
+  "Saturday": "토요일", "Sunday": "일요일", "Period 6": "6교시", "Period 7": "7교시", "Period 8": "8교시", "Evening class": "야간 수업"
+});
+Object.assign(terms.es, {
+  "Saturday": "Sábado", "Sunday": "Domingo", "Period 6": "Periodo 6", "Period 7": "Periodo 7", "Period 8": "Periodo 8", "Evening class": "Clase nocturna"
+});
+Object.assign(terms.fr, {
+  "Saturday": "Samedi", "Sunday": "Dimanche", "Period 6": "Période 6", "Period 7": "Période 7", "Period 8": "Période 8", "Evening class": "Cours du soir"
+});
+
 function tr(code, value) {
   return (terms[code] && terms[code][value]) || value;
 }
@@ -465,7 +484,7 @@ function renderWorksheet(code, cfg, key, title) {
     "college packing list": () => `${fieldRow(code, ["Student:", "Move-in date:", "Dorm:"])}\n        ${boxes(code, [["Bedding", ["Sheets", "Pillows", "Blanket", "Mattress pad"]], ["Study supplies", ["Laptop", "Chargers", "Notebooks", "Pens"]], ["Room essentials", ["Desk lamp", "Laundry basket", "Storage bins", "Fan"]], ["Personal items", ["Toiletries", "Towels", "Clothes", "Medicine"]]])}`,
     "grade tracker": () => `${fieldRow(code, ["Class:", "Term:", "Target grade:"])}\n        ${table(code, ["Date", "Task", "Score", "Possible", "Notes"], blankRows(6, 5))}`,
     "monthly study planner": () => `${fieldRow(code, ["Month:", "Main goal:", "Reward:"])}\n        ${boxes(code, [["Week 1 focus"], ["Week 2 focus"], ["Week 3 focus"], ["Week 4 focus"]])}\n        ${table(code, ["Date", "Course", "Task", "Notes"], blankRows(4, 4))}`,
-    "class schedule": () => `${fieldRow(code, ["Student:", "Term:", "School:"])}\n        ${table(code, ["Time", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], [["Period 1"], ["Period 2"], ["Period 3"], ["Period 4"], ["Period 5"], ["After school"]])}`,
+    "class schedule": () => `${fieldRow(code, ["Student:", "Term:", "School:"])}\n        ${table(code, ["Time", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], [["Period 1"], ["Period 2"], ["Period 3"], ["Period 4"], ["Period 5"], ["Period 6"], ["Period 7"], ["Period 8"], ["Evening class"]])}`,
     "project planner": () => `${fieldRow(code, ["Project:", "Class:", "Due date:"])}\n        ${boxes(code, [["Project goal"], ["Materials or sources"]])}\n        ${table(code, ["Task", "Due Date", "Notes", "Done"], blankRows(5, 4))}`,
     "reading log": () => `${fieldRow(code, ["Student:", "Month:", "Reading goal:"])}\n        ${table(code, ["Date", "Book", "Pages", "Minutes", "Summary or Notes"], blankRows(6, 5))}`,
     "essay planner": () => `${fieldRow(code, ["Class:", "Due date:", "Essay type:"])}\n        ${boxes(code, [["Prompt"], ["Thesis statement"], ["Body paragraph 1"], ["Body paragraph 2"], ["Body paragraph 3"], ["Conclusion notes"]])}`,
