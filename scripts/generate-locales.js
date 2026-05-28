@@ -467,8 +467,9 @@ function table(code, headings, rows) {
         </table>`;
 }
 
-function checklist(code, items) {
-  return `<ul class="checklist-columns">\n          ${items.map((item) => `<li>${esc(tr(code, item))}</li>`).join("\n          ")}\n        </ul>`;
+function checklist(code, items, options = {}) {
+  const className = options.boxes ? "checklist-columns checklist-with-boxes" : "checklist-columns";
+  return `<ul class="${className}">\n          ${items.map((item) => options.boxes ? `<li><span>${esc(tr(code, item))}</span><span class="check-box" aria-hidden="true"></span></li>` : `<li>${esc(tr(code, item))}</li>`).join("\n          ")}\n        </ul>`;
 }
 
 function boxes(code, groups) {
@@ -486,7 +487,7 @@ function renderWorksheet(code, cfg, key, title) {
     "daily study planner": () => `${fieldRow(code, ["Date:", "Main goal:", "Study time:"])}\n        ${boxes(code, [["Top priorities"], ["Homework due"], ["Study schedule"], ["Notes and reminders"]])}`,
     "homework tracker": () => `${fieldRow(code, ["Name:", "Week of:", "Class:"])}\n        ${table(code, ["Subject", "Task", "Due Date", "Priority", "Done"], blankRows(6, 5))}`,
     "assignment tracker": () => `${fieldRow(code, ["Student:", "Term:", "Goal:"])}\n        ${table(code, ["Course", "Task", "Due Date", "Status", "Notes"], blankRows(6, 5))}`,
-    "exam study checklist": () => `${fieldRow(code, ["Subject:", "Exam date:", "Target grade:"])}\n        ${checklist(code, ["Review class notes", "Read textbook chapters", "Make a revision schedule", "Practice sample questions", "Review incorrect answers", "Memorize key terms", "Prepare formulas or facts", "Pack exam supplies", "Sleep well before the exam", "Arrive early"])}`,
+    "exam study checklist": () => `${fieldRow(code, ["Subject:", "Exam date:", "Target grade:"])}\n        ${checklist(code, ["Review class notes", "Read textbook chapters", "Make a revision schedule", "Practice sample questions", "Review incorrect answers", "Memorize key terms", "Prepare formulas or facts", "Pack exam supplies", "Sleep well before the exam", "Arrive early"], { boxes: true })}`,
     "study schedule": () => `${fieldRow(code, ["Week of:", "Subject:", "Exam date:"])}\n        ${table(code, ["Time", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], [["Before school"], ["After school"], ["Evening"], ["Review"]])}`,
     "class notes": () => `${fieldRow(code, ["Course:", "Date:", "Topic:"])}\n        ${boxes(code, [["Main notes"], ["Key terms"], ["Questions"], ["Follow-up tasks"]])}`,
     "school supplies checklist": () => `${fieldRow(code, ["Student:", "Grade:", "School year:"])}\n        ${checklist(code, ["Notebooks", "Pens", "Pencils", "Highlighters", "Folders", "Binders", "Backpack", "Calculator", "Sticky notes", "Index cards", "Laptop", "Tablet", "Chargers", "Headphones", "Planner"])}`,
