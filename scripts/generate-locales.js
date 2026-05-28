@@ -518,6 +518,8 @@ function renderIndex(code, cfg) {
       </article>`;
     })
     .join("\n");
+  const firstTemplate = pages[0][0];
+  const examTitle = cfg.titles["exam study checklist"];
 
   return `<!DOCTYPE html>
 <html lang="${cfg.htmlLang}">
@@ -529,24 +531,155 @@ function renderIndex(code, cfg) {
   ${altLinks("index.html", code)}
   <link rel="stylesheet" href="../template-page.css" />
   <style>
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 18px; }
-    .tag { display: inline-block; margin-bottom: 12px; color: #0f8f8c; font-weight: 800; font-size: 13px; }
-    .card a { color: #2457d6; font-weight: 800; text-decoration: none; }
+    body { background: #f4f7fb; }
+    header.locale-hero {
+      min-height: 54vh;
+      display: flex;
+      align-items: center;
+      padding: 64px 20px 52px;
+      text-align: left;
+      background:
+        linear-gradient(rgba(20, 32, 52, 0.74), rgba(20, 32, 52, 0.64)),
+        url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1800&q=80");
+      background-position: center;
+      background-size: cover;
+    }
+    .hero-inner {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+    }
+    .eyebrow {
+      margin: 0 0 12px;
+      color: #c8f7f4;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    header.locale-hero h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(38px, 7vw, 74px);
+      line-height: 1;
+    }
+    header.locale-hero p {
+      max-width: 720px;
+      margin: 22px 0 28px;
+      color: #eef5ff;
+      font-size: 20px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .hero-button {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 8px;
+      color: #2457d6;
+      background: #fff;
+      font-weight: 800;
+      text-decoration: none;
+    }
+    .hero-button.secondary {
+      color: #fff;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.58);
+    }
+    main { width: min(1120px, 100%); }
+    .intro-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
+      gap: 28px;
+      align-items: center;
+    }
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .quick-links a {
+      padding: 10px 12px;
+      border: 1px solid #dbe3ee;
+      border-radius: 8px;
+      color: #2457d6;
+      background: #fff;
+      font-weight: 800;
+      text-decoration: none;
+    }
+    .library-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin: 42px 0 18px;
+    }
+    .library-head h2 { margin: 0; }
+    .library-head p {
+      max-width: 460px;
+      margin: 0;
+      color: #5f6b7a;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 18px;
+    }
+    .tag {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: #0f8f8c;
+      font-weight: 800;
+      font-size: 13px;
+    }
+    .card a {
+      color: #2457d6;
+      font-weight: 800;
+      text-decoration: none;
+    }
+    @media (max-width: 760px) {
+      header.locale-hero { min-height: 62vh; padding-top: 48px; }
+      .intro-panel,
+      .library-head { display: block; }
+      .library-head p { margin-top: 10px; }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>${esc(cfg.hero)}</h1>
-    <p>${esc(cfg.heroText)}</p>
+  <header class="locale-hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Free student printables</p>
+      <h1>${esc(cfg.hero)}</h1>
+      <p>${esc(cfg.heroText)}</p>
+      <div class="hero-actions">
+        <a class="hero-button" href="#library">${esc(cfg.browse)}</a>
+        <a class="hero-button secondary" href="${firstTemplate}">${esc(cfg.titles["weekly study planner"])}</a>
+      </div>
+    </div>
   </header>
   ${languageSwitcher("index.html", code)}
   <main>
-    <section class="card">
-      <h2>${esc(cfg.intro)}</h2>
-      <p>${esc(cfg.introText)}</p>
+    <section class="card intro-panel">
+      <div>
+        <h2>${esc(cfg.intro)}</h2>
+        <p>${esc(cfg.introText)}</p>
+      </div>
+      <div class="quick-links" aria-label="Featured templates">
+        <a href="weekly-study-planner-printable.html">${esc(cfg.titles["weekly study planner"])}</a>
+        <a href="homework-tracker-printable.html">${esc(cfg.titles["homework tracker"])}</a>
+        <a href="exam-study-checklist.html">${esc(examTitle)}</a>
+      </div>
     </section>
-    <section>
-      <h2>${esc(cfg.library)}</h2>
+    <section id="library">
+      <div class="library-head">
+        <h2>${esc(cfg.library)}</h2>
+        <p>${esc(cfg.homeDescription)}</p>
+      </div>
       <div class="grid">
         ${cards}
       </div>
@@ -561,6 +694,7 @@ function renderIndex(code, cfg) {
 function renderPage(code, cfg, file, key) {
   const title = cfg.titles[key];
   const related = pages.filter(([relatedFile]) => relatedFile !== file).slice(0, 3);
+  const printableCss = key === "exam study checklist" ? "../printable-worksheets.css?v=checkboxes-1" : "../printable-worksheets.css";
   return `<!DOCTYPE html>
 <html lang="${cfg.htmlLang}">
 <head>
@@ -570,7 +704,7 @@ function renderPage(code, cfg, file, key) {
   <meta name="description" content="${esc(pageDescription(cfg, title))}" />
   ${altLinks(file, code)}
   <link rel="stylesheet" href="../template-page.css" />
-  <link rel="stylesheet" href="../printable-worksheets.css?v=checkboxes-1" />
+  <link rel="stylesheet" href="${printableCss}" />
 </head>
 <body>
   <header>
