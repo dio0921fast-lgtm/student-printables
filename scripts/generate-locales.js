@@ -327,12 +327,21 @@ function altLinks(file, locale) {
 }
 
 function languageSwitcher(file, active) {
+  const homeLabels = {
+    "zh-cn": "首页",
+    "zh-tw": "首頁",
+    ja: "ホーム",
+    ko: "홈",
+    es: "Inicio",
+    fr: "Accueil",
+  };
   const items = [
+    ["", homeLabels[active] || "Home", "index.html"],
     ["en", "English", `../${file}`],
     ...Object.entries(locales).map(([code, cfg]) => [code, cfg.label, code === active ? file : `../${code}/${file}`]),
   ];
   return `<nav class="language-switcher" aria-label="Language selector">${items
-    .map(([code, label, href]) => `<a href="${href}" hreflang="${code}">${label}</a>`)
+    .map(([code, label, href]) => `<a href="${href}"${code ? ` hreflang="${code}"` : ""}>${label}</a>`)
     .join(" ")}</nav>`;
 }
 
