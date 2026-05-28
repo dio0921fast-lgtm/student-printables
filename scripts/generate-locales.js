@@ -473,7 +473,7 @@ function blankRows(count, cells) {
 function renderWorksheet(code, cfg, key, title) {
   const sheetTitle = `<h3>${esc(title)}</h3>\n        <p class="sheet-subtitle">${esc(cfg.sheetSubtitle)}</p>`;
   const common = {
-    "weekly study planner": () => `${fieldRow(code, ["Week of:", "Name:", "Top goal:"])}\n        ${table(code, ["Day", "Classes", "Homework", "Study Block", "Done"], [["Monday"], ["Tuesday"], ["Wednesday"], ["Thursday"], ["Friday"], ["Weekend"]])}`,
+    "weekly study planner": () => `${fieldRow(code, ["Week of:", "Name:", "Top goal:"])}\n        ${table(code, ["Day", "Classes", "Homework", "Study Block", "Done"], [["Monday"], ["Tuesday"], ["Wednesday"], ["Thursday"], ["Friday"], ["Saturday"], ["Sunday"]])}`,
     "daily study planner": () => `${fieldRow(code, ["Date:", "Main goal:", "Study time:"])}\n        ${boxes(code, [["Top priorities"], ["Homework due"], ["Study schedule"], ["Notes and reminders"]])}`,
     "homework tracker": () => `${fieldRow(code, ["Name:", "Week of:", "Class:"])}\n        ${table(code, ["Subject", "Task", "Due Date", "Priority", "Done"], blankRows(6, 5))}`,
     "assignment tracker": () => `${fieldRow(code, ["Student:", "Term:", "Goal:"])}\n        ${table(code, ["Course", "Task", "Due Date", "Status", "Notes"], blankRows(6, 5))}`,
