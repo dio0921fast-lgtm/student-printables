@@ -46,6 +46,13 @@ const locales = {
     print: "打印或保存为 PDF",
     back: "返回首页",
     related: "相关模板",
+    faqTitle: "常见问题",
+    faqItems: [
+      ["这个模板免费吗？", "是的，这个模板可以免费打印和使用。"],
+      ["可以保存为 PDF 吗？", "可以，点击“打印或保存为 PDF”，然后在浏览器打印窗口选择保存为 PDF。"],
+      ["老师可以使用吗？", "可以，老师可以为课堂、辅导或学生整理任务打印使用。"],
+      ["应该使用什么纸张尺寸？", "建议使用 US Letter 或 A4，并在打印时选择适合页面。"],
+    ],
     footer: "版权所有 2026 Free Printable Student Templates",
     sheetSubtitle: "打印后填写，或在打印窗口中保存为 PDF。",
     fields: ["姓名：", "日期：", "目标："],
@@ -93,6 +100,13 @@ const locales = {
     print: "列印或儲存為 PDF",
     back: "返回首頁",
     related: "相關模板",
+    faqTitle: "常見問題",
+    faqItems: [
+      ["這個模板免費嗎？", "是的，這個模板可以免費列印和使用。"],
+      ["可以儲存為 PDF 嗎？", "可以，點選「列印或儲存為 PDF」，然後在瀏覽器列印視窗中選擇儲存為 PDF。"],
+      ["老師可以使用嗎？", "可以，老師可以為課堂、輔導或學生整理任務列印使用。"],
+      ["應該使用什麼紙張尺寸？", "建議使用 US Letter 或 A4，並在列印時選擇符合頁面。"],
+    ],
     footer: "版權所有 2026 Free Printable Student Templates",
     sheetSubtitle: "列印後填寫，或在列印視窗中儲存為 PDF。",
     fields: ["姓名：", "日期：", "目標："],
@@ -140,6 +154,13 @@ const locales = {
     print: "印刷または PDF 保存",
     back: "ホームへ戻る",
     related: "関連テンプレート",
+    faqTitle: "よくある質問",
+    faqItems: [
+      ["このテンプレートは無料ですか？", "はい、このテンプレートは無料で印刷して使用できます。"],
+      ["PDF として保存できますか？", "はい。「印刷または PDF 保存」を押し、ブラウザの印刷画面で PDF 保存を選べます。"],
+      ["先生も使えますか？", "はい。授業、個別指導、生徒の整理用として印刷して使えます。"],
+      ["どの用紙サイズがよいですか？", "US Letter または A4 がおすすめです。印刷時にページに合わせる設定を選んでください。"],
+    ],
     footer: "Copyright 2026 Free Printable Student Templates",
     sheetSubtitle: "印刷して記入するか、PDF として保存できます。",
     fields: ["名前：", "日付：", "目標："],
@@ -187,6 +208,13 @@ const locales = {
     print: "인쇄 또는 PDF 저장",
     back: "홈으로 돌아가기",
     related: "관련 템플릿",
+    faqTitle: "자주 묻는 질문",
+    faqItems: [
+      ["이 템플릿은 무료인가요?", "네, 이 템플릿은 무료로 인쇄해 사용할 수 있습니다."],
+      ["PDF로 저장할 수 있나요?", "네. “인쇄 또는 PDF 저장”을 누른 뒤 브라우저 인쇄 창에서 PDF 저장을 선택하세요."],
+      ["교사도 사용할 수 있나요?", "네. 수업, 지도, 학생 정리용으로 인쇄해 사용할 수 있습니다."],
+      ["어떤 용지 크기를 사용해야 하나요?", "US Letter 또는 A4를 권장하며, 인쇄할 때 페이지에 맞춤을 선택하세요."],
+    ],
     footer: "Copyright 2026 Free Printable Student Templates",
     sheetSubtitle: "인쇄해서 작성하거나 PDF로 저장할 수 있습니다.",
     fields: ["이름:", "날짜:", "목표:"],
@@ -234,6 +262,13 @@ const locales = {
     print: "Imprimir o guardar como PDF",
     back: "Volver al inicio",
     related: "Plantillas relacionadas",
+    faqTitle: "Preguntas frecuentes",
+    faqItems: [
+      ["¿Esta plantilla es gratis?", "Sí, esta plantilla se puede imprimir y usar gratis."],
+      ["¿Puedo guardarla como PDF?", "Sí. Haz clic en “Imprimir o guardar como PDF” y elige guardar como PDF en la ventana de impresión del navegador."],
+      ["¿Pueden usarla los profesores?", "Sí. Los profesores pueden imprimirla para clase, tutorías u organización de estudiantes."],
+      ["¿Qué tamaño de papel debo usar?", "Se recomienda US Letter o A4. Al imprimir, elige ajustar a la página."],
+    ],
     footer: "Copyright 2026 Free Printable Student Templates",
     sheetSubtitle: "Imprime la hoja o guárdala como PDF desde tu navegador.",
     fields: ["Nombre:", "Fecha:", "Meta:"],
@@ -281,6 +316,13 @@ const locales = {
     print: "Imprimer ou enregistrer en PDF",
     back: "Retour à l'accueil",
     related: "Modèles associés",
+    faqTitle: "Questions fréquentes",
+    faqItems: [
+      ["Ce modèle est-il gratuit ?", "Oui, ce modèle peut être imprimé et utilisé gratuitement."],
+      ["Puis-je l'enregistrer en PDF ?", "Oui. Cliquez sur « Imprimer ou enregistrer en PDF », puis choisissez l'enregistrement en PDF dans la fenêtre d'impression du navigateur."],
+      ["Les enseignants peuvent-ils l'utiliser ?", "Oui. Les enseignants peuvent l'imprimer pour la classe, le soutien ou l'organisation des élèves."],
+      ["Quel format de papier utiliser ?", "Le format US Letter ou A4 est recommandé. Lors de l'impression, choisissez l'ajustement à la page."],
+    ],
     footer: "Copyright 2026 Free Printable Student Templates",
     sheetSubtitle: "Imprimez la fiche ou enregistrez-la en PDF depuis votre navigateur.",
     fields: ["Nom :", "Date :", "Objectif :"],
@@ -698,6 +740,13 @@ function renderIndex(code, cfg) {
 `;
 }
 
+function renderFaq(cfg) {
+  return `<section class="card faq-section">
+      <h2>${esc(cfg.faqTitle)}</h2>
+      ${cfg.faqItems.map(([question, answer]) => `<h3>${esc(question)}</h3>\n      <p>${esc(answer)}</p>`).join("\n      ")}
+    </section>`;
+}
+
 function renderPage(code, cfg, file, key) {
   const title = cfg.titles[key];
   const related = pages.filter(([relatedFile]) => relatedFile !== file).slice(0, 3);
@@ -747,6 +796,7 @@ function renderPage(code, cfg, file, key) {
         ${related.map(([relatedFile, , relatedKey]) => `<a class="button" href="${relatedFile}">${esc(cfg.titles[relatedKey])}</a>`).join("\n        ")}
       </div>
     </section>
+    ${renderFaq(cfg)}
   </main>
   <footer>${esc(cfg.footer)}</footer>
 </body>

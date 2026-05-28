@@ -123,6 +123,17 @@
   border-radius: 3px;
 }
 
+.faq-section h3 {
+  margin: 18px 0 6px;
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+.faq-section p {
+  margin: 0 0 14px;
+  color: #5f6b7a;
+}
+
 @media (max-width: 700px) {
   .field-row,
   .worksheet-grid {
