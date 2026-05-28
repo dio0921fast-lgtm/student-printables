@@ -401,6 +401,25 @@ Object.assign(terms.fr, {
   "Date": "Date", "Time": "Heure", "Subject": "Matière", "Teacher": "Professeur", "Target grade": "Note visée", "Exam date": "Date d'examen", "Before school": "Avant les cours", "After school": "Après les cours", "Evening": "Soir", "Review": "Révision", "Period 1": "Période 1", "Period 2": "Période 2", "Period 3": "Période 3", "Period 4": "Période 4", "Period 5": "Période 5", "Project goal": "Objectif du projet", "Materials or sources": "Matériel ou sources", "Review notes": "Relire les notes", "Finish homework": "Finir les devoirs", "Read or practice": "Lire ou pratiquer", "Prepare backpack": "Préparer le sac"
 });
 
+Object.assign(terms["zh-cn"], {
+  "Review class notes": "复习课堂笔记", "Read textbook chapters": "阅读教材章节", "Make a revision schedule": "制定复习计划", "Practice sample questions": "练习样题", "Review incorrect answers": "复盘错题", "Memorize key terms": "记忆重点词汇", "Prepare formulas or facts": "整理公式或知识点", "Pack exam supplies": "准备考试用品", "Sleep well before the exam": "考试前保证睡眠", "Arrive early": "提前到达考场"
+});
+Object.assign(terms["zh-tw"], {
+  "Review class notes": "複習課堂筆記", "Read textbook chapters": "閱讀教材章節", "Make a revision schedule": "制定複習計畫", "Practice sample questions": "練習範例題", "Review incorrect answers": "複盤錯題", "Memorize key terms": "記憶重點詞彙", "Prepare formulas or facts": "整理公式或知識點", "Pack exam supplies": "準備考試用品", "Sleep well before the exam": "考試前睡眠充足", "Arrive early": "提前到達考場"
+});
+Object.assign(terms.ja, {
+  "Review class notes": "授業ノートを復習", "Read textbook chapters": "教科書の章を読む", "Make a revision schedule": "復習計画を作る", "Practice sample questions": "例題を練習", "Review incorrect answers": "間違えた問題を見直す", "Memorize key terms": "重要語句を覚える", "Prepare formulas or facts": "公式や要点を整理", "Pack exam supplies": "試験用品を準備", "Sleep well before the exam": "試験前によく寝る", "Arrive early": "早めに到着"
+});
+Object.assign(terms.ko, {
+  "Review class notes": "수업 노트 복습", "Read textbook chapters": "교과서 단원 읽기", "Make a revision schedule": "복습 계획 세우기", "Practice sample questions": "예상 문제 풀기", "Review incorrect answers": "오답 다시 보기", "Memorize key terms": "핵심 용어 암기", "Prepare formulas or facts": "공식과 핵심 내용 정리", "Pack exam supplies": "시험 준비물 챙기기", "Sleep well before the exam": "시험 전 충분히 자기", "Arrive early": "일찍 도착하기"
+});
+Object.assign(terms.es, {
+  "Review class notes": "Repasar apuntes de clase", "Read textbook chapters": "Leer capítulos del libro", "Make a revision schedule": "Crear un horario de repaso", "Practice sample questions": "Practicar preguntas de ejemplo", "Review incorrect answers": "Revisar respuestas incorrectas", "Memorize key terms": "Memorizar términos clave", "Prepare formulas or facts": "Preparar fórmulas o datos", "Pack exam supplies": "Preparar materiales del examen", "Sleep well before the exam": "Dormir bien antes del examen", "Arrive early": "Llegar temprano"
+});
+Object.assign(terms.fr, {
+  "Review class notes": "Relire les notes de cours", "Read textbook chapters": "Lire les chapitres du manuel", "Make a revision schedule": "Créer un planning de révision", "Practice sample questions": "S'entraîner avec des questions types", "Review incorrect answers": "Revoir les mauvaises réponses", "Memorize key terms": "Mémoriser les mots clés", "Prepare formulas or facts": "Préparer les formules ou faits", "Pack exam supplies": "Préparer le matériel d'examen", "Sleep well before the exam": "Bien dormir avant l'examen", "Arrive early": "Arriver en avance"
+});
+
 function tr(code, value) {
   return (terms[code] && terms[code][value]) || value;
 }
