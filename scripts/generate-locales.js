@@ -488,10 +488,10 @@ function renderWorksheet(code, cfg, key, title) {
     "project planner": () => `${fieldRow(code, ["Project:", "Class:", "Due date:"])}\n        ${boxes(code, [["Project goal"], ["Materials or sources"]])}\n        ${table(code, ["Task", "Due Date", "Notes", "Done"], blankRows(5, 4))}`,
     "reading log": () => `${fieldRow(code, ["Student:", "Month:", "Reading goal:"])}\n        ${table(code, ["Date", "Book", "Pages", "Minutes", "Summary or Notes"], blankRows(6, 5))}`,
     "essay planner": () => `${fieldRow(code, ["Class:", "Due date:", "Essay type:"])}\n        ${boxes(code, [["Prompt"], ["Thesis statement"], ["Body paragraph 1"], ["Body paragraph 2"], ["Body paragraph 3"], ["Conclusion notes"]])}`,
-    "study habit tracker": () => `${fieldRow(code, ["Week of:", "Main goal:", "Goal:"])}\n        ${table(code, ["Task", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Weekend"], [["Review notes"], ["Finish homework"], ["Read or practice"], ["Prepare backpack"]])}`,
+    "study habit tracker": () => `${fieldRow(code, ["Week of:", "Main goal:", "Goal:"])}\n        ${table(code, ["Task", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], [["Review notes"], ["Finish homework"], ["Read or practice"], ["Prepare backpack"]])}`,
     "test prep planner": () => `${fieldRow(code, ["Subject:", "Exam date:", "Target grade:"])}\n        ${table(code, ["Topic", "Review Task", "Practice Needed", "Confidence", "Done"], blankRows(5, 5))}`,
     "semester planner": () => `${fieldRow(code, ["Semester:", "Main goal:", "Start date:"])}\n        ${table(code, ["Course", "Teacher", "Due Date", "Target grade", "Notes"], blankRows(5, 5))}`,
-    "assignment calendar": () => `${fieldRow(code, ["Week of:", "Student:", "Top goal:"])}\n        ${table(code, ["Day", "Task", "Exam date", "Priority", "Done"], [["Monday"], ["Tuesday"], ["Wednesday"], ["Thursday"], ["Friday"], ["Weekend"]])}`,
+    "assignment calendar": () => `${fieldRow(code, ["Week of:", "Student:", "Top goal:"])}\n        ${table(code, ["Day", "Task", "Exam date", "Priority", "Done"], [["Monday"], ["Tuesday"], ["Wednesday"], ["Thursday"], ["Friday"], ["Saturday"], ["Sunday"]])}`,
   };
   return `${sheetTitle}\n        ${common[key]()}`;
 }
