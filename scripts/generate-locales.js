@@ -333,6 +333,7 @@ function altLinks(file, locale) {
 }
 
 function languageSwitcher(file, active) {
+  const versioned = (href) => file === "index.html" && !href.includes("?") ? `${href}?v=shared-hero-1` : href;
   const homeLabels = {
     "zh-cn": "首页",
     "zh-tw": "首頁",
@@ -347,7 +348,7 @@ function languageSwitcher(file, active) {
     ...Object.entries(locales).map(([code, cfg]) => [code, cfg.label, code === active ? file : `../${code}/${file}`]),
   ];
   return `<nav class="language-switcher" aria-label="Language selector">${items
-    .map(([code, label, href]) => `<a href="${href}"${code ? ` hreflang="${code}"` : ""}>${label}</a>`)
+    .map(([code, label, href]) => `<a href="${versioned(href)}"${code ? ` hreflang="${code}"` : ""}>${label}</a>`)
     .join(" ")}</nav>`;
 }
 
