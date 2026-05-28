@@ -33,6 +33,7 @@ const locales = {
     dir: "zh-cn",
     homeTitle: "免费学生打印模板",
     homeDescription: "免费下载学生打印模板，包括学习计划、作业跟踪、成绩记录、课程表、阅读记录和清单。",
+    eyebrow: "免费学生打印模板",
     hero: "学生打印模板",
     heroText: "适合学生使用的学习计划、作业跟踪、考试准备、成绩记录、阅读记录和清单。",
     browse: "浏览模板",
@@ -79,6 +80,7 @@ const locales = {
     dir: "zh-tw",
     homeTitle: "免費學生列印模板",
     homeDescription: "免費下載學生列印模板，包括讀書計畫、作業追蹤、成績紀錄、課表、閱讀紀錄和清單。",
+    eyebrow: "免費學生列印模板",
     hero: "學生列印模板",
     heroText: "適合學生使用的讀書計畫、作業追蹤、考試準備、成績紀錄、閱讀紀錄和清單。",
     browse: "瀏覽模板",
@@ -125,6 +127,7 @@ const locales = {
     dir: "ja",
     homeTitle: "無料の学生向け印刷テンプレート",
     homeDescription: "学習計画、宿題管理、成績記録、時間割、読書記録、チェックリストを無料で印刷できます。",
+    eyebrow: "無料の学生向け印刷テンプレート",
     hero: "学生向け印刷テンプレート",
     heroText: "学習計画、宿題管理、試験準備、成績記録、読書記録に使えるシンプルなテンプレートです。",
     browse: "テンプレートを見る",
@@ -171,6 +174,7 @@ const locales = {
     dir: "ko",
     homeTitle: "무료 학생용 인쇄 템플릿",
     homeDescription: "학습 계획표, 숙제 추적표, 성적 기록표, 시간표, 독서 기록표와 체크리스트를 무료로 인쇄하세요.",
+    eyebrow: "무료 학생용 인쇄 템플릿",
     hero: "학생용 인쇄 템플릿",
     heroText: "학습 계획, 숙제 관리, 시험 준비, 성적 기록, 독서 기록에 사용할 수 있는 간단한 템플릿입니다.",
     browse: "템플릿 보기",
@@ -217,6 +221,7 @@ const locales = {
     dir: "es",
     homeTitle: "Plantillas imprimibles gratis para estudiantes",
     homeDescription: "Descarga plantillas imprimibles para estudiantes: planificadores de estudio, tareas, calificaciones, horarios, lectura y listas.",
+    eyebrow: "Plantillas gratis para estudiantes",
     hero: "Plantillas imprimibles para estudiantes",
     heroText: "Planificadores, listas y hojas imprimibles para organizar tareas, estudio, exámenes, calificaciones y lectura.",
     browse: "Ver plantillas",
@@ -263,6 +268,7 @@ const locales = {
     dir: "fr",
     homeTitle: "Modèles imprimables gratuits pour étudiants",
     homeDescription: "Téléchargez des modèles imprimables pour étudiants : planning d'étude, devoirs, notes, emploi du temps, lecture et listes.",
+    eyebrow: "Modèles gratuits pour étudiants",
     hero: "Modèles imprimables pour étudiants",
     heroText: "Des plannings, suivis et listes simples pour organiser les devoirs, les révisions, les examens, les notes et la lecture.",
     browse: "Voir les modèles",
@@ -653,7 +659,7 @@ function renderIndex(code, cfg) {
 <body>
   <header class="locale-hero">
     <div class="hero-inner">
-      <p class="eyebrow">Free student printables</p>
+      <p class="eyebrow">${esc(cfg.eyebrow)}</p>
       <h1>${esc(cfg.hero)}</h1>
       <p>${esc(cfg.heroText)}</p>
       <div class="hero-actions">
