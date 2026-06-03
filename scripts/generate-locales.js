@@ -798,6 +798,73 @@ function renderFaq(cfg) {
     </section>`;
 }
 
+const seoLabels = {
+  "zh-cn": {
+    who: "这个模板适合谁使用",
+    how: "学生如何使用这个模板",
+    tips: "打印和重复使用建议",
+    whoText: (title) => `${title} 适合想把学习任务、截止日期和课堂安排写在纸上的学生使用。它也适合家长、老师和辅导老师帮助学生建立更清晰的学习习惯。`,
+    howText: (title) => `使用 ${title} 时，可以先填写姓名、日期和主要目标，再把作业、复习内容、阅读任务或考试准备写入对应区域。每天或每周检查一次，能帮助学生更容易看清下一步要做什么。`,
+    tipsText: "建议使用 US Letter 或 A4 纸张打印，并在浏览器打印窗口选择适合页面。你可以把模板放进文件夹、学习 binder 或课堂资料夹中，需要新计划时重新打印一份。",
+  },
+  "zh-tw": {
+    who: "這個模板適合誰使用",
+    how: "學生如何使用這個模板",
+    tips: "列印和重複使用建議",
+    whoText: (title) => `${title} 適合想把學習任務、截止日期和課堂安排寫在紙上的學生使用。它也適合家長、老師和輔導老師協助學生建立更清楚的學習習慣。`,
+    howText: (title) => `使用 ${title} 時，可以先填寫姓名、日期和主要目標，再把作業、複習內容、閱讀任務或考試準備寫入對應區域。每天或每週檢查一次，能幫助學生更容易看清下一步要做什麼。`,
+    tipsText: "建議使用 US Letter 或 A4 紙張列印，並在瀏覽器列印視窗選擇符合頁面。你可以把模板放進資料夾、學習 binder 或課堂資料夾中，需要新計畫時重新列印一份。",
+  },
+  ja: {
+    who: "このテンプレートが向いている人",
+    how: "学生向けの使い方",
+    tips: "印刷と再利用のコツ",
+    whoText: (title) => `${title} は、学習タスク、締め切り、授業の予定を紙に書いて整理したい学生に向いています。保護者、先生、チューターが学生の学習習慣づくりを支える時にも使えます。`,
+    howText: (title) => `${title} を使うときは、名前、日付、主な目標を書き、宿題、復習内容、読書、試験準備などを該当する欄に記入します。毎日または毎週見直すことで、次にやることが分かりやすくなります。`,
+    tipsText: "US Letter または A4 用紙で印刷し、ブラウザの印刷画面でページに合わせる設定を選ぶのがおすすめです。ファイルや学習バインダーに入れておき、必要なときに新しく印刷できます。",
+  },
+  ko: {
+    who: "이 템플릿이 적합한 사람",
+    how: "학생이 사용하는 방법",
+    tips: "인쇄와 재사용 팁",
+    whoText: (title) => `${title}은 학습 과제, 마감일, 수업 일정을 종이에 적어 정리하고 싶은 학생에게 적합합니다. 학부모, 교사, 튜터가 학생의 공부 습관을 돕는 데도 사용할 수 있습니다.`,
+    howText: (title) => `${title}을 사용할 때는 이름, 날짜, 주요 목표를 먼저 적고 숙제, 복습 내용, 독서 과제, 시험 준비 항목을 해당 칸에 기록하세요. 매일 또는 매주 확인하면 다음에 해야 할 일을 더 쉽게 파악할 수 있습니다.`,
+    tipsText: "US Letter 또는 A4 용지로 인쇄하고 브라우저 인쇄 창에서 페이지에 맞춤을 선택하는 것이 좋습니다. 파일, 학습 바인더, 수업 폴더에 넣어 두고 새 계획이 필요할 때 다시 인쇄하세요.",
+  },
+  es: {
+    who: "Para quién es esta plantilla",
+    how: "Cómo pueden usarla los estudiantes",
+    tips: "Consejos para imprimir y reutilizar",
+    whoText: (title) => `${title} es útil para estudiantes que quieren organizar tareas, fechas límite y rutinas escolares en papel. También puede servir a familias, docentes y tutores que ayudan a crear mejores hábitos de estudio.`,
+    howText: (title) => `Para usar ${title}, escribe primero el nombre, la fecha y el objetivo principal. Después añade tareas, repaso, lectura o preparación de exámenes en las secciones correspondientes. Revisarla cada día o cada semana ayuda a ver qué hacer después.`,
+    tipsText: "Imprime en papel US Letter o A4 y elige ajustar a página en la ventana de impresión del navegador. Puedes guardar la plantilla en una carpeta o cuaderno de estudio y volver a imprimirla cuando necesites un plan nuevo.",
+  },
+  fr: {
+    who: "À qui s'adresse ce modèle",
+    how: "Comment les élèves peuvent l'utiliser",
+    tips: "Conseils d'impression et de réutilisation",
+    whoText: (title) => `${title} convient aux élèves qui veulent organiser leurs tâches, échéances et routines scolaires sur papier. Il peut aussi aider les parents, enseignants et tuteurs à soutenir de meilleures habitudes d'étude.`,
+    howText: (title) => `Pour utiliser ${title}, commencez par écrire le nom, la date et l'objectif principal. Ajoutez ensuite les devoirs, révisions, lectures ou préparations d'examen dans les sections prévues. Une vérification quotidienne ou hebdomadaire aide à voir la prochaine étape.`,
+    tipsText: "Imprimez sur papier US Letter ou A4 et choisissez l'ajustement à la page dans la fenêtre d'impression du navigateur. Vous pouvez garder le modèle dans un classeur ou dossier d'étude et le réimprimer lorsqu'un nouveau plan est nécessaire.",
+  },
+};
+
+function renderSeoContent(code, title) {
+  const labels = seoLabels[code];
+  return `<section class="card seo-content">
+      <h2>${esc(labels.who)}</h2>
+      <p>${esc(labels.whoText(title))}</p>
+    </section>
+    <section class="card seo-content">
+      <h2>${esc(labels.how)}</h2>
+      <p>${esc(labels.howText(title))}</p>
+    </section>
+    <section class="card seo-content">
+      <h2>${esc(labels.tips)}</h2>
+      <p>${esc(labels.tipsText)}</p>
+    </section>`;
+}
+
 function renderPage(code, cfg, file, key) {
   const title = cfg.titles[key];
   const related = pages.filter(([relatedFile]) => relatedFile !== file).slice(0, 3);
@@ -832,6 +899,7 @@ function renderPage(code, cfg, file, key) {
         ${cfg.howItems.map((item) => `<li>${esc(item)}</li>`).join("\n        ")}
       </ol>
     </section>
+    ${renderSeoContent(code, title)}
     <section class="card download-box">
       <h2>${esc(cfg.download)}</h2>
       <p class="download-note">${esc(cfg.sheetSubtitle)}</p>
