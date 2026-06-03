@@ -924,6 +924,14 @@ function renderPage(code, cfg, file, key) {
 }
 
 const staticPages = ["about.html", "contact.html", "privacy-policy.html", "terms.html"];
+const categoryPages = [
+  "study-planners.html",
+  "trackers.html",
+  "checklists.html",
+  "schedules.html",
+  "college-printables.html",
+  "reading-writing-printables.html",
+];
 
 const basicPages = {
   "zh-cn": {
@@ -1340,7 +1348,7 @@ for (const [file] of pages) {
   }
 }
 
-const sitemapUrls = ["index.html", ...staticPages, ...pages.map(([file]) => file)]
+const sitemapUrls = ["index.html", ...staticPages, ...categoryPages, ...pages.map(([file]) => file)]
   .map((file) => `${siteUrl}/${file}`)
   .concat(
     Object.keys(locales).flatMap((code) =>
