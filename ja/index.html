@@ -15,7 +15,12 @@
   <link rel="alternate" hreflang="x-default" href="https://dio0921fast-lgtm.github.io/student-printables/index.html" />
   <link rel="stylesheet" href="../template-page.css" />
   <style>
-    body { background: #f4f7fb; }
+    body {
+      background:
+        radial-gradient(circle at top left, rgba(255, 213, 128, 0.26), transparent 32%),
+        radial-gradient(circle at 85% 18%, rgba(125, 211, 252, 0.24), transparent 30%),
+        linear-gradient(135deg, #fffaf0 0%, #eef8ff 46%, #f7f0ff 100%);
+    }
     header.locale-hero {
       min-height: 54vh;
       display: flex;
@@ -80,6 +85,8 @@
       grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
       gap: 28px;
       align-items: center;
+      background: linear-gradient(135deg, #ffffff 0%, #fff7df 52%, #e8fbf8 100%);
+      border-color: #c9e7ff;
     }
     .quick-links {
       display: flex;
@@ -89,10 +96,10 @@
     }
     .quick-links a {
       padding: 10px 12px;
-      border: 1px solid #dbe3ee;
+      border: 1px solid #bfe3f8;
       border-radius: 8px;
       color: #2457d6;
-      background: #fff;
+      background: rgba(255, 255, 255, 0.82);
       font-weight: 800;
       text-decoration: none;
     }
@@ -114,12 +121,46 @@
       grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
       gap: 18px;
     }
+    .grid .card {
+      position: relative;
+      overflow: hidden;
+      border-top: 6px solid #34c6bd;
+      border-color: #d4e8ff;
+      background: linear-gradient(180deg, #ffffff 0%, #f9fdff 100%);
+    }
+    .grid .card:nth-child(4n + 2) {
+      border-top-color: #ff8fab;
+      background: linear-gradient(180deg, #ffffff 0%, #fff7fb 100%);
+    }
+    .grid .card:nth-child(4n + 3) {
+      border-top-color: #f6c453;
+      background: linear-gradient(180deg, #ffffff 0%, #fffaf0 100%);
+    }
+    .grid .card:nth-child(4n) {
+      border-top-color: #9b8cff;
+      background: linear-gradient(180deg, #ffffff 0%, #f7f4ff 100%);
+    }
     .tag {
       display: inline-block;
       margin-bottom: 12px;
+      padding: 5px 9px;
+      border-radius: 6px;
       color: #0f8f8c;
+      background: #e6f7f4;
       font-weight: 800;
       font-size: 13px;
+    }
+    .grid .card:nth-child(4n + 2) .tag {
+      color: #c2415d;
+      background: #fff0f5;
+    }
+    .grid .card:nth-child(4n + 3) .tag {
+      color: #9a650f;
+      background: #fff3dc;
+    }
+    .grid .card:nth-child(4n) .tag {
+      color: #5b50c7;
+      background: #f0edff;
     }
     .card a {
       color: #2457d6;
