@@ -565,6 +565,24 @@ function renderWorksheet(code, cfg, key, title) {
   return `${sheetTitle}\n        ${common[key]()}`;
 }
 
+function renderCategoryLinks(code) {
+  const text = categoryText[code];
+  const countLabel = (count) => {
+    if (code === "ko") return `${count}개 템플릿`;
+    if (code === "es") return count === 1 ? "1 plantilla" : `${count} plantillas`;
+    if (code === "fr") return count === 1 ? "1 modèle" : `${count} modèles`;
+    return `${count} ${text.templateWord}`;
+  };
+  return `<div class="category-entry" aria-label="Template categories">
+        <div class="category-grid">
+          ${categoryDefs.map((def) => {
+            const [label] = text.categories[def.id];
+            return `<a class="category-link" href="${def.file}">${esc(label)} <span>${esc(countLabel(def.count))}</span></a>`;
+          }).join("\n          ")}
+        </div>
+      </div>`;
+}
+
 function renderIndex(code, cfg) {
   const cards = pages
     .map(([file, , key]) => {
@@ -775,12 +793,64 @@ function renderIndex(code, cfg) {
         <a href="exam-study-checklist.html">${esc(examTitle)}</a>
       </div>
     </section>
+    ${renderCategoryLinks(code)}
     <section id="library">
       <div class="library-head">
         <h2>${esc(cfg.library)}</h2>
         <p>${esc(cfg.homeDescription)}</p>
       </div>
       <div class="grid">
+        ${cards}
+      </div>
+    </section>
+  </main>
+  <footer>${esc(cfg.footer)}</footer>
+</body>
+</html>
+`;
+}
+
+function renderLocalizedCategoryPage(code, cfg, def) {
+  const text = categoryText[code];
+  const [title, description] = text.categories[def.id];
+  const cards = def.templates.map(([file, key]) => `<article class="card template-card">
+          <span class="tag">${esc(title)}</span>
+          <h3>${esc(cfg.titles[key])}</h3>
+          <p>${esc(pageDescription(cfg, cfg.titles[key]))}</p>
+          <a class="button" href="${file}">${esc(text.view)}</a>
+        </article>`).join("\n        ");
+  const related = categoryDefs.filter((category) => category.id !== def.id).slice(0, 4);
+
+  return `<!DOCTYPE html>
+<html lang="${cfg.htmlLang}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>${esc(title)} | ${esc(cfg.homeTitle)}</title>
+  <meta name="description" content="${esc(description)}" />
+  ${altLinks(def.file, code)}
+  <link rel="stylesheet" href="../template-page.css" />
+</head>
+<body>
+  <header>
+    <h1>${esc(title)}</h1>
+    <p>${esc(description)}</p>
+  </header>
+  ${languageSwitcher(def.file, code)}
+  <main>
+    <section class="card category-summary">
+      <div>
+        <h2>${esc(text.intro)}</h2>
+        <p>${esc(text.introText)}</p>
+        <p>${esc(description)}</p>
+      </div>
+      <div class="category-nav" aria-label="${esc(text.related)}">
+        ${related.map((category) => `<a class="button" href="${category.file}">${esc(text.categories[category.id][0])}</a>`).join("\n        ")}
+      </div>
+    </section>
+    <section>
+      <h2>${esc(title)}</h2>
+      <div class="template-grid">
         ${cards}
       </div>
     </section>
@@ -932,6 +1002,161 @@ const categoryPages = [
   "college-printables.html",
   "reading-writing-printables.html",
 ];
+
+const categoryDefs = [
+  {
+    id: "studyPlanners",
+    file: "study-planners.html",
+    count: 6,
+    templates: [
+      ["weekly-study-planner-printable.html", "weekly study planner"],
+      ["daily-study-planner-printable.html", "daily study planner"],
+      ["monthly-study-planner-printable.html", "monthly study planner"],
+      ["semester-planner-printable.html", "semester planner"],
+      ["study-schedule-template.html", "study schedule"],
+      ["test-prep-planner-printable.html", "test prep planner"],
+    ],
+  },
+  {
+    id: "trackers",
+    file: "trackers.html",
+    count: 4,
+    templates: [
+      ["homework-tracker-printable.html", "homework tracker"],
+      ["assignment-tracker-printable.html", "assignment tracker"],
+      ["grade-tracker-printable.html", "grade tracker"],
+      ["study-habit-tracker-printable.html", "study habit tracker"],
+    ],
+  },
+  {
+    id: "checklists",
+    file: "checklists.html",
+    count: 2,
+    templates: [
+      ["exam-study-checklist.html", "exam study checklist"],
+      ["school-supplies-checklist.html", "school supplies checklist"],
+    ],
+  },
+  {
+    id: "schedules",
+    file: "schedules.html",
+    count: 2,
+    templates: [
+      ["class-schedule-template.html", "class schedule"],
+      ["assignment-calendar-printable.html", "assignment calendar"],
+    ],
+  },
+  {
+    id: "college",
+    file: "college-printables.html",
+    count: 1,
+    templates: [["college-packing-list.html", "college packing list"]],
+  },
+  {
+    id: "readingWriting",
+    file: "reading-writing-printables.html",
+    count: 4,
+    templates: [
+      ["class-notes-template.html", "class notes"],
+      ["reading-log-printable.html", "reading log"],
+      ["essay-planner-template.html", "essay planner"],
+      ["project-planner-printable.html", "project planner"],
+    ],
+  },
+];
+
+const categoryText = {
+  "zh-cn": {
+    templateWord: "个模板",
+    view: "浏览模板",
+    related: "相关分类",
+    categories: {
+      studyPlanners: ["学习计划", "适合每日、每周、每月、学期和考试准备的可打印学习计划。"],
+      trackers: ["跟踪表", "跟踪作业、任务、成绩和学习习惯，帮助学生看清进度。"],
+      checklists: ["清单", "用于考试复习、学习用品和学校准备的简单打印清单。"],
+      schedules: ["时间表", "整理课程表、作业日历、周末课程和晚课安排。"],
+      college: ["大学打印模板", "适合大学准备、宿舍打包和校园生活整理的打印页面。"],
+      readingWriting: ["阅读和写作", "用于课堂笔记、阅读记录、作文计划和项目计划的模板。"],
+    },
+    intro: "按分类选择学生打印模板",
+    introText: "这些分类页把相似模板放在一起，方便学生、家长和老师快速找到适合学习、作业、考试、阅读或大学准备的页面。",
+  },
+  "zh-tw": {
+    templateWord: "個模板",
+    view: "瀏覽模板",
+    related: "相關分類",
+    categories: {
+      studyPlanners: ["讀書計畫", "適合每日、每週、每月、學期和考試準備的可列印讀書計畫。"],
+      trackers: ["追蹤表", "追蹤作業、任務、成績和讀書習慣，幫助學生看清進度。"],
+      checklists: ["清單", "用於考試複習、學用品和學校準備的簡單列印清單。"],
+      schedules: ["時間表", "整理課表、作業行事曆、週末課程和晚課安排。"],
+      college: ["大學列印模板", "適合大學準備、宿舍打包和校園生活整理的列印頁面。"],
+      readingWriting: ["閱讀和寫作", "用於課堂筆記、閱讀紀錄、作文計畫和專題計畫的模板。"],
+    },
+    intro: "按分類選擇學生列印模板",
+    introText: "這些分類頁把相似模板放在一起，方便學生、家長和老師快速找到適合學習、作業、考試、閱讀或大學準備的頁面。",
+  },
+  ja: {
+    templateWord: "テンプレート",
+    view: "テンプレートを見る",
+    related: "関連カテゴリ",
+    categories: {
+      studyPlanners: ["学習計画", "毎日、週間、月間、学期、テスト準備に使える印刷用学習計画です。"],
+      trackers: ["トラッカー", "宿題、課題、成績、学習習慣を記録して進み具合を見やすくします。"],
+      checklists: ["チェックリスト", "試験勉強、学用品、学校準備に使えるシンプルな印刷リストです。"],
+      schedules: ["スケジュール", "時間割、課題カレンダー、週末授業、夜の授業を整理できます。"],
+      college: ["大学向け", "大学準備、寮の持ち物、学生生活の整理に使える印刷ページです。"],
+      readingWriting: ["読書と作文", "授業ノート、読書記録、作文計画、プロジェクト計画のテンプレートです。"],
+    },
+    intro: "カテゴリから学生向けテンプレートを選ぶ",
+    introText: "カテゴリページでは似たテンプレートをまとめているので、学習、宿題、試験、読書、大学準備に合うページを見つけやすくなります。",
+  },
+  ko: {
+    templateWord: "개 템플릿",
+    view: "템플릿 보기",
+    related: "관련 분류",
+    categories: {
+      studyPlanners: ["학습 계획표", "일간, 주간, 월간, 학기, 시험 준비에 사용할 수 있는 인쇄용 학습 계획표입니다."],
+      trackers: ["추적표", "숙제, 과제, 성적, 학습 습관을 기록해 진행 상황을 쉽게 볼 수 있습니다."],
+      checklists: ["체크리스트", "시험 공부, 학용품, 학교 준비에 사용할 수 있는 간단한 인쇄 체크리스트입니다."],
+      schedules: ["시간표", "수업 시간표, 과제 달력, 주말 수업, 저녁 수업을 정리합니다."],
+      college: ["대학생 템플릿", "대학 준비, 기숙사 짐 싸기, 캠퍼스 생활 정리에 적합한 인쇄 페이지입니다."],
+      readingWriting: ["읽기와 쓰기", "수업 노트, 독서 기록, 에세이 계획, 프로젝트 계획 템플릿입니다."],
+    },
+    intro: "분류별 학생용 인쇄 템플릿",
+    introText: "분류 페이지는 비슷한 템플릿을 함께 보여 주어 학습, 숙제, 시험, 독서, 대학 준비에 맞는 페이지를 빠르게 찾을 수 있게 합니다.",
+  },
+  es: {
+    templateWord: "plantillas",
+    view: "Ver plantilla",
+    related: "Categorías relacionadas",
+    categories: {
+      studyPlanners: ["Planificadores de estudio", "Planificadores imprimibles para estudio diario, semanal, mensual, semestral y preparación de exámenes."],
+      trackers: ["Rastreadores", "Rastrea tareas, trabajos, calificaciones y hábitos de estudio para ver el progreso."],
+      checklists: ["Listas", "Listas imprimibles simples para repaso de exámenes, útiles escolares y preparación para clase."],
+      schedules: ["Horarios", "Organiza horarios de clase, calendarios de tareas, clases de fin de semana y clases nocturnas."],
+      college: ["Universidad", "Páginas imprimibles para preparación universitaria, empaque de dormitorio y organización estudiantil."],
+      readingWriting: ["Lectura y escritura", "Plantillas para apuntes de clase, registros de lectura, planificación de ensayos y proyectos."],
+    },
+    intro: "Elige plantillas por categoría",
+    introText: "Estas páginas de categoría agrupan plantillas similares para que estudiantes, familias y docentes encuentren rápido recursos para estudiar, tareas, exámenes, lectura o universidad.",
+  },
+  fr: {
+    templateWord: "modèles",
+    view: "Voir le modèle",
+    related: "Catégories liées",
+    categories: {
+      studyPlanners: ["Plannings d'étude", "Plannings imprimables pour l'étude quotidienne, hebdomadaire, mensuelle, semestrielle et la préparation aux examens."],
+      trackers: ["Suivis", "Suivez les devoirs, travaux, notes et habitudes d'étude pour mieux voir les progrès."],
+      checklists: ["Listes", "Listes imprimables simples pour les révisions, fournitures scolaires et préparation de classe."],
+      schedules: ["Emplois du temps", "Organisez les cours, calendriers de devoirs, cours du week-end et cours du soir."],
+      college: ["Université", "Pages imprimables pour la préparation universitaire, les affaires de dortoir et l'organisation étudiante."],
+      readingWriting: ["Lecture et écriture", "Modèles pour notes de cours, journaux de lecture, plans de rédaction et projets."],
+    },
+    intro: "Choisir des modèles par catégorie",
+    introText: "Ces pages de catégorie regroupent les modèles similaires pour aider les élèves, parents et enseignants à trouver rapidement des ressources pour l'étude, les devoirs, les examens, la lecture ou l'université.",
+  },
+};
 
 const basicPages = {
   "zh-cn": {
@@ -1334,6 +1559,9 @@ for (const [code, cfg] of Object.entries(locales)) {
   for (const file of staticPages) {
     fs.writeFileSync(path.join(dir, file), renderBasicPage(code, cfg, file));
   }
+  for (const def of categoryDefs) {
+    fs.writeFileSync(path.join(dir, def.file), renderLocalizedCategoryPage(code, cfg, def));
+  }
 }
 
 for (const [file] of pages) {
@@ -1352,7 +1580,7 @@ const sitemapUrls = ["index.html", ...staticPages, ...categoryPages, ...pages.ma
   .map((file) => `${siteUrl}/${file}`)
   .concat(
     Object.keys(locales).flatMap((code) =>
-      ["index.html", ...staticPages, ...pages.map(([file]) => file)].map((file) => `${siteUrl}/${localePath(code, file)}`)
+      ["index.html", ...staticPages, ...categoryPages, ...pages.map(([file]) => file)].map((file) => `${siteUrl}/${localePath(code, file)}`)
     )
   );
 
@@ -1368,4 +1596,4 @@ fs.writeFileSync(
   `User-agent: *\nAllow: /\n\nSitemap: ${siteUrl}/sitemap.xml\n`
 );
 
-console.log(`Generated ${Object.keys(locales).length} locale directories with ${pages.length + staticPages.length + 1} pages each.`);
+console.log(`Generated ${Object.keys(locales).length} locale directories with ${pages.length + staticPages.length + categoryPages.length + 1} pages each.`);
