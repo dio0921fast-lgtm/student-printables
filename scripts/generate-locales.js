@@ -866,7 +866,9 @@ for (const [file] of pages) {
   }
 }
 
-const sitemapUrls = ["index.html", ...pages.map(([file]) => file)]
+const staticPages = ["about.html", "contact.html", "privacy-policy.html", "terms.html"];
+
+const sitemapUrls = ["index.html", ...staticPages, ...pages.map(([file]) => file)]
   .map((file) => `${siteUrl}/${file}`)
   .concat(
     Object.keys(locales).flatMap((code) =>
