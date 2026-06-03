@@ -394,6 +394,16 @@ function languageSwitcher(file, active) {
     .join(" ")}</nav>`;
 }
 
+function rootLanguageSwitcher(file) {
+  const items = [
+    ["en", "English", file],
+    ...Object.entries(locales).map(([code, cfg]) => [code, cfg.label, `${code}/${file}`]),
+  ];
+  return `<nav class="language-switcher" aria-label="Language selector">${items
+    .map(([code, label, href]) => `<a href="${href}" hreflang="${code}">${label}</a>`)
+    .join(" ")}</nav>`;
+}
+
 function pageDescription(cfg, title) {
   return `${title} - ${cfg.homeDescription}`;
 }
@@ -845,12 +855,408 @@ function renderPage(code, cfg, file, key) {
 `;
 }
 
+const staticPages = ["about.html", "contact.html", "privacy-policy.html", "terms.html"];
+
+const basicPages = {
+  "zh-cn": {
+    nav: ["首页", "关于", "联系", "隐私政策", "使用条款"],
+    back: "返回首页",
+    footer: "版权所有 2026 Free Printable Student Templates。保留所有权利。",
+    pages: {
+      "about.html": {
+        title: "关于 Free Printable Student Templates",
+        description: "了解 Free Printable Student Templates，一个提供学生计划表、跟踪表、清单和学习 worksheet 的免费打印资源网站。",
+        subtitle: "为学生、家长和老师提供简单实用的打印模板。",
+        sections: [
+          ["我们的目的", ["Free Printable Student Templates 的创建目标，是让学习和学校事务整理变得更简单。网站提供清晰、实用的可打印页面，用于安排学习时间、跟踪作业、准备考试、记录笔记、管理任务和保持课堂准备。", "每个模板都适合直接打印、手写填写，并且不需要账号、应用或订阅。"]],
+          ["适合谁使用", ["学生可以用它整理作业、考试和学习时间。", "家长可以用它帮助孩子建立更好的学习习惯。", "老师可以把它作为课堂、辅导或学生支持材料。", "大学生可以使用计划表、清单和学习 worksheet 来安排校园生活。"]],
+          ["如何使用模板", ["从首页选择一个模板。", "点击打印或保存为 PDF 按钮。", "打印 worksheet，或在浏览器打印窗口中保存为 PDF。", "用于个人学习、学校计划或课堂支持。"]],
+          ["联系", [`如果你有问题、修改建议或模板需求，可以发送邮件到 <a href="mailto:dio0921fast@gmail.com">dio0921fast@gmail.com</a>。`]],
+        ],
+      },
+      "contact.html": {
+        title: "联系 Free Printable Student Templates",
+        description: "联系 Free Printable Student Templates，反馈问题、纠错或提交新的学生打印模板需求。",
+        subtitle: "欢迎提出问题、纠错、反馈和模板需求。",
+        sections: [
+          ["联系我们", [`如果你对模板有问题、发现错误，或想建议新的学生打印页，可以发送邮件到 <a href="mailto:dio0921fast@gmail.com">dio0921fast@gmail.com</a>。`]],
+          ["模板需求", ["发送模板需求时，建议说明你需要的模板类型、年级或使用场景，以及希望包含哪些区域。", "例如学习计划、作业跟踪、考试准备、课堂清单、阅读记录或大学生活整理。"]],
+          ["回复说明", ["这是一个小型免费打印资源网站，所以回复可能不会非常及时。实用的纠错和模板建议都很欢迎。"]],
+        ],
+      },
+      "privacy-policy.html": {
+        title: "隐私政策",
+        description: "了解 Free Printable Student Templates 如何处理联系邮件和基础网站信息。",
+        subtitle: "关于隐私、联系邮件和基础网站信息的说明。",
+        sections: [
+          ["最后更新", ["2026 年 6 月 3 日", "Free Printable Student Templates 提供免费的学生计划表、跟踪表、清单和 worksheet。本政策说明你使用本网站时可能涉及的信息。"]],
+          ["我们收集的信息", ["本网站不要求注册账号、登录、付款或提交表单即可使用模板。", `如果你发送邮件到 <a href="mailto:dio0921fast@gmail.com">dio0921fast@gmail.com</a>，我们会收到你在邮件中主动提供的信息，例如邮箱地址、消息内容、反馈或模板需求。`, "与大多数网站一样，托管服务可能会处理基础技术信息，例如浏览器类型、设备信息、访问页面和用于网站交付及安全的流量数据。"]],
+          ["信息用途", ["回复问题、纠错、反馈或模板需求。", "维护、改进和整理学生打印资源。", "保持网站正常和安全运行。"]],
+          ["Cookie 和分析", ["本网站目前不使用账号，也不会通过 Cookie 主动收集个人信息。如果未来添加分析、广告或第三方工具，本政策应更新说明相关服务会收集什么。"]],
+          ["儿童和学生", ["模板面向学生、家长和老师，但本网站并非为了收集儿童个人信息而设计。学生发送个人信息前，应先询问家长、监护人或老师。"]],
+          ["第三方服务", ["本网站通过 GitHub Pages 发布。GitHub 可能会在托管和交付网站时处理技术信息。请查看 GitHub 的隐私信息以了解其做法。"]],
+        ],
+      },
+      "terms.html": {
+        title: "使用条款",
+        description: "阅读 Free Printable Student Templates 的使用条款，了解免费学生打印模板的允许使用范围。",
+        subtitle: "使用本网站免费学生计划表、跟踪表、清单和 worksheet 的规则。",
+        sections: [
+          ["最后更新", ["2026 年 6 月 3 日", "使用 Free Printable Student Templates 即表示你同意这些条款。如果你不同意，请不要使用本网站。"]],
+          ["允许的使用", ["你可以为个人、教育、课堂、辅导、家庭教学和学生整理目的打印、保存和使用这些模板。", "学生可以用于学校计划和学习整理。", "家长可以打印模板帮助学生建立更好的习惯。", "老师和辅导老师可以用于课堂或学生支持。"]],
+          ["不允许的使用", ["未经书面许可，不得出售模板或将其放入付费产品包。", "不得声称模板或网站内容是你自己的原创作品。", "不得复制、转载或托管这些模板，作为竞争性的模板集合。", "不得以破坏、过载或干扰网站正常运行的方式使用本网站。"]],
+          ["准确性和可用性", ["这些模板是通用整理工具。我们会尽量保持页面实用和准确，但不保证每个模板适合所有学校、课程、评分系统、作业格式或打印设置。", "网站可能随时更新、修改或暂时不可用。"]],
+          ["无担保", ["网站和模板按现状提供，不作任何形式的担保。你需要自行检查模板，并选择适合需求的打印设置。"]],
+          ["条款变更", ["这些条款可能不时更新。更新后的版本会发布在本页面，并带有新的最后更新日期。"]],
+          ["语言版本", ["如果不同语言版本之间存在差异，请以英文版本为准。"]],
+        ],
+      },
+    },
+  },
+  "zh-tw": {
+    nav: ["首頁", "關於", "聯絡", "隱私權政策", "使用條款"],
+    back: "返回首頁",
+    footer: "版權所有 2026 Free Printable Student Templates。保留所有權利。",
+    pages: {
+      "about.html": {
+        title: "關於 Free Printable Student Templates",
+        description: "了解 Free Printable Student Templates，一個提供學生計畫表、追蹤表、清單和學習 worksheet 的免費列印資源網站。",
+        subtitle: "為學生、家長和老師提供簡單實用的列印模板。",
+        sections: [
+          ["我們的目的", ["Free Printable Student Templates 的建立目標，是讓學校事務與學習整理更簡單。網站提供清楚、實用的可列印頁面，用於安排讀書時間、追蹤作業、準備考試、記錄筆記、管理任務和保持課堂準備。", "每個模板都適合直接列印、手寫填寫，而且不需要帳號、應用程式或訂閱。"]],
+          ["適合誰使用", ["學生可以用它整理作業、考試和讀書時間。", "家長可以用它幫助孩子建立更好的學習習慣。", "老師可以把它作為課堂、輔導或學生支援材料。", "大學生可以使用計畫表、清單和學習 worksheet 安排校園生活。"]],
+          ["如何使用模板", ["從首頁選擇一個模板。", "點選列印或儲存為 PDF 按鈕。", "列印 worksheet，或在瀏覽器列印視窗中儲存為 PDF。", "用於個人學習、學校計畫或課堂支援。"]],
+          ["聯絡", [`如果你有問題、修正建議或模板需求，可以寄信到 <a href="mailto:dio0921fast@gmail.com">dio0921fast@gmail.com</a>。`]],
+        ],
+      },
+      "contact.html": {
+        title: "聯絡 Free Printable Student Templates",
+        description: "聯絡 Free Printable Student Templates，回報問題、修正錯誤或提出新的學生列印模板需求。",
+        subtitle: "歡迎提出問題、修正、回饋和模板需求。",
+        sections: [
+          ["與我們聯絡", [`如果你對模板有問題、發現錯誤，或想建議新的學生列印頁，可以寄信到 <a href="mailto:dio0921fast@gmail.com">dio0921fast@gmail.com</a>。`]],
+          ["模板需求", ["寄送模板需求時，建議說明你需要的模板類型、年級或使用情境，以及希望包含哪些區域。", "例如讀書計畫、作業追蹤、考試準備、課堂清單、閱讀紀錄或大學生活整理。"]],
+          ["回覆說明", ["這是一個小型免費列印資源網站，所以回覆可能不會非常即時。實用的修正和模板建議都很歡迎。"]],
+        ],
+      },
+      "privacy-policy.html": {
+        title: "隱私權政策",
+        description: "了解 Free Printable Student Templates 如何處理聯絡郵件和基礎網站資訊。",
+        subtitle: "關於隱私、聯絡郵件和基礎網站資訊的說明。",
+        sections: [
+          ["最後更新", ["2026 年 6 月 3 日", "Free Printable Student Templates 提供免費的學生計畫表、追蹤表、清單和 worksheet。本政策說明你使用本網站時可能涉及的資訊。"]],
+          ["我們收集的資訊", ["本網站不要求註冊帳號、登入、付款或提交表單即可使用模板。", `如果你寄信到 <a href="mailto:dio0921fast@gmail.com">dio0921fast@gmail.com</a>，我們會收到你在郵件中主動提供的資訊，例如電子郵件地址、訊息內容、回饋或模板需求。`, "與大多數網站一樣，託管服務可能會處理基礎技術資訊，例如瀏覽器類型、裝置資訊、存取頁面和用於網站交付及安全的流量資料。"]],
+          ["資訊用途", ["回覆問題、修正、回饋或模板需求。", "維護、改進和整理學生列印資源。", "保持網站正常和安全運作。"]],
+          ["Cookie 和分析", ["本網站目前不使用帳號，也不會透過 Cookie 主動收集個人資訊。如果未來加入分析、廣告或第三方工具，本政策應更新說明相關服務會收集什麼。"]],
+          ["兒童和學生", ["模板面向學生、家長和老師，但本網站並非為收集兒童個人資訊而設計。學生寄送個人資訊前，應先詢問家長、監護人或老師。"]],
+          ["第三方服務", ["本網站透過 GitHub Pages 發布。GitHub 可能會在託管和交付網站時處理技術資訊。請查看 GitHub 的隱私資訊以了解其做法。"]],
+        ],
+      },
+      "terms.html": {
+        title: "使用條款",
+        description: "閱讀 Free Printable Student Templates 的使用條款，了解免費學生列印模板的允許使用範圍。",
+        subtitle: "使用本網站免費學生計畫表、追蹤表、清單和 worksheet 的規則。",
+        sections: [
+          ["最後更新", ["2026 年 6 月 3 日", "使用 Free Printable Student Templates 即表示你同意這些條款。如果你不同意，請不要使用本網站。"]],
+          ["允許的使用", ["你可以為個人、教育、課堂、輔導、家庭教學和學生整理目的列印、儲存和使用這些模板。", "學生可以用於學校計畫和學習整理。", "家長可以列印模板幫助學生建立更好的習慣。", "老師和輔導老師可以用於課堂或學生支援。"]],
+          ["不允許的使用", ["未經書面許可，不得出售模板或將其放入付費產品包。", "不得聲稱模板或網站內容是你自己的原創作品。", "不得複製、轉載或託管這些模板，作為競爭性的模板集合。", "不得以破壞、超載或干擾網站正常運作的方式使用本網站。"]],
+          ["準確性和可用性", ["這些模板是通用整理工具。我們會盡量保持頁面實用和準確，但不保證每個模板適合所有學校、課程、評分系統、作業格式或列印設定。", "網站可能隨時更新、修改或暫時不可用。"]],
+          ["無擔保", ["網站和模板按現狀提供，不作任何形式的擔保。你需要自行檢查模板，並選擇適合需求的列印設定。"]],
+          ["條款變更", ["這些條款可能不時更新。更新後的版本會發布在本頁面，並帶有新的最後更新日期。"]],
+          ["語言版本", ["如果不同語言版本之間存在差異，請以英文版本為準。"]],
+        ],
+      },
+    },
+  },
+};
+
+basicPages.ja = {
+  nav: ["ホーム", "概要", "お問い合わせ", "プライバシー", "利用規約"],
+  back: "ホームへ戻る",
+  footer: "Copyright 2026 Free Printable Student Templates. All rights reserved.",
+  pages: {
+    "about.html": {
+      title: "Free Printable Student Templates について",
+      description: "学生向けの印刷できる学習計画表、管理表、チェックリスト、学習ワークシートについて紹介します。",
+      subtitle: "学生、保護者、先生のためのシンプルで実用的な印刷テンプレートです。",
+      sections: [
+        ["目的", ["Free Printable Student Templates は、学校生活と学習の整理を簡単にするために作られました。学習時間、宿題、試験準備、ノート、課題管理、授業準備に使える印刷ページを提供しています。", "各テンプレートは、アカウント、アプリ、サブスクリプションなしで印刷して手書きで使えるように作られています。"]],
+        ["対象者", ["学習や宿題を整理したい学生。", "子どもの学習習慣づくりを支えたい保護者。", "授業や個別指導で使える印刷資料がほしい先生。", "計画表やチェックリストで学生生活を整えたい大学生。"]],
+        ["使い方", ["ホームページからテンプレートを選びます。", "印刷または PDF 保存ボタンを押します。", "印刷するか、ブラウザの印刷画面で PDF として保存します。", "個人学習、学校の計画、授業サポートに使います。"]],
+        ["お問い合わせ", [`質問、修正依頼、テンプレートの希望は <a href="mailto:dio0921fast@gmail.com">dio0921fast@gmail.com</a> までご連絡ください。`]],
+      ],
+    },
+    "contact.html": {
+      title: "お問い合わせ",
+      description: "質問、修正、フィードバック、学生向け印刷テンプレートのリクエストはこちらから。",
+      subtitle: "質問、修正、フィードバック、テンプレートのリクエストを歓迎します。",
+      sections: [
+        ["連絡先", [`テンプレートに関する質問、誤りの報告、新しい印刷ページの提案は <a href="mailto:dio0921fast@gmail.com">dio0921fast@gmail.com</a> までメールしてください。`]],
+        ["テンプレートのリクエスト", ["必要なテンプレートの種類、学年や利用場面、入れてほしい項目を書いていただくと助かります。", "例：学習計画、宿題管理、試験準備、授業用チェックリスト、読書記録、大学生活の整理など。"]],
+        ["返信について", ["小さな無料印刷リソースサイトのため、返信に時間がかかる場合があります。実用的な修正や提案は歓迎します。"]],
+      ],
+    },
+    "privacy-policy.html": {
+      title: "プライバシーポリシー",
+      description: "連絡メールと基本的なサイト情報の扱いについて説明します。",
+      subtitle: "プライバシー、連絡メール、基本的なサイト情報について。",
+      sections: [
+        ["最終更新日", ["2026年6月3日", "Free Printable Student Templates は、学生向けの無料印刷テンプレートを提供しています。このポリシーは、サイト利用時に関係する可能性がある情報について説明します。"]],
+        ["収集する情報", ["このサイトは、テンプレートを使うためにアカウント、ログイン、支払い、フォーム送信を必要としません。", `<a href="mailto:dio0921fast@gmail.com">dio0921fast@gmail.com</a> にメールを送る場合、メールアドレス、メッセージ、フィードバック、リクエストなど、あなたが送信した情報を受け取ります。`, "多くのウェブサイトと同様に、ホスティングサービスはブラウザ種類、端末情報、アクセスページ、サイト配信と安全性のための基本的な技術情報を処理する場合があります。"]],
+        ["情報の利用目的", ["質問、修正、フィードバック、テンプレートリクエストへの返信。", "学生向け印刷リソースの維持と改善。", "サイトを正常かつ安全に運営するため。"]],
+        ["Cookie と分析", ["このサイトは現在、アカウントを使用せず、Cookie による個人情報の意図的な収集も行っていません。将来、分析、広告、第三者ツールを追加する場合は、このポリシーを更新します。"]],
+        ["子どもと学生", ["テンプレートは学生、保護者、先生向けですが、このサイトは子どもの個人情報を収集する目的ではありません。学生は個人情報をメールで送る前に、保護者または先生に確認してください。"]],
+        ["第三者サービス", ["このサイトは GitHub Pages で公開されています。GitHub はホスティングと配信のために技術情報を処理する場合があります。"]],
+      ],
+    },
+    "terms.html": {
+      title: "利用規約",
+      description: "無料の学生向け印刷テンプレートの利用条件について説明します。",
+      subtitle: "このサイトの無料テンプレートを利用するためのルールです。",
+      sections: [
+        ["最終更新日", ["2026年6月3日", "Free Printable Student Templates を利用することで、この規約に同意したものとみなされます。同意しない場合はサイトを利用しないでください。"]],
+        ["許可される利用", ["個人、教育、授業、個別指導、家庭学習、学生の整理目的でテンプレートを印刷、保存、使用できます。", "学生は学校の計画と学習整理に使えます。", "保護者は学習習慣づくりのために印刷できます。", "先生やチューターは授業や学生サポートに使えます。"]],
+        ["許可されない利用", ["書面による許可なく、テンプレートを販売したり有料商品に含めたりすることはできません。", "テンプレートやサイト内容を自分のオリジナル作品として主張することはできません。", "競合するテンプレート集としてコピー、再投稿、ホストすることはできません。", "サイトの通常運営を妨害する使い方はできません。"]],
+        ["正確性と利用可能性", ["テンプレートは一般的な整理ツールです。すべての学校、授業、評価方法、課題形式、印刷設定に合うことは保証しません。", "サイトはいつでも更新、変更、一時停止される場合があります。"]],
+        ["保証なし", ["サイトとテンプレートは現状のまま提供されます。利用者はテンプレートを確認し、自分に合う印刷設定を選んでください。"]],
+        ["規約の変更", ["この規約は随時更新される場合があります。更新版はこのページに掲載されます。"]],
+        ["言語版", ["異なる言語版に差異がある場合は、英語版を優先します。"]],
+      ],
+    },
+  },
+};
+
+basicPages.ko = {
+  nav: ["홈", "소개", "문의", "개인정보", "이용약관"],
+  back: "홈으로 돌아가기",
+  footer: "Copyright 2026 Free Printable Student Templates. All rights reserved.",
+  pages: {
+    "about.html": {
+      title: "Free Printable Student Templates 소개",
+      description: "학생용 인쇄 학습 계획표, 추적표, 체크리스트와 학습 워크시트에 대해 알아보세요.",
+      subtitle: "학생, 학부모, 교사를 위한 간단하고 실용적인 인쇄 템플릿입니다.",
+      sections: [
+        ["목적", ["Free Printable Student Templates는 학교생활과 공부 정리를 더 쉽게 만들기 위해 만들어졌습니다. 학습 시간 계획, 숙제 관리, 시험 준비, 노트 작성, 과제 관리, 수업 준비에 사용할 수 있는 인쇄용 페이지를 제공합니다.", "모든 템플릿은 계정, 앱, 구독 없이 바로 인쇄하고 손으로 작성할 수 있도록 설계되었습니다."]],
+        ["대상", ["학교 공부와 숙제를 정리하고 싶은 학생.", "자녀의 학습 습관을 도와주고 싶은 학부모.", "수업이나 학생 지원에 사용할 빠른 인쇄 자료가 필요한 교사.", "계획표와 체크리스트로 대학 생활을 정리하고 싶은 대학생."]],
+        ["사용 방법", ["홈페이지에서 템플릿을 선택합니다.", "인쇄 또는 PDF 저장 버튼을 누릅니다.", "워크시트를 인쇄하거나 브라우저 인쇄 창에서 PDF로 저장합니다.", "개인 공부, 학교 계획, 수업 지원에 사용합니다."]],
+        ["문의", [`질문, 수정 요청, 템플릿 제안은 <a href="mailto:dio0921fast@gmail.com">dio0921fast@gmail.com</a> 으로 보내 주세요.`]],
+      ],
+    },
+    "contact.html": {
+      title: "문의하기",
+      description: "질문, 수정, 피드백 또는 학생용 인쇄 템플릿 요청을 보내 주세요.",
+      subtitle: "질문, 수정, 피드백, 템플릿 요청을 환영합니다.",
+      sections: [
+        ["연락처", [`템플릿에 대한 질문, 오류 제보, 새 인쇄 페이지 제안은 <a href="mailto:dio0921fast@gmail.com">dio0921fast@gmail.com</a> 으로 이메일을 보내 주세요.`]],
+        ["템플릿 요청", ["필요한 템플릿 종류, 학년 또는 사용 상황, 포함되면 좋은 항목을 적어 주시면 도움이 됩니다.", "예: 학습 계획표, 숙제 추적표, 시험 준비 자료, 수업 체크리스트, 독서 기록, 대학 생활 정리 등."]],
+        ["답변 안내", ["작은 무료 인쇄 자료 사이트이므로 답변이 즉시 오지 않을 수 있습니다. 실용적인 수정과 제안은 언제든 환영합니다."]],
+      ],
+    },
+    "privacy-policy.html": {
+      title: "개인정보 처리방침",
+      description: "연락 이메일과 기본 사이트 정보가 어떻게 처리되는지 안내합니다.",
+      subtitle: "개인정보, 연락 이메일, 기본 사이트 정보에 대한 안내입니다.",
+      sections: [
+        ["마지막 업데이트", ["2026년 6월 3일", "Free Printable Student Templates는 무료 학생용 인쇄 템플릿을 제공합니다. 이 방침은 사이트 이용 시 관련될 수 있는 정보를 설명합니다."]],
+        ["수집하는 정보", ["이 사이트는 템플릿 사용을 위해 계정, 로그인, 결제, 양식 제출을 요구하지 않습니다.", `<a href="mailto:dio0921fast@gmail.com">dio0921fast@gmail.com</a> 으로 이메일을 보내면 이메일 주소, 메시지, 피드백, 요청 등 사용자가 직접 보낸 정보를 받게 됩니다.`, "대부분의 웹사이트와 마찬가지로 호스팅 제공자는 브라우저 종류, 기기 정보, 요청 페이지, 사이트 제공과 보안을 위한 기본 기술 정보를 처리할 수 있습니다."]],
+        ["정보 사용 목적", ["질문, 수정, 피드백, 템플릿 요청에 답변하기 위해.", "학생용 인쇄 자료를 유지하고 개선하기 위해.", "사이트를 정상적이고 안전하게 운영하기 위해."]],
+        ["쿠키와 분석", ["현재 이 사이트는 계정을 사용하지 않으며 쿠키로 개인 정보를 의도적으로 수집하지 않습니다. 향후 분석, 광고, 제3자 도구가 추가되면 이 방침을 업데이트해야 합니다."]],
+        ["어린이와 학생", ["템플릿은 학생, 학부모, 교사를 위한 것이지만 이 사이트는 어린이의 개인정보를 수집하기 위해 설계되지 않았습니다. 학생은 개인정보를 이메일로 보내기 전에 보호자나 교사에게 확인해야 합니다."]],
+        ["제3자 서비스", ["이 사이트는 GitHub Pages를 통해 게시됩니다. GitHub는 사이트 호스팅과 제공을 위해 기술 정보를 처리할 수 있습니다."]],
+      ],
+    },
+    "terms.html": {
+      title: "이용약관",
+      description: "무료 학생용 인쇄 템플릿 사용 조건을 확인하세요.",
+      subtitle: "이 사이트의 무료 계획표, 추적표, 체크리스트, 워크시트를 사용하는 규칙입니다.",
+      sections: [
+        ["마지막 업데이트", ["2026년 6월 3일", "Free Printable Student Templates를 사용하면 이 약관에 동의하는 것입니다. 동의하지 않는 경우 사이트를 사용하지 마세요."]],
+        ["허용되는 사용", ["개인, 교육, 수업, 과외, 홈스쿨, 학생 정리 목적으로 템플릿을 인쇄, 저장, 사용할 수 있습니다.", "학생은 학교 계획과 공부 정리에 사용할 수 있습니다.", "학부모는 학생의 습관 형성을 돕기 위해 인쇄할 수 있습니다.", "교사와 튜터는 수업 또는 학생 지원에 사용할 수 있습니다."]],
+        ["허용되지 않는 사용", ["서면 허가 없이 템플릿을 판매하거나 유료 상품 묶음에 포함할 수 없습니다.", "템플릿이나 사이트 내용을 자신의 원작으로 주장할 수 없습니다.", "경쟁 템플릿 모음으로 복사, 재게시, 호스팅할 수 없습니다.", "사이트의 정상 운영을 방해하는 방식으로 사용할 수 없습니다."]],
+        ["정확성과 이용 가능성", ["템플릿은 일반적인 정리 도구입니다. 모든 학교, 수업, 평가 방식, 과제 형식, 인쇄 설정에 맞는다고 보장하지 않습니다.", "사이트는 언제든 업데이트, 변경 또는 일시적으로 중단될 수 있습니다."]],
+        ["보증 없음", ["사이트와 템플릿은 있는 그대로 제공됩니다. 사용자는 템플릿을 검토하고 필요한 인쇄 설정을 선택해야 합니다."]],
+        ["약관 변경", ["이 약관은 때때로 업데이트될 수 있으며, 업데이트된 버전은 이 페이지에 게시됩니다."]],
+        ["언어 버전", ["언어 버전 간 차이가 있는 경우 영어 버전이 우선합니다."]],
+      ],
+    },
+  },
+};
+
+basicPages.es = {
+  nav: ["Inicio", "Acerca de", "Contacto", "Privacidad", "Términos"],
+  back: "Volver al inicio",
+  footer: "Copyright 2026 Free Printable Student Templates. All rights reserved.",
+  pages: {
+    "about.html": {
+      title: "Acerca de Free Printable Student Templates",
+      description: "Conoce Free Printable Student Templates, una colección de planificadores, rastreadores, listas y hojas de estudio imprimibles para estudiantes.",
+      subtitle: "Plantillas imprimibles simples y prácticas para estudiantes, familias y docentes.",
+      sections: [
+        ["Nuestro propósito", ["Free Printable Student Templates fue creado para facilitar la organización escolar. El sitio ofrece páginas imprimibles claras y prácticas para planificar el estudio, seguir tareas, preparar exámenes, tomar notas, gestionar trabajos y llegar listo a clase.", "Cada plantilla está diseñada para imprimirse fácilmente, completarse a mano y usarse sin cuenta, aplicación ni suscripción."]],
+        ["Para quién es", ["Estudiantes que quieren organizar trabajos escolares y tiempo de estudio.", "Familias que ayudan a crear mejores hábitos de tarea y planificación.", "Docentes que necesitan recursos imprimibles rápidos para clase o apoyo estudiantil.", "Estudiantes universitarios que buscan planificadores, listas y hojas de estudio."]],
+        ["Cómo usar las plantillas", ["Elige una plantilla desde la página principal.", "Haz clic en imprimir o guardar como PDF.", "Imprime la hoja o guárdala como PDF desde el navegador.", "Úsala para estudio personal, planificación escolar o apoyo en clase."]],
+        ["Contacto", [`Si tienes una pregunta, corrección o solicitud de plantilla, escribe a <a href="mailto:dio0921fast@gmail.com">dio0921fast@gmail.com</a>.`]],
+      ],
+    },
+    "contact.html": {
+      title: "Contacto",
+      description: "Contacta con Free Printable Student Templates para preguntas, correcciones, comentarios o solicitudes de plantillas.",
+      subtitle: "Preguntas, correcciones, comentarios y solicitudes de plantillas son bienvenidos.",
+      sections: [
+        ["Ponte en contacto", [`Si tienes una pregunta sobre una plantilla, ves un error o quieres sugerir una nueva página imprimible, escribe a <a href="mailto:dio0921fast@gmail.com">dio0921fast@gmail.com</a>.`]],
+        ["Solicitudes de plantillas", ["Al enviar una solicitud, ayuda incluir el tipo de imprimible, el nivel o caso de uso y las secciones que quieres incluir.", "Por ejemplo: planificadores de estudio, seguimiento de tareas, preparación de exámenes, listas de clase, registro de lectura u organización universitaria."]],
+        ["Nota de respuesta", ["Este es un sitio pequeño de recursos imprimibles gratuitos, por lo que las respuestas pueden no ser inmediatas. Las correcciones útiles y las ideas prácticas son bienvenidas."]],
+      ],
+    },
+    "privacy-policy.html": {
+      title: "Política de privacidad",
+      description: "Lee cómo Free Printable Student Templates maneja correos de contacto e información básica del sitio.",
+      subtitle: "Cómo se maneja la privacidad, los correos de contacto y la información básica del sitio.",
+      sections: [
+        ["Última actualización", ["3 de junio de 2026", "Free Printable Student Templates ofrece planificadores, rastreadores, listas y hojas imprimibles gratuitas para estudiantes. Esta política explica qué información puede estar relacionada con el uso del sitio."]],
+        ["Información que recopilamos", ["Este sitio no requiere cuentas, inicios de sesión, pagos ni formularios para usar las plantillas.", `Si nos escribes a <a href="mailto:dio0921fast@gmail.com">dio0921fast@gmail.com</a>, recibimos la información que decides incluir, como tu correo, mensaje, comentarios o solicitud de plantilla.`, "Como la mayoría de los sitios, el proveedor de alojamiento puede procesar información técnica básica, como navegador, dispositivo, páginas solicitadas y datos necesarios para entregar y proteger el sitio."]],
+        ["Cómo se usa la información", ["Para responder preguntas, correcciones, comentarios o solicitudes.", "Para mantener, mejorar y organizar recursos imprimibles para estudiantes.", "Para mantener el sitio funcionando de forma segura."]],
+        ["Cookies y analíticas", ["Actualmente este sitio no usa cuentas ni recopila intencionalmente información personal mediante cookies. Si en el futuro se agregan analíticas, anuncios o herramientas de terceros, esta política debe actualizarse."]],
+        ["Niños y estudiantes", ["Las plantillas son para estudiantes, familias y docentes, pero el sitio no está diseñado para recopilar información personal de niños. Los estudiantes deben preguntar a un padre, tutor o docente antes de enviar información personal por correo."]],
+        ["Servicios de terceros", ["Este sitio se publica con GitHub Pages. GitHub puede procesar información técnica como parte del alojamiento y entrega del sitio."]],
+      ],
+    },
+    "terms.html": {
+      title: "Términos de uso",
+      description: "Lee los términos de uso de las plantillas imprimibles gratuitas para estudiantes.",
+      subtitle: "Reglas para usar los planificadores, rastreadores, listas y hojas imprimibles gratuitas de este sitio.",
+      sections: [
+        ["Última actualización", ["3 de junio de 2026", "Al usar Free Printable Student Templates, aceptas estos términos. Si no estás de acuerdo, no uses el sitio."]],
+        ["Uso permitido", ["Puedes imprimir, guardar y usar las plantillas para fines personales, educativos, de clase, tutoría, educación en casa y organización estudiantil.", "Los estudiantes pueden usarlas para planificación escolar y organización del estudio.", "Las familias pueden imprimirlas para ayudar a crear mejores rutinas.", "Docentes y tutores pueden usarlas para clase o apoyo estudiantil."]],
+        ["No permitido", ["Sin permiso escrito, no puedes vender las plantillas ni incluirlas en un producto pagado.", "No puedes reclamar las plantillas o el contenido como obra original propia.", "No puedes copiar, republicar u hospedar las plantillas como una colección competidora.", "No puedes usar el sitio de forma que dañe o interfiera con su funcionamiento."]],
+        ["Exactitud y disponibilidad", ["Las plantillas son herramientas generales de organización. No garantizamos que cada plantilla se ajuste a toda escuela, clase, sistema de calificación, formato de tarea o configuración de impresión.", "El sitio puede actualizarse, cambiar o estar temporalmente no disponible."]],
+        ["Sin garantía", ["El sitio y las plantillas se proporcionan tal como están. Tú eres responsable de revisar cada plantilla y elegir la configuración de impresión adecuada."]],
+        ["Cambios en los términos", ["Estos términos pueden actualizarse ocasionalmente. La versión actualizada se publicará en esta página."]],
+        ["Versiones de idioma", ["Si hay diferencias entre versiones de idioma, prevalece la versión en inglés."]],
+      ],
+    },
+  },
+};
+
+basicPages.fr = {
+  nav: ["Accueil", "À propos", "Contact", "Confidentialité", "Conditions"],
+  back: "Retour à l'accueil",
+  footer: "Copyright 2026 Free Printable Student Templates. All rights reserved.",
+  pages: {
+    "about.html": {
+      title: "À propos de Free Printable Student Templates",
+      description: "Découvrez Free Printable Student Templates, une collection de plannings, suivis, listes et fiches d'étude imprimables pour les élèves.",
+      subtitle: "Des modèles imprimables simples et pratiques pour les élèves, parents et enseignants.",
+      sections: [
+        ["Notre objectif", ["Free Printable Student Templates a été créé pour simplifier l'organisation scolaire. Le site propose des pages imprimables claires et pratiques pour planifier le temps d'étude, suivre les devoirs, préparer les examens, prendre des notes, gérer les travaux et rester prêt pour la classe.", "Chaque modèle est conçu pour être facile à imprimer, simple à remplir à la main et utile sans compte, application ou abonnement."]],
+        ["Pour qui", ["Les élèves qui veulent organiser leurs devoirs et leur temps d'étude.", "Les parents qui aident leurs enfants à créer de meilleures habitudes.", "Les enseignants qui veulent des ressources imprimables rapides pour la classe ou le soutien.", "Les étudiants qui cherchent des plannings, listes et fiches d'étude."]],
+        ["Comment utiliser les modèles", ["Choisissez un modèle depuis la page d'accueil.", "Cliquez sur imprimer ou enregistrer en PDF.", "Imprimez la fiche ou enregistrez-la en PDF depuis le navigateur.", "Utilisez-la pour l'étude personnelle, l'organisation scolaire ou le soutien en classe."]],
+        ["Contact", [`Pour une question, correction ou demande de modèle, écrivez à <a href="mailto:dio0921fast@gmail.com">dio0921fast@gmail.com</a>.`]],
+      ],
+    },
+    "contact.html": {
+      title: "Contact",
+      description: "Contactez Free Printable Student Templates pour des questions, corrections, commentaires ou demandes de modèles.",
+      subtitle: "Questions, corrections, commentaires et demandes de modèles sont les bienvenus.",
+      sections: [
+        ["Nous contacter", [`Si vous avez une question sur un modèle, remarquez une erreur ou souhaitez proposer une nouvelle fiche imprimable, écrivez à <a href="mailto:dio0921fast@gmail.com">dio0921fast@gmail.com</a>.`]],
+        ["Demandes de modèles", ["Lors d'une demande, indiquez le type de fiche souhaité, le niveau ou l'usage, ainsi que les sections à inclure.", "Par exemple : plannings d'étude, suivi des devoirs, préparation aux examens, listes de classe, journal de lecture ou organisation universitaire."]],
+        ["Note de réponse", ["Ce site est une petite ressource gratuite, les réponses peuvent donc ne pas être immédiates. Les corrections utiles et les idées pratiques sont appréciées."]],
+      ],
+    },
+    "privacy-policy.html": {
+      title: "Politique de confidentialité",
+      description: "Découvrez comment Free Printable Student Templates traite les e-mails de contact et les informations de base du site.",
+      subtitle: "Gestion de la confidentialité, des e-mails de contact et des informations de base du site.",
+      sections: [
+        ["Dernière mise à jour", ["3 juin 2026", "Free Printable Student Templates propose des plannings, suivis, listes et fiches imprimables gratuits pour les élèves. Cette politique explique quelles informations peuvent être concernées lorsque vous utilisez le site."]],
+        ["Informations collectées", ["Ce site ne nécessite pas de compte, connexion, paiement ou formulaire pour utiliser les modèles.", `Si vous écrivez à <a href="mailto:dio0921fast@gmail.com">dio0921fast@gmail.com</a>, nous recevons les informations que vous choisissez d'inclure, comme votre adresse e-mail, message, commentaire ou demande.`, "Comme la plupart des sites, l'hébergeur peut traiter des informations techniques de base, comme le navigateur, l'appareil, les pages demandées et les données nécessaires à la livraison et à la protection du site."]],
+        ["Utilisation des informations", ["Répondre aux questions, corrections, commentaires ou demandes.", "Maintenir, améliorer et organiser les ressources imprimables pour élèves.", "Assurer le bon fonctionnement et la sécurité du site."]],
+        ["Cookies et analyses", ["Ce site n'utilise actuellement pas de comptes et ne collecte pas volontairement d'informations personnelles via des cookies. Si des outils d'analyse, publicitaires ou tiers sont ajoutés plus tard, cette politique devra être mise à jour."]],
+        ["Enfants et élèves", ["Les modèles sont destinés aux élèves, parents et enseignants, mais le site n'est pas conçu pour collecter des informations personnelles d'enfants. Les élèves doivent demander à un parent, tuteur ou enseignant avant d'envoyer des informations personnelles par e-mail."]],
+        ["Services tiers", ["Ce site est publié avec GitHub Pages. GitHub peut traiter des informations techniques dans le cadre de l'hébergement et de la livraison du site."]],
+      ],
+    },
+    "terms.html": {
+      title: "Conditions d'utilisation",
+      description: "Lisez les conditions d'utilisation des modèles imprimables gratuits pour élèves.",
+      subtitle: "Règles d'utilisation des plannings, suivis, listes et fiches imprimables gratuits de ce site.",
+      sections: [
+        ["Dernière mise à jour", ["3 juin 2026", "En utilisant Free Printable Student Templates, vous acceptez ces conditions. Si vous n'êtes pas d'accord, veuillez ne pas utiliser le site."]],
+        ["Utilisation autorisée", ["Vous pouvez imprimer, enregistrer et utiliser les modèles à des fins personnelles, éducatives, scolaires, de tutorat, d'enseignement à domicile et d'organisation étudiante.", "Les élèves peuvent les utiliser pour organiser leurs études.", "Les parents peuvent les imprimer pour aider à créer de meilleures routines.", "Les enseignants et tuteurs peuvent les utiliser pour la classe ou le soutien."]],
+        ["Utilisation non autorisée", ["Sans permission écrite, vous ne pouvez pas vendre les modèles ni les inclure dans un produit payant.", "Vous ne pouvez pas revendiquer les modèles ou le contenu comme votre propre création.", "Vous ne pouvez pas copier, republier ou héberger les modèles comme collection concurrente.", "Vous ne pouvez pas utiliser le site d'une manière qui nuit à son fonctionnement normal."]],
+        ["Exactitude et disponibilité", ["Les modèles sont des outils généraux d'organisation. Nous ne garantissons pas qu'ils conviennent à chaque école, cours, système de notation, format de devoir ou configuration d'impression.", "Le site peut être mis à jour, modifié ou temporairement indisponible."]],
+        ["Aucune garantie", ["Le site et les modèles sont fournis tels quels. Vous êtes responsable de vérifier chaque modèle et de choisir les paramètres d'impression adaptés."]],
+        ["Modifications des conditions", ["Ces conditions peuvent être mises à jour de temps à autre. La version mise à jour sera publiée sur cette page."]],
+        ["Versions linguistiques", ["En cas de différence entre les versions linguistiques, la version anglaise prévaut."]],
+      ],
+    },
+  },
+};
+
+function renderBasicSections(sections) {
+  return sections.map(([heading, paragraphs]) => `<section class="card">
+      <h2>${esc(heading)}</h2>
+      ${paragraphs.map((text) => `<p>${text}</p>`).join("\n      ")}
+    </section>`).join("\n\n    ");
+}
+
+function localizedSiteNav(text) {
+  const [home, about, contact, privacy, termsLabel] = text.nav;
+  return `<nav class="site-nav" aria-label="Site navigation">
+    <a href="index.html">${esc(home)}</a>
+    <a href="about.html">${esc(about)}</a>
+    <a href="contact.html">${esc(contact)}</a>
+    <a href="privacy-policy.html">${esc(privacy)}</a>
+    <a href="terms.html">${esc(termsLabel)}</a>
+  </nav>`;
+}
+
+function renderBasicPage(code, cfg, file) {
+  const text = basicPages[code];
+  const page = text.pages[file];
+  return `<!DOCTYPE html>
+<html lang="${cfg.htmlLang}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>${esc(page.title)}</title>
+  <meta name="description" content="${esc(page.description)}" />
+  ${altLinks(file, code)}
+  <link rel="stylesheet" href="../template-page.css" />
+</head>
+<body>
+  <header>
+    <h1>${esc(page.title)}</h1>
+    <p>${esc(page.subtitle)}</p>
+  </header>
+
+  ${localizedSiteNav(text)}
+  ${languageSwitcher(file, code)}
+
+  <main>
+    ${renderBasicSections(page.sections)}
+
+    <section class="card">
+      <a class="button" href="index.html">${esc(text.back)}</a>
+    </section>
+  </main>
+
+  <footer>${esc(text.footer)}</footer>
+</body>
+</html>
+`;
+}
+
 for (const [code, cfg] of Object.entries(locales)) {
   const dir = path.join(root, cfg.dir);
   fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(path.join(dir, "index.html"), renderIndex(code, cfg));
   for (const [file, , key] of pages) {
     fs.writeFileSync(path.join(dir, file), renderPage(code, cfg, file, key));
+  }
+  for (const file of staticPages) {
+    fs.writeFileSync(path.join(dir, file), renderBasicPage(code, cfg, file));
   }
 }
 
@@ -866,13 +1272,11 @@ for (const [file] of pages) {
   }
 }
 
-const staticPages = ["about.html", "contact.html", "privacy-policy.html", "terms.html"];
-
 const sitemapUrls = ["index.html", ...staticPages, ...pages.map(([file]) => file)]
   .map((file) => `${siteUrl}/${file}`)
   .concat(
     Object.keys(locales).flatMap((code) =>
-      ["index.html", ...pages.map(([file]) => file)].map((file) => `${siteUrl}/${localePath(code, file)}`)
+      ["index.html", ...staticPages, ...pages.map(([file]) => file)].map((file) => `${siteUrl}/${localePath(code, file)}`)
     )
   );
 
@@ -888,4 +1292,4 @@ fs.writeFileSync(
   `User-agent: *\nAllow: /\n\nSitemap: ${siteUrl}/sitemap.xml\n`
 );
 
-console.log(`Generated ${Object.keys(locales).length} locale directories with ${pages.length + 1} pages each.`);
+console.log(`Generated ${Object.keys(locales).length} locale directories with ${pages.length + staticPages.length + 1} pages each.`);
