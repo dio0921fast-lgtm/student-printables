@@ -24,6 +24,16 @@ const pages = [
   ["test-prep-planner-printable.html", "Test Prep Planner Printable", "test prep planner"],
   ["semester-planner-printable.html", "Semester Planner Printable", "semester planner"],
   ["assignment-calendar-printable.html", "Assignment Calendar Printable", "assignment calendar"],
+  ["student-planner-printable.html", "Student Planner Printable", "student planner"],
+  ["weekly-homework-planner.html", "Weekly Homework Planner", "weekly homework planner"],
+  ["exam-revision-timetable.html", "Exam Revision Timetable", "exam revision timetable"],
+  ["study-checklist-printable.html", "Study Checklist Printable", "study checklist"],
+  ["grade-calculator-worksheet.html", "Grade Calculator Worksheet", "grade calculator worksheet"],
+  ["class-attendance-tracker.html", "Class Attendance Tracker", "class attendance tracker"],
+  ["vocabulary-worksheet.html", "Vocabulary Worksheet", "vocabulary worksheet"],
+  ["book-report-template.html", "Book Report Template", "book report template"],
+  ["cornell-notes-template.html", "Cornell Notes Template", "cornell notes template"],
+  ["assignment-planner.html", "Assignment Planner", "assignment planner"],
 ];
 
 const locales = {
@@ -353,6 +363,85 @@ const locales = {
   },
 };
 
+const extraTitles = {
+  "zh-cn": {
+    "student planner": "学生计划表打印版",
+    "weekly homework planner": "每周作业计划表",
+    "exam revision timetable": "考试复习时间表",
+    "study checklist": "学习清单打印版",
+    "grade calculator worksheet": "成绩计算表",
+    "class attendance tracker": "课堂出勤跟踪表",
+    "vocabulary worksheet": "词汇练习表",
+    "book report template": "读书报告模板",
+    "cornell notes template": "康奈尔笔记模板",
+    "assignment planner": "作业计划表",
+  },
+  "zh-tw": {
+    "student planner": "學生計畫表列印版",
+    "weekly homework planner": "每週作業計畫表",
+    "exam revision timetable": "考試複習時間表",
+    "study checklist": "讀書清單列印版",
+    "grade calculator worksheet": "成績計算表",
+    "class attendance tracker": "課堂出勤追蹤表",
+    "vocabulary worksheet": "詞彙練習表",
+    "book report template": "讀書報告模板",
+    "cornell notes template": "康乃爾筆記模板",
+    "assignment planner": "作業計畫表",
+  },
+  ja: {
+    "student planner": "学生プランナー",
+    "weekly homework planner": "週間宿題プランナー",
+    "exam revision timetable": "試験復習時間割",
+    "study checklist": "学習チェックリスト",
+    "grade calculator worksheet": "成績計算ワークシート",
+    "class attendance tracker": "出席管理表",
+    "vocabulary worksheet": "語彙ワークシート",
+    "book report template": "読書感想レポートテンプレート",
+    "cornell notes template": "コーネルノートテンプレート",
+    "assignment planner": "課題プランナー",
+  },
+  ko: {
+    "student planner": "학생 계획표",
+    "weekly homework planner": "주간 숙제 계획표",
+    "exam revision timetable": "시험 복습 시간표",
+    "study checklist": "학습 체크리스트",
+    "grade calculator worksheet": "성적 계산 워크시트",
+    "class attendance tracker": "수업 출석 추적표",
+    "vocabulary worksheet": "어휘 워크시트",
+    "book report template": "독후감 보고서 템플릿",
+    "cornell notes template": "코넬 노트 템플릿",
+    "assignment planner": "과제 계획표",
+  },
+  es: {
+    "student planner": "Planificador estudiantil imprimible",
+    "weekly homework planner": "Planificador semanal de tareas",
+    "exam revision timetable": "Horario de repaso para exámenes",
+    "study checklist": "Lista de estudio imprimible",
+    "grade calculator worksheet": "Hoja para calcular calificaciones",
+    "class attendance tracker": "Registro de asistencia a clase",
+    "vocabulary worksheet": "Hoja de vocabulario",
+    "book report template": "Plantilla de informe de libro",
+    "cornell notes template": "Plantilla de apuntes Cornell",
+    "assignment planner": "Planificador de trabajos",
+  },
+  fr: {
+    "student planner": "Planning étudiant imprimable",
+    "weekly homework planner": "Planning hebdomadaire des devoirs",
+    "exam revision timetable": "Emploi du temps de révision",
+    "study checklist": "Liste d'étude imprimable",
+    "grade calculator worksheet": "Fiche de calcul des notes",
+    "class attendance tracker": "Suivi de présence en classe",
+    "vocabulary worksheet": "Fiche de vocabulaire",
+    "book report template": "Modèle de fiche de lecture",
+    "cornell notes template": "Modèle de notes Cornell",
+    "assignment planner": "Planificateur de devoirs",
+  },
+};
+
+for (const [code, titles] of Object.entries(extraTitles)) {
+  Object.assign(locales[code].titles, titles);
+}
+
 function esc(value) {
   return String(value)
     .replace(/&/g, "&amp;")
@@ -507,6 +596,25 @@ Object.assign(terms.fr, {
   "Saturday": "Samedi", "Sunday": "Dimanche", "Period 6": "Période 6", "Period 7": "Période 7", "Period 8": "Période 8", "Evening class": "Cours du soir"
 });
 
+Object.assign(terms["zh-cn"], {
+  "Class reminders": "课堂提醒", "Estimated Time": "预计时间", "Assignment": "作业", "Weight": "权重", "Current grade": "当前成绩", "Goal grade": "目标成绩", "Next step": "下一步", "Present": "出勤", "Absent": "缺勤", "Late": "迟到", "Unit:": "单元：", "Word": "单词", "Definition": "释义", "Example Sentence": "例句", "Author": "作者", "Main characters": "主要人物", "Setting": "背景", "Summary": "摘要", "Favorite part": "喜欢的部分", "New words": "新词", "Cue column": "提示栏", "Assignment:": "作业：", "Assignment goal": "作业目标", "Step": "步骤", "Ask questions": "提出问题", "Pack supplies": "准备用品", "Check deadlines": "检查截止日期"
+});
+Object.assign(terms["zh-tw"], {
+  "Class reminders": "課堂提醒", "Estimated Time": "預估時間", "Assignment": "作業", "Weight": "權重", "Current grade": "目前成績", "Goal grade": "目標成績", "Next step": "下一步", "Present": "出勤", "Absent": "缺勤", "Late": "遲到", "Unit:": "單元：", "Word": "單字", "Definition": "釋義", "Example Sentence": "例句", "Author": "作者", "Main characters": "主要人物", "Setting": "背景", "Summary": "摘要", "Favorite part": "喜歡的部分", "New words": "新詞", "Cue column": "提示欄", "Assignment:": "作業：", "Assignment goal": "作業目標", "Step": "步驟", "Ask questions": "提出問題", "Pack supplies": "準備用品", "Check deadlines": "檢查截止日期"
+});
+Object.assign(terms.ja, {
+  "Class reminders": "授業のリマインダー", "Estimated Time": "予定時間", "Assignment": "課題", "Weight": "配点", "Current grade": "現在の成績", "Goal grade": "目標成績", "Next step": "次のステップ", "Present": "出席", "Absent": "欠席", "Late": "遅刻", "Unit:": "単元：", "Word": "単語", "Definition": "意味", "Example Sentence": "例文", "Author": "著者", "Main characters": "登場人物", "Setting": "設定", "Summary": "要約", "Favorite part": "好きな部分", "New words": "新しい言葉", "Cue column": "キュー欄", "Assignment:": "課題：", "Assignment goal": "課題の目標", "Step": "手順", "Ask questions": "質問する", "Pack supplies": "持ち物を準備", "Check deadlines": "締め切り確認"
+});
+Object.assign(terms.ko, {
+  "Class reminders": "수업 알림", "Estimated Time": "예상 시간", "Assignment": "과제", "Weight": "비중", "Current grade": "현재 성적", "Goal grade": "목표 성적", "Next step": "다음 단계", "Present": "출석", "Absent": "결석", "Late": "지각", "Unit:": "단원:", "Word": "단어", "Definition": "뜻", "Example Sentence": "예문", "Author": "저자", "Main characters": "주요 인물", "Setting": "배경", "Summary": "요약", "Favorite part": "좋았던 부분", "New words": "새 단어", "Cue column": "단서 칸", "Assignment:": "과제:", "Assignment goal": "과제 목표", "Step": "단계", "Ask questions": "질문하기", "Pack supplies": "준비물 챙기기", "Check deadlines": "마감일 확인"
+});
+Object.assign(terms.es, {
+  "Class reminders": "Recordatorios de clase", "Estimated Time": "Tiempo estimado", "Assignment": "Trabajo", "Weight": "Peso", "Current grade": "Nota actual", "Goal grade": "Nota meta", "Next step": "Siguiente paso", "Present": "Presente", "Absent": "Ausente", "Late": "Tarde", "Unit:": "Unidad:", "Word": "Palabra", "Definition": "Definición", "Example Sentence": "Oración de ejemplo", "Author": "Autor", "Main characters": "Personajes principales", "Setting": "Escenario", "Summary": "Resumen", "Favorite part": "Parte favorita", "New words": "Palabras nuevas", "Cue column": "Columna de pistas", "Assignment:": "Trabajo:", "Assignment goal": "Meta del trabajo", "Step": "Paso", "Ask questions": "Hacer preguntas", "Pack supplies": "Preparar materiales", "Check deadlines": "Revisar fechas límite"
+});
+Object.assign(terms.fr, {
+  "Class reminders": "Rappels de cours", "Estimated Time": "Temps estimé", "Assignment": "Devoir", "Weight": "Coefficient", "Current grade": "Note actuelle", "Goal grade": "Note objectif", "Next step": "Prochaine étape", "Present": "Présent", "Absent": "Absent", "Late": "En retard", "Unit:": "Unité :", "Word": "Mot", "Definition": "Définition", "Example Sentence": "Phrase exemple", "Author": "Auteur", "Main characters": "Personnages principaux", "Setting": "Cadre", "Summary": "Résumé", "Favorite part": "Partie préférée", "New words": "Nouveaux mots", "Cue column": "Colonne indices", "Assignment:": "Devoir :", "Assignment goal": "Objectif du devoir", "Step": "Étape", "Ask questions": "Poser des questions", "Pack supplies": "Préparer le matériel", "Check deadlines": "Vérifier les échéances"
+});
+
 function tr(code, value) {
   return (terms[code] && terms[code][value]) || value;
 }
@@ -561,6 +669,16 @@ function renderWorksheet(code, cfg, key, title) {
     "test prep planner": () => `${fieldRow(code, ["Subject:", "Exam date:", "Target grade:"])}\n        ${table(code, ["Topic", "Review Task", "Practice Needed", "Confidence", "Done"], blankRows(5, 5))}`,
     "semester planner": () => `${fieldRow(code, ["Semester:", "Main goal:", "Start date:"])}\n        ${table(code, ["Course", "Teacher", "Due Date", "Target grade", "Notes"], blankRows(5, 5))}`,
     "assignment calendar": () => `${fieldRow(code, ["Week of:", "Student:", "Top goal:"])}\n        ${table(code, ["Day", "Task", "Exam date", "Priority", "Done"], [["Monday"], ["Tuesday"], ["Wednesday"], ["Thursday"], ["Friday"], ["Saturday"], ["Sunday"]])}`,
+    "student planner": () => `${fieldRow(code, ["Student:", "Week of:", "Main goal:"])}\n        ${boxes(code, [["Top priorities"], ["Class reminders"], ["Homework due"], ["Notes and reminders"]])}\n        ${table(code, ["Day", "Task", "Priority", "Done"], [["Monday"], ["Tuesday"], ["Wednesday"], ["Thursday"], ["Friday"], ["Saturday"], ["Sunday"]])}`,
+    "weekly homework planner": () => `${fieldRow(code, ["Week of:", "Student:", "Class:"])}\n        ${table(code, ["Day", "Homework", "Due Date", "Estimated Time", "Done"], [["Monday"], ["Tuesday"], ["Wednesday"], ["Thursday"], ["Friday"], ["Saturday"], ["Sunday"]])}`,
+    "exam revision timetable": () => `${fieldRow(code, ["Subject:", "Exam date:", "Target grade:"])}\n        ${table(code, ["Date", "Time", "Topic", "Review Task", "Done"], blankRows(7, 5))}`,
+    "study checklist": () => `${fieldRow(code, ["Subject:", "Date:", "Goal:"])}\n        ${checklist(code, ["Review notes", "Finish homework", "Read or practice", "Practice sample questions", "Memorize key terms", "Ask questions", "Pack supplies", "Check deadlines"], { boxes: true })}`,
+    "grade calculator worksheet": () => `${fieldRow(code, ["Class:", "Term:", "Target grade:"])}\n        ${table(code, ["Assignment", "Score", "Possible", "Weight", "Notes"], blankRows(7, 5))}\n        ${boxes(code, [["Current grade"], ["Goal grade"], ["Next step"]])}`,
+    "class attendance tracker": () => `${fieldRow(code, ["Class:", "Month:", "Teacher:"])}\n        ${table(code, ["Date", "Present", "Absent", "Late", "Notes"], blankRows(10, 5))}`,
+    "vocabulary worksheet": () => `${fieldRow(code, ["Subject:", "Unit:", "Date:"])}\n        ${table(code, ["Word", "Definition", "Example Sentence", "Review"], blankRows(8, 4))}`,
+    "book report template": () => `${fieldRow(code, ["Student:", "Book:", "Date:"])}\n        ${boxes(code, [["Author"], ["Main characters"], ["Setting"], ["Summary"], ["Favorite part"], ["New words"]])}`,
+    "cornell notes template": () => `${fieldRow(code, ["Course:", "Date:", "Topic:"])}\n        ${boxes(code, [["Cue column"], ["Main notes"], ["Summary"], ["Questions"]])}`,
+    "assignment planner": () => `${fieldRow(code, ["Assignment:", "Class:", "Due date:"])}\n        ${boxes(code, [["Assignment goal"], ["Materials or sources"]])}\n        ${table(code, ["Step", "Task", "Due Date", "Done"], blankRows(6, 4))}`,
   };
   return `${sheetTitle}\n        ${common[key]()}`;
 }
@@ -1007,7 +1125,7 @@ const categoryDefs = [
   {
     id: "studyPlanners",
     file: "study-planners.html",
-    count: 6,
+    count: 10,
     templates: [
       ["weekly-study-planner-printable.html", "weekly study planner"],
       ["daily-study-planner-printable.html", "daily study planner"],
@@ -1015,26 +1133,33 @@ const categoryDefs = [
       ["semester-planner-printable.html", "semester planner"],
       ["study-schedule-template.html", "study schedule"],
       ["test-prep-planner-printable.html", "test prep planner"],
+      ["student-planner-printable.html", "student planner"],
+      ["weekly-homework-planner.html", "weekly homework planner"],
+      ["exam-revision-timetable.html", "exam revision timetable"],
+      ["assignment-planner.html", "assignment planner"],
     ],
   },
   {
     id: "trackers",
     file: "trackers.html",
-    count: 4,
+    count: 6,
     templates: [
       ["homework-tracker-printable.html", "homework tracker"],
       ["assignment-tracker-printable.html", "assignment tracker"],
       ["grade-tracker-printable.html", "grade tracker"],
       ["study-habit-tracker-printable.html", "study habit tracker"],
+      ["grade-calculator-worksheet.html", "grade calculator worksheet"],
+      ["class-attendance-tracker.html", "class attendance tracker"],
     ],
   },
   {
     id: "checklists",
     file: "checklists.html",
-    count: 2,
+    count: 3,
     templates: [
       ["exam-study-checklist.html", "exam study checklist"],
       ["school-supplies-checklist.html", "school supplies checklist"],
+      ["study-checklist-printable.html", "study checklist"],
     ],
   },
   {
@@ -1055,12 +1180,15 @@ const categoryDefs = [
   {
     id: "readingWriting",
     file: "reading-writing-printables.html",
-    count: 4,
+    count: 7,
     templates: [
       ["class-notes-template.html", "class notes"],
       ["reading-log-printable.html", "reading log"],
       ["essay-planner-template.html", "essay planner"],
       ["project-planner-printable.html", "project planner"],
+      ["vocabulary-worksheet.html", "vocabulary worksheet"],
+      ["book-report-template.html", "book report template"],
+      ["cornell-notes-template.html", "cornell notes template"],
     ],
   },
 ];
