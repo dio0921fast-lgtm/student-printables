@@ -128,6 +128,18 @@
       border-color: #d4e8ff;
       background: linear-gradient(180deg, #ffffff 0%, #f9fdff 100%);
     }
+    .card-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 12px;
+      border-radius: 8px;
+      background: #e6f7f4;
+      color: #0f8f8c;
+      font-size: 22px;
+      font-weight: 900;
+    }
     .grid .card:nth-child(4n + 2) {
       border-top-color: #ff8fab;
       background: linear-gradient(180deg, #ffffff 0%, #fff7fb 100%);
@@ -139,6 +151,60 @@
     .grid .card:nth-child(4n) {
       border-top-color: #9b8cff;
       background: linear-gradient(180deg, #ffffff 0%, #f7f4ff 100%);
+    }
+    .grid .template-card.category-study-planners {
+      border-top-color: #34c6bd;
+      background: linear-gradient(180deg, #ffffff 0%, #f2fffc 100%);
+    }
+    .grid .template-card.category-study-planners .card-icon,
+    .grid .template-card.category-study-planners .tag {
+      color: #0f8f8c;
+      background: #e6f7f4;
+    }
+    .grid .template-card.category-trackers {
+      border-top-color: #2457d6;
+      background: linear-gradient(180deg, #ffffff 0%, #f3f7ff 100%);
+    }
+    .grid .template-card.category-trackers .card-icon,
+    .grid .template-card.category-trackers .tag {
+      color: #2457d6;
+      background: #e8f0ff;
+    }
+    .grid .template-card.category-checklists {
+      border-top-color: #ff8fab;
+      background: linear-gradient(180deg, #ffffff 0%, #fff7fb 100%);
+    }
+    .grid .template-card.category-checklists .card-icon,
+    .grid .template-card.category-checklists .tag {
+      color: #c2415d;
+      background: #fff0f5;
+    }
+    .grid .template-card.category-schedules {
+      border-top-color: #f6c453;
+      background: linear-gradient(180deg, #ffffff 0%, #fffaf0 100%);
+    }
+    .grid .template-card.category-schedules .card-icon,
+    .grid .template-card.category-schedules .tag {
+      color: #9a650f;
+      background: #fff3dc;
+    }
+    .grid .template-card.category-college {
+      border-top-color: #9b8cff;
+      background: linear-gradient(180deg, #ffffff 0%, #f7f4ff 100%);
+    }
+    .grid .template-card.category-college .card-icon,
+    .grid .template-card.category-college .tag {
+      color: #5b50c7;
+      background: #f0edff;
+    }
+    .grid .template-card.category-reading-writing {
+      border-top-color: #16a6c9;
+      background: linear-gradient(180deg, #ffffff 0%, #f1fbff 100%);
+    }
+    .grid .template-card.category-reading-writing .card-icon,
+    .grid .template-card.category-reading-writing .tag {
+      color: #087f98;
+      background: #e8f8fc;
     }
     .tag {
       display: inline-block;
@@ -161,6 +227,60 @@
     .grid .card:nth-child(4n) .tag {
       color: #5b50c7;
       background: #f0edff;
+    }
+    .grid .card.template-card.category-study-planners {
+      border-top-color: #34c6bd;
+      background: linear-gradient(180deg, #ffffff 0%, #f2fffc 100%);
+    }
+    .grid .card.template-card.category-trackers {
+      border-top-color: #2457d6;
+      background: linear-gradient(180deg, #ffffff 0%, #f3f7ff 100%);
+    }
+    .grid .card.template-card.category-checklists {
+      border-top-color: #ff8fab;
+      background: linear-gradient(180deg, #ffffff 0%, #fff7fb 100%);
+    }
+    .grid .card.template-card.category-schedules {
+      border-top-color: #f6c453;
+      background: linear-gradient(180deg, #ffffff 0%, #fffaf0 100%);
+    }
+    .grid .card.template-card.category-college {
+      border-top-color: #9b8cff;
+      background: linear-gradient(180deg, #ffffff 0%, #f7f4ff 100%);
+    }
+    .grid .card.template-card.category-reading-writing {
+      border-top-color: #16a6c9;
+      background: linear-gradient(180deg, #ffffff 0%, #f1fbff 100%);
+    }
+    .grid .template-card.category-study-planners .card-icon,
+    .grid .template-card.category-study-planners .tag {
+      color: #0f8f8c;
+      background: #e6f7f4;
+    }
+    .grid .template-card.category-trackers .card-icon,
+    .grid .template-card.category-trackers .tag {
+      color: #2457d6;
+      background: #e8f0ff;
+    }
+    .grid .template-card.category-checklists .card-icon,
+    .grid .template-card.category-checklists .tag {
+      color: #c2415d;
+      background: #fff0f5;
+    }
+    .grid .template-card.category-schedules .card-icon,
+    .grid .template-card.category-schedules .tag {
+      color: #9a650f;
+      background: #fff3dc;
+    }
+    .grid .template-card.category-college .card-icon,
+    .grid .template-card.category-college .tag {
+      color: #5b50c7;
+      background: #f0edff;
+    }
+    .grid .template-card.category-reading-writing .card-icon,
+    .grid .template-card.category-reading-writing .tag {
+      color: #087f98;
+      background: #e8f8fc;
     }
     .card a {
       color: #2457d6;
@@ -216,176 +336,205 @@
         <p>免费下载学生打印模板，包括学习计划、作业跟踪、成绩记录、课程表、阅读记录和清单。</p>
       </div>
       <div class="grid">
-        <article class="card">
-        <span class="tag">模板库</span>
+        <article class="card template-card category-study-planners">
+        <span class="card-icon" aria-hidden="true">P</span>
+        <span class="tag">学习计划</span>
         <h3>每周学习计划打印版</h3>
         <p>打印后填写，或在打印窗口中保存为 PDF。</p>
         <a href="weekly-study-planner-printable.html">浏览模板</a>
       </article>
-<article class="card">
-        <span class="tag">模板库</span>
+<article class="card template-card category-study-planners">
+        <span class="card-icon" aria-hidden="true">P</span>
+        <span class="tag">学习计划</span>
         <h3>每日学习计划打印版</h3>
         <p>打印后填写，或在打印窗口中保存为 PDF。</p>
         <a href="daily-study-planner-printable.html">浏览模板</a>
       </article>
-<article class="card">
-        <span class="tag">模板库</span>
+<article class="card template-card category-trackers">
+        <span class="card-icon" aria-hidden="true">T</span>
+        <span class="tag">跟踪表</span>
         <h3>作业跟踪表打印版</h3>
         <p>打印后填写，或在打印窗口中保存为 PDF。</p>
         <a href="homework-tracker-printable.html">浏览模板</a>
       </article>
-<article class="card">
-        <span class="tag">模板库</span>
+<article class="card template-card category-trackers">
+        <span class="card-icon" aria-hidden="true">T</span>
+        <span class="tag">跟踪表</span>
         <h3>任务跟踪表打印版</h3>
         <p>打印后填写，或在打印窗口中保存为 PDF。</p>
         <a href="assignment-tracker-printable.html">浏览模板</a>
       </article>
-<article class="card">
-        <span class="tag">模板库</span>
+<article class="card template-card category-checklists">
+        <span class="card-icon" aria-hidden="true">✓</span>
+        <span class="tag">清单</span>
         <h3>考试复习清单</h3>
         <p>打印后填写，或在打印窗口中保存为 PDF。</p>
         <a href="exam-study-checklist.html">浏览模板</a>
       </article>
-<article class="card">
-        <span class="tag">模板库</span>
+<article class="card template-card category-study-planners">
+        <span class="card-icon" aria-hidden="true">P</span>
+        <span class="tag">学习计划</span>
         <h3>学习时间表模板</h3>
         <p>打印后填写，或在打印窗口中保存为 PDF。</p>
         <a href="study-schedule-template.html">浏览模板</a>
       </article>
-<article class="card">
-        <span class="tag">模板库</span>
+<article class="card template-card category-reading-writing">
+        <span class="card-icon" aria-hidden="true">R</span>
+        <span class="tag">阅读和写作</span>
         <h3>课堂笔记模板</h3>
         <p>打印后填写，或在打印窗口中保存为 PDF。</p>
         <a href="class-notes-template.html">浏览模板</a>
       </article>
-<article class="card">
-        <span class="tag">模板库</span>
+<article class="card template-card category-checklists">
+        <span class="card-icon" aria-hidden="true">✓</span>
+        <span class="tag">清单</span>
         <h3>学习用品清单</h3>
         <p>打印后填写，或在打印窗口中保存为 PDF。</p>
         <a href="school-supplies-checklist.html">浏览模板</a>
       </article>
-<article class="card">
-        <span class="tag">模板库</span>
+<article class="card template-card category-college">
+        <span class="card-icon" aria-hidden="true">C</span>
+        <span class="tag">大学打印模板</span>
         <h3>大学行李清单</h3>
         <p>打印后填写，或在打印窗口中保存为 PDF。</p>
         <a href="college-packing-list.html">浏览模板</a>
       </article>
-<article class="card">
-        <span class="tag">模板库</span>
+<article class="card template-card category-trackers">
+        <span class="card-icon" aria-hidden="true">T</span>
+        <span class="tag">跟踪表</span>
         <h3>成绩跟踪表打印版</h3>
         <p>打印后填写，或在打印窗口中保存为 PDF。</p>
         <a href="grade-tracker-printable.html">浏览模板</a>
       </article>
-<article class="card">
-        <span class="tag">模板库</span>
+<article class="card template-card category-study-planners">
+        <span class="card-icon" aria-hidden="true">P</span>
+        <span class="tag">学习计划</span>
         <h3>每月学习计划打印版</h3>
         <p>打印后填写，或在打印窗口中保存为 PDF。</p>
         <a href="monthly-study-planner-printable.html">浏览模板</a>
       </article>
-<article class="card">
-        <span class="tag">模板库</span>
+<article class="card template-card category-schedules">
+        <span class="card-icon" aria-hidden="true">S</span>
+        <span class="tag">时间表</span>
         <h3>课程表模板</h3>
         <p>打印后填写，或在打印窗口中保存为 PDF。</p>
         <a href="class-schedule-template.html">浏览模板</a>
       </article>
-<article class="card">
-        <span class="tag">模板库</span>
+<article class="card template-card category-reading-writing">
+        <span class="card-icon" aria-hidden="true">R</span>
+        <span class="tag">阅读和写作</span>
         <h3>项目计划表打印版</h3>
         <p>打印后填写，或在打印窗口中保存为 PDF。</p>
         <a href="project-planner-printable.html">浏览模板</a>
       </article>
-<article class="card">
-        <span class="tag">模板库</span>
+<article class="card template-card category-reading-writing">
+        <span class="card-icon" aria-hidden="true">R</span>
+        <span class="tag">阅读和写作</span>
         <h3>阅读记录表打印版</h3>
         <p>打印后填写，或在打印窗口中保存为 PDF。</p>
         <a href="reading-log-printable.html">浏览模板</a>
       </article>
-<article class="card">
-        <span class="tag">模板库</span>
+<article class="card template-card category-reading-writing">
+        <span class="card-icon" aria-hidden="true">R</span>
+        <span class="tag">阅读和写作</span>
         <h3>作文计划模板</h3>
         <p>打印后填写，或在打印窗口中保存为 PDF。</p>
         <a href="essay-planner-template.html">浏览模板</a>
       </article>
-<article class="card">
-        <span class="tag">模板库</span>
+<article class="card template-card category-trackers">
+        <span class="card-icon" aria-hidden="true">T</span>
+        <span class="tag">跟踪表</span>
         <h3>学习习惯跟踪表打印版</h3>
         <p>打印后填写，或在打印窗口中保存为 PDF。</p>
         <a href="study-habit-tracker-printable.html">浏览模板</a>
       </article>
-<article class="card">
-        <span class="tag">模板库</span>
+<article class="card template-card category-study-planners">
+        <span class="card-icon" aria-hidden="true">P</span>
+        <span class="tag">学习计划</span>
         <h3>考试准备计划表打印版</h3>
         <p>打印后填写，或在打印窗口中保存为 PDF。</p>
         <a href="test-prep-planner-printable.html">浏览模板</a>
       </article>
-<article class="card">
-        <span class="tag">模板库</span>
+<article class="card template-card category-study-planners">
+        <span class="card-icon" aria-hidden="true">P</span>
+        <span class="tag">学习计划</span>
         <h3>学期计划表打印版</h3>
         <p>打印后填写，或在打印窗口中保存为 PDF。</p>
         <a href="semester-planner-printable.html">浏览模板</a>
       </article>
-<article class="card">
-        <span class="tag">模板库</span>
+<article class="card template-card category-schedules">
+        <span class="card-icon" aria-hidden="true">S</span>
+        <span class="tag">时间表</span>
         <h3>作业日历打印版</h3>
         <p>打印后填写，或在打印窗口中保存为 PDF。</p>
         <a href="assignment-calendar-printable.html">浏览模板</a>
       </article>
-<article class="card">
-        <span class="tag">模板库</span>
+<article class="card template-card category-study-planners">
+        <span class="card-icon" aria-hidden="true">P</span>
+        <span class="tag">学习计划</span>
         <h3>学生计划表打印版</h3>
         <p>打印后填写，或在打印窗口中保存为 PDF。</p>
         <a href="student-planner-printable.html">浏览模板</a>
       </article>
-<article class="card">
-        <span class="tag">模板库</span>
+<article class="card template-card category-study-planners">
+        <span class="card-icon" aria-hidden="true">P</span>
+        <span class="tag">学习计划</span>
         <h3>每周作业计划表</h3>
         <p>打印后填写，或在打印窗口中保存为 PDF。</p>
         <a href="weekly-homework-planner.html">浏览模板</a>
       </article>
-<article class="card">
-        <span class="tag">模板库</span>
+<article class="card template-card category-study-planners">
+        <span class="card-icon" aria-hidden="true">P</span>
+        <span class="tag">学习计划</span>
         <h3>考试复习时间表</h3>
         <p>打印后填写，或在打印窗口中保存为 PDF。</p>
         <a href="exam-revision-timetable.html">浏览模板</a>
       </article>
-<article class="card">
-        <span class="tag">模板库</span>
+<article class="card template-card category-checklists">
+        <span class="card-icon" aria-hidden="true">✓</span>
+        <span class="tag">清单</span>
         <h3>学习清单打印版</h3>
         <p>打印后填写，或在打印窗口中保存为 PDF。</p>
         <a href="study-checklist-printable.html">浏览模板</a>
       </article>
-<article class="card">
-        <span class="tag">模板库</span>
+<article class="card template-card category-trackers">
+        <span class="card-icon" aria-hidden="true">T</span>
+        <span class="tag">跟踪表</span>
         <h3>成绩计算表</h3>
         <p>打印后填写，或在打印窗口中保存为 PDF。</p>
         <a href="grade-calculator-worksheet.html">浏览模板</a>
       </article>
-<article class="card">
-        <span class="tag">模板库</span>
+<article class="card template-card category-trackers">
+        <span class="card-icon" aria-hidden="true">T</span>
+        <span class="tag">跟踪表</span>
         <h3>课堂出勤跟踪表</h3>
         <p>打印后填写，或在打印窗口中保存为 PDF。</p>
         <a href="class-attendance-tracker.html">浏览模板</a>
       </article>
-<article class="card">
-        <span class="tag">模板库</span>
+<article class="card template-card category-reading-writing">
+        <span class="card-icon" aria-hidden="true">R</span>
+        <span class="tag">阅读和写作</span>
         <h3>词汇练习表</h3>
         <p>打印后填写，或在打印窗口中保存为 PDF。</p>
         <a href="vocabulary-worksheet.html">浏览模板</a>
       </article>
-<article class="card">
-        <span class="tag">模板库</span>
+<article class="card template-card category-reading-writing">
+        <span class="card-icon" aria-hidden="true">R</span>
+        <span class="tag">阅读和写作</span>
         <h3>读书报告模板</h3>
         <p>打印后填写，或在打印窗口中保存为 PDF。</p>
         <a href="book-report-template.html">浏览模板</a>
       </article>
-<article class="card">
-        <span class="tag">模板库</span>
+<article class="card template-card category-reading-writing">
+        <span class="card-icon" aria-hidden="true">R</span>
+        <span class="tag">阅读和写作</span>
         <h3>康奈尔笔记模板</h3>
         <p>打印后填写，或在打印窗口中保存为 PDF。</p>
         <a href="cornell-notes-template.html">浏览模板</a>
       </article>
-<article class="card">
-        <span class="tag">模板库</span>
+<article class="card template-card category-study-planners">
+        <span class="card-icon" aria-hidden="true">P</span>
+        <span class="tag">学习计划</span>
         <h3>作业计划表</h3>
         <p>打印后填写，或在打印窗口中保存为 PDF。</p>
         <a href="assignment-planner.html">浏览模板</a>

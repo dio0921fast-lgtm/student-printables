@@ -763,11 +763,15 @@ function renderCategoryLinks(code) {
 }
 
 function renderIndex(code, cfg) {
+  const text = categoryText[code];
   const cards = pages
     .map(([file, , key]) => {
       const title = cfg.titles[key];
-      return `<article class="card">
-        <span class="tag">${esc(cfg.library)}</span>
+      const category = categoryForKey(key);
+      const [categoryLabel] = text.categories[category.id];
+      return `<article class="card template-card category-${category.className}">
+        <span class="card-icon" aria-hidden="true">${esc(category.icon)}</span>
+        <span class="tag">${esc(categoryLabel)}</span>
         <h3>${esc(title)}</h3>
         <p>${esc(cfg.sheetSubtitle)}</p>
         <a href="${file}">${esc(cfg.browse)}</a>
@@ -900,6 +904,18 @@ function renderIndex(code, cfg) {
       border-color: #d4e8ff;
       background: linear-gradient(180deg, #ffffff 0%, #f9fdff 100%);
     }
+    .card-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 12px;
+      border-radius: 8px;
+      background: #e6f7f4;
+      color: #0f8f8c;
+      font-size: 22px;
+      font-weight: 900;
+    }
     .grid .card:nth-child(4n + 2) {
       border-top-color: #ff8fab;
       background: linear-gradient(180deg, #ffffff 0%, #fff7fb 100%);
@@ -911,6 +927,60 @@ function renderIndex(code, cfg) {
     .grid .card:nth-child(4n) {
       border-top-color: #9b8cff;
       background: linear-gradient(180deg, #ffffff 0%, #f7f4ff 100%);
+    }
+    .grid .template-card.category-study-planners {
+      border-top-color: #34c6bd;
+      background: linear-gradient(180deg, #ffffff 0%, #f2fffc 100%);
+    }
+    .grid .template-card.category-study-planners .card-icon,
+    .grid .template-card.category-study-planners .tag {
+      color: #0f8f8c;
+      background: #e6f7f4;
+    }
+    .grid .template-card.category-trackers {
+      border-top-color: #2457d6;
+      background: linear-gradient(180deg, #ffffff 0%, #f3f7ff 100%);
+    }
+    .grid .template-card.category-trackers .card-icon,
+    .grid .template-card.category-trackers .tag {
+      color: #2457d6;
+      background: #e8f0ff;
+    }
+    .grid .template-card.category-checklists {
+      border-top-color: #ff8fab;
+      background: linear-gradient(180deg, #ffffff 0%, #fff7fb 100%);
+    }
+    .grid .template-card.category-checklists .card-icon,
+    .grid .template-card.category-checklists .tag {
+      color: #c2415d;
+      background: #fff0f5;
+    }
+    .grid .template-card.category-schedules {
+      border-top-color: #f6c453;
+      background: linear-gradient(180deg, #ffffff 0%, #fffaf0 100%);
+    }
+    .grid .template-card.category-schedules .card-icon,
+    .grid .template-card.category-schedules .tag {
+      color: #9a650f;
+      background: #fff3dc;
+    }
+    .grid .template-card.category-college {
+      border-top-color: #9b8cff;
+      background: linear-gradient(180deg, #ffffff 0%, #f7f4ff 100%);
+    }
+    .grid .template-card.category-college .card-icon,
+    .grid .template-card.category-college .tag {
+      color: #5b50c7;
+      background: #f0edff;
+    }
+    .grid .template-card.category-reading-writing {
+      border-top-color: #16a6c9;
+      background: linear-gradient(180deg, #ffffff 0%, #f1fbff 100%);
+    }
+    .grid .template-card.category-reading-writing .card-icon,
+    .grid .template-card.category-reading-writing .tag {
+      color: #087f98;
+      background: #e8f8fc;
     }
     .tag {
       display: inline-block;
@@ -933,6 +1003,60 @@ function renderIndex(code, cfg) {
     .grid .card:nth-child(4n) .tag {
       color: #5b50c7;
       background: #f0edff;
+    }
+    .grid .card.template-card.category-study-planners {
+      border-top-color: #34c6bd;
+      background: linear-gradient(180deg, #ffffff 0%, #f2fffc 100%);
+    }
+    .grid .card.template-card.category-trackers {
+      border-top-color: #2457d6;
+      background: linear-gradient(180deg, #ffffff 0%, #f3f7ff 100%);
+    }
+    .grid .card.template-card.category-checklists {
+      border-top-color: #ff8fab;
+      background: linear-gradient(180deg, #ffffff 0%, #fff7fb 100%);
+    }
+    .grid .card.template-card.category-schedules {
+      border-top-color: #f6c453;
+      background: linear-gradient(180deg, #ffffff 0%, #fffaf0 100%);
+    }
+    .grid .card.template-card.category-college {
+      border-top-color: #9b8cff;
+      background: linear-gradient(180deg, #ffffff 0%, #f7f4ff 100%);
+    }
+    .grid .card.template-card.category-reading-writing {
+      border-top-color: #16a6c9;
+      background: linear-gradient(180deg, #ffffff 0%, #f1fbff 100%);
+    }
+    .grid .template-card.category-study-planners .card-icon,
+    .grid .template-card.category-study-planners .tag {
+      color: #0f8f8c;
+      background: #e6f7f4;
+    }
+    .grid .template-card.category-trackers .card-icon,
+    .grid .template-card.category-trackers .tag {
+      color: #2457d6;
+      background: #e8f0ff;
+    }
+    .grid .template-card.category-checklists .card-icon,
+    .grid .template-card.category-checklists .tag {
+      color: #c2415d;
+      background: #fff0f5;
+    }
+    .grid .template-card.category-schedules .card-icon,
+    .grid .template-card.category-schedules .tag {
+      color: #9a650f;
+      background: #fff3dc;
+    }
+    .grid .template-card.category-college .card-icon,
+    .grid .template-card.category-college .tag {
+      color: #5b50c7;
+      background: #f0edff;
+    }
+    .grid .template-card.category-reading-writing .card-icon,
+    .grid .template-card.category-reading-writing .tag {
+      color: #087f98;
+      background: #e8f8fc;
     }
     .card a {
       color: #2457d6;
@@ -1255,6 +1379,25 @@ const categoryDefs = [
     ],
   },
 ];
+
+const categoryIcons = {
+  studyPlanners: "P",
+  trackers: "T",
+  checklists: "✓",
+  schedules: "S",
+  college: "C",
+  readingWriting: "R",
+};
+
+function categoryForKey(key) {
+  const category = categoryDefs.find((def) => def.templates.some(([, templateKey]) => templateKey === key));
+  const def = category || categoryDefs[0];
+  return {
+    id: def.id,
+    className: def.id.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`),
+    icon: categoryIcons[def.id] || "P",
+  };
+}
 
 const categoryText = {
   "zh-cn": {

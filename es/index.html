@@ -128,6 +128,18 @@
       border-color: #d4e8ff;
       background: linear-gradient(180deg, #ffffff 0%, #f9fdff 100%);
     }
+    .card-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 12px;
+      border-radius: 8px;
+      background: #e6f7f4;
+      color: #0f8f8c;
+      font-size: 22px;
+      font-weight: 900;
+    }
     .grid .card:nth-child(4n + 2) {
       border-top-color: #ff8fab;
       background: linear-gradient(180deg, #ffffff 0%, #fff7fb 100%);
@@ -139,6 +151,60 @@
     .grid .card:nth-child(4n) {
       border-top-color: #9b8cff;
       background: linear-gradient(180deg, #ffffff 0%, #f7f4ff 100%);
+    }
+    .grid .template-card.category-study-planners {
+      border-top-color: #34c6bd;
+      background: linear-gradient(180deg, #ffffff 0%, #f2fffc 100%);
+    }
+    .grid .template-card.category-study-planners .card-icon,
+    .grid .template-card.category-study-planners .tag {
+      color: #0f8f8c;
+      background: #e6f7f4;
+    }
+    .grid .template-card.category-trackers {
+      border-top-color: #2457d6;
+      background: linear-gradient(180deg, #ffffff 0%, #f3f7ff 100%);
+    }
+    .grid .template-card.category-trackers .card-icon,
+    .grid .template-card.category-trackers .tag {
+      color: #2457d6;
+      background: #e8f0ff;
+    }
+    .grid .template-card.category-checklists {
+      border-top-color: #ff8fab;
+      background: linear-gradient(180deg, #ffffff 0%, #fff7fb 100%);
+    }
+    .grid .template-card.category-checklists .card-icon,
+    .grid .template-card.category-checklists .tag {
+      color: #c2415d;
+      background: #fff0f5;
+    }
+    .grid .template-card.category-schedules {
+      border-top-color: #f6c453;
+      background: linear-gradient(180deg, #ffffff 0%, #fffaf0 100%);
+    }
+    .grid .template-card.category-schedules .card-icon,
+    .grid .template-card.category-schedules .tag {
+      color: #9a650f;
+      background: #fff3dc;
+    }
+    .grid .template-card.category-college {
+      border-top-color: #9b8cff;
+      background: linear-gradient(180deg, #ffffff 0%, #f7f4ff 100%);
+    }
+    .grid .template-card.category-college .card-icon,
+    .grid .template-card.category-college .tag {
+      color: #5b50c7;
+      background: #f0edff;
+    }
+    .grid .template-card.category-reading-writing {
+      border-top-color: #16a6c9;
+      background: linear-gradient(180deg, #ffffff 0%, #f1fbff 100%);
+    }
+    .grid .template-card.category-reading-writing .card-icon,
+    .grid .template-card.category-reading-writing .tag {
+      color: #087f98;
+      background: #e8f8fc;
     }
     .tag {
       display: inline-block;
@@ -161,6 +227,60 @@
     .grid .card:nth-child(4n) .tag {
       color: #5b50c7;
       background: #f0edff;
+    }
+    .grid .card.template-card.category-study-planners {
+      border-top-color: #34c6bd;
+      background: linear-gradient(180deg, #ffffff 0%, #f2fffc 100%);
+    }
+    .grid .card.template-card.category-trackers {
+      border-top-color: #2457d6;
+      background: linear-gradient(180deg, #ffffff 0%, #f3f7ff 100%);
+    }
+    .grid .card.template-card.category-checklists {
+      border-top-color: #ff8fab;
+      background: linear-gradient(180deg, #ffffff 0%, #fff7fb 100%);
+    }
+    .grid .card.template-card.category-schedules {
+      border-top-color: #f6c453;
+      background: linear-gradient(180deg, #ffffff 0%, #fffaf0 100%);
+    }
+    .grid .card.template-card.category-college {
+      border-top-color: #9b8cff;
+      background: linear-gradient(180deg, #ffffff 0%, #f7f4ff 100%);
+    }
+    .grid .card.template-card.category-reading-writing {
+      border-top-color: #16a6c9;
+      background: linear-gradient(180deg, #ffffff 0%, #f1fbff 100%);
+    }
+    .grid .template-card.category-study-planners .card-icon,
+    .grid .template-card.category-study-planners .tag {
+      color: #0f8f8c;
+      background: #e6f7f4;
+    }
+    .grid .template-card.category-trackers .card-icon,
+    .grid .template-card.category-trackers .tag {
+      color: #2457d6;
+      background: #e8f0ff;
+    }
+    .grid .template-card.category-checklists .card-icon,
+    .grid .template-card.category-checklists .tag {
+      color: #c2415d;
+      background: #fff0f5;
+    }
+    .grid .template-card.category-schedules .card-icon,
+    .grid .template-card.category-schedules .tag {
+      color: #9a650f;
+      background: #fff3dc;
+    }
+    .grid .template-card.category-college .card-icon,
+    .grid .template-card.category-college .tag {
+      color: #5b50c7;
+      background: #f0edff;
+    }
+    .grid .template-card.category-reading-writing .card-icon,
+    .grid .template-card.category-reading-writing .tag {
+      color: #087f98;
+      background: #e8f8fc;
     }
     .card a {
       color: #2457d6;
@@ -216,176 +336,205 @@
         <p>Descarga plantillas imprimibles para estudiantes: planificadores de estudio, tareas, calificaciones, horarios, lectura y listas.</p>
       </div>
       <div class="grid">
-        <article class="card">
-        <span class="tag">Biblioteca de plantillas</span>
+        <article class="card template-card category-study-planners">
+        <span class="card-icon" aria-hidden="true">P</span>
+        <span class="tag">Planificadores de estudio</span>
         <h3>Planificador semanal de estudio</h3>
         <p>Imprime la hoja o guárdala como PDF desde tu navegador.</p>
         <a href="weekly-study-planner-printable.html">Ver plantillas</a>
       </article>
-<article class="card">
-        <span class="tag">Biblioteca de plantillas</span>
+<article class="card template-card category-study-planners">
+        <span class="card-icon" aria-hidden="true">P</span>
+        <span class="tag">Planificadores de estudio</span>
         <h3>Planificador diario de estudio</h3>
         <p>Imprime la hoja o guárdala como PDF desde tu navegador.</p>
         <a href="daily-study-planner-printable.html">Ver plantillas</a>
       </article>
-<article class="card">
-        <span class="tag">Biblioteca de plantillas</span>
+<article class="card template-card category-trackers">
+        <span class="card-icon" aria-hidden="true">T</span>
+        <span class="tag">Rastreadores</span>
         <h3>Registro de tareas imprimible</h3>
         <p>Imprime la hoja o guárdala como PDF desde tu navegador.</p>
         <a href="homework-tracker-printable.html">Ver plantillas</a>
       </article>
-<article class="card">
-        <span class="tag">Biblioteca de plantillas</span>
+<article class="card template-card category-trackers">
+        <span class="card-icon" aria-hidden="true">T</span>
+        <span class="tag">Rastreadores</span>
         <h3>Registro de trabajos imprimible</h3>
         <p>Imprime la hoja o guárdala como PDF desde tu navegador.</p>
         <a href="assignment-tracker-printable.html">Ver plantillas</a>
       </article>
-<article class="card">
-        <span class="tag">Biblioteca de plantillas</span>
+<article class="card template-card category-checklists">
+        <span class="card-icon" aria-hidden="true">✓</span>
+        <span class="tag">Listas</span>
         <h3>Lista de estudio para exámenes</h3>
         <p>Imprime la hoja o guárdala como PDF desde tu navegador.</p>
         <a href="exam-study-checklist.html">Ver plantillas</a>
       </article>
-<article class="card">
-        <span class="tag">Biblioteca de plantillas</span>
+<article class="card template-card category-study-planners">
+        <span class="card-icon" aria-hidden="true">P</span>
+        <span class="tag">Planificadores de estudio</span>
         <h3>Horario de estudio</h3>
         <p>Imprime la hoja o guárdala como PDF desde tu navegador.</p>
         <a href="study-schedule-template.html">Ver plantillas</a>
       </article>
-<article class="card">
-        <span class="tag">Biblioteca de plantillas</span>
+<article class="card template-card category-reading-writing">
+        <span class="card-icon" aria-hidden="true">R</span>
+        <span class="tag">Lectura y escritura</span>
         <h3>Plantilla de apuntes de clase</h3>
         <p>Imprime la hoja o guárdala como PDF desde tu navegador.</p>
         <a href="class-notes-template.html">Ver plantillas</a>
       </article>
-<article class="card">
-        <span class="tag">Biblioteca de plantillas</span>
+<article class="card template-card category-checklists">
+        <span class="card-icon" aria-hidden="true">✓</span>
+        <span class="tag">Listas</span>
         <h3>Lista de útiles escolares</h3>
         <p>Imprime la hoja o guárdala como PDF desde tu navegador.</p>
         <a href="school-supplies-checklist.html">Ver plantillas</a>
       </article>
-<article class="card">
-        <span class="tag">Biblioteca de plantillas</span>
+<article class="card template-card category-college">
+        <span class="card-icon" aria-hidden="true">C</span>
+        <span class="tag">Universidad</span>
         <h3>Lista para empacar para la universidad</h3>
         <p>Imprime la hoja o guárdala como PDF desde tu navegador.</p>
         <a href="college-packing-list.html">Ver plantillas</a>
       </article>
-<article class="card">
-        <span class="tag">Biblioteca de plantillas</span>
+<article class="card template-card category-trackers">
+        <span class="card-icon" aria-hidden="true">T</span>
+        <span class="tag">Rastreadores</span>
         <h3>Registro de calificaciones imprimible</h3>
         <p>Imprime la hoja o guárdala como PDF desde tu navegador.</p>
         <a href="grade-tracker-printable.html">Ver plantillas</a>
       </article>
-<article class="card">
-        <span class="tag">Biblioteca de plantillas</span>
+<article class="card template-card category-study-planners">
+        <span class="card-icon" aria-hidden="true">P</span>
+        <span class="tag">Planificadores de estudio</span>
         <h3>Planificador mensual de estudio</h3>
         <p>Imprime la hoja o guárdala como PDF desde tu navegador.</p>
         <a href="monthly-study-planner-printable.html">Ver plantillas</a>
       </article>
-<article class="card">
-        <span class="tag">Biblioteca de plantillas</span>
+<article class="card template-card category-schedules">
+        <span class="card-icon" aria-hidden="true">S</span>
+        <span class="tag">Horarios</span>
         <h3>Horario de clases</h3>
         <p>Imprime la hoja o guárdala como PDF desde tu navegador.</p>
         <a href="class-schedule-template.html">Ver plantillas</a>
       </article>
-<article class="card">
-        <span class="tag">Biblioteca de plantillas</span>
+<article class="card template-card category-reading-writing">
+        <span class="card-icon" aria-hidden="true">R</span>
+        <span class="tag">Lectura y escritura</span>
         <h3>Planificador de proyectos</h3>
         <p>Imprime la hoja o guárdala como PDF desde tu navegador.</p>
         <a href="project-planner-printable.html">Ver plantillas</a>
       </article>
-<article class="card">
-        <span class="tag">Biblioteca de plantillas</span>
+<article class="card template-card category-reading-writing">
+        <span class="card-icon" aria-hidden="true">R</span>
+        <span class="tag">Lectura y escritura</span>
         <h3>Registro de lectura</h3>
         <p>Imprime la hoja o guárdala como PDF desde tu navegador.</p>
         <a href="reading-log-printable.html">Ver plantillas</a>
       </article>
-<article class="card">
-        <span class="tag">Biblioteca de plantillas</span>
+<article class="card template-card category-reading-writing">
+        <span class="card-icon" aria-hidden="true">R</span>
+        <span class="tag">Lectura y escritura</span>
         <h3>Plantilla para planear ensayos</h3>
         <p>Imprime la hoja o guárdala como PDF desde tu navegador.</p>
         <a href="essay-planner-template.html">Ver plantillas</a>
       </article>
-<article class="card">
-        <span class="tag">Biblioteca de plantillas</span>
+<article class="card template-card category-trackers">
+        <span class="card-icon" aria-hidden="true">T</span>
+        <span class="tag">Rastreadores</span>
         <h3>Registro de hábitos de estudio</h3>
         <p>Imprime la hoja o guárdala como PDF desde tu navegador.</p>
         <a href="study-habit-tracker-printable.html">Ver plantillas</a>
       </article>
-<article class="card">
-        <span class="tag">Biblioteca de plantillas</span>
+<article class="card template-card category-study-planners">
+        <span class="card-icon" aria-hidden="true">P</span>
+        <span class="tag">Planificadores de estudio</span>
         <h3>Planificador de preparación para exámenes</h3>
         <p>Imprime la hoja o guárdala como PDF desde tu navegador.</p>
         <a href="test-prep-planner-printable.html">Ver plantillas</a>
       </article>
-<article class="card">
-        <span class="tag">Biblioteca de plantillas</span>
+<article class="card template-card category-study-planners">
+        <span class="card-icon" aria-hidden="true">P</span>
+        <span class="tag">Planificadores de estudio</span>
         <h3>Planificador semestral</h3>
         <p>Imprime la hoja o guárdala como PDF desde tu navegador.</p>
         <a href="semester-planner-printable.html">Ver plantillas</a>
       </article>
-<article class="card">
-        <span class="tag">Biblioteca de plantillas</span>
+<article class="card template-card category-schedules">
+        <span class="card-icon" aria-hidden="true">S</span>
+        <span class="tag">Horarios</span>
         <h3>Calendario de trabajos</h3>
         <p>Imprime la hoja o guárdala como PDF desde tu navegador.</p>
         <a href="assignment-calendar-printable.html">Ver plantillas</a>
       </article>
-<article class="card">
-        <span class="tag">Biblioteca de plantillas</span>
+<article class="card template-card category-study-planners">
+        <span class="card-icon" aria-hidden="true">P</span>
+        <span class="tag">Planificadores de estudio</span>
         <h3>Planificador estudiantil imprimible</h3>
         <p>Imprime la hoja o guárdala como PDF desde tu navegador.</p>
         <a href="student-planner-printable.html">Ver plantillas</a>
       </article>
-<article class="card">
-        <span class="tag">Biblioteca de plantillas</span>
+<article class="card template-card category-study-planners">
+        <span class="card-icon" aria-hidden="true">P</span>
+        <span class="tag">Planificadores de estudio</span>
         <h3>Planificador semanal de tareas</h3>
         <p>Imprime la hoja o guárdala como PDF desde tu navegador.</p>
         <a href="weekly-homework-planner.html">Ver plantillas</a>
       </article>
-<article class="card">
-        <span class="tag">Biblioteca de plantillas</span>
+<article class="card template-card category-study-planners">
+        <span class="card-icon" aria-hidden="true">P</span>
+        <span class="tag">Planificadores de estudio</span>
         <h3>Horario de repaso para exámenes</h3>
         <p>Imprime la hoja o guárdala como PDF desde tu navegador.</p>
         <a href="exam-revision-timetable.html">Ver plantillas</a>
       </article>
-<article class="card">
-        <span class="tag">Biblioteca de plantillas</span>
+<article class="card template-card category-checklists">
+        <span class="card-icon" aria-hidden="true">✓</span>
+        <span class="tag">Listas</span>
         <h3>Lista de estudio imprimible</h3>
         <p>Imprime la hoja o guárdala como PDF desde tu navegador.</p>
         <a href="study-checklist-printable.html">Ver plantillas</a>
       </article>
-<article class="card">
-        <span class="tag">Biblioteca de plantillas</span>
+<article class="card template-card category-trackers">
+        <span class="card-icon" aria-hidden="true">T</span>
+        <span class="tag">Rastreadores</span>
         <h3>Hoja para calcular calificaciones</h3>
         <p>Imprime la hoja o guárdala como PDF desde tu navegador.</p>
         <a href="grade-calculator-worksheet.html">Ver plantillas</a>
       </article>
-<article class="card">
-        <span class="tag">Biblioteca de plantillas</span>
+<article class="card template-card category-trackers">
+        <span class="card-icon" aria-hidden="true">T</span>
+        <span class="tag">Rastreadores</span>
         <h3>Registro de asistencia a clase</h3>
         <p>Imprime la hoja o guárdala como PDF desde tu navegador.</p>
         <a href="class-attendance-tracker.html">Ver plantillas</a>
       </article>
-<article class="card">
-        <span class="tag">Biblioteca de plantillas</span>
+<article class="card template-card category-reading-writing">
+        <span class="card-icon" aria-hidden="true">R</span>
+        <span class="tag">Lectura y escritura</span>
         <h3>Hoja de vocabulario</h3>
         <p>Imprime la hoja o guárdala como PDF desde tu navegador.</p>
         <a href="vocabulary-worksheet.html">Ver plantillas</a>
       </article>
-<article class="card">
-        <span class="tag">Biblioteca de plantillas</span>
+<article class="card template-card category-reading-writing">
+        <span class="card-icon" aria-hidden="true">R</span>
+        <span class="tag">Lectura y escritura</span>
         <h3>Plantilla de informe de libro</h3>
         <p>Imprime la hoja o guárdala como PDF desde tu navegador.</p>
         <a href="book-report-template.html">Ver plantillas</a>
       </article>
-<article class="card">
-        <span class="tag">Biblioteca de plantillas</span>
+<article class="card template-card category-reading-writing">
+        <span class="card-icon" aria-hidden="true">R</span>
+        <span class="tag">Lectura y escritura</span>
         <h3>Plantilla de apuntes Cornell</h3>
         <p>Imprime la hoja o guárdala como PDF desde tu navegador.</p>
         <a href="cornell-notes-template.html">Ver plantillas</a>
       </article>
-<article class="card">
-        <span class="tag">Biblioteca de plantillas</span>
+<article class="card template-card category-study-planners">
+        <span class="card-icon" aria-hidden="true">P</span>
+        <span class="tag">Planificadores de estudio</span>
         <h3>Planificador de trabajos</h3>
         <p>Imprime la hoja o guárdala como PDF desde tu navegador.</p>
         <a href="assignment-planner.html">Ver plantillas</a>
