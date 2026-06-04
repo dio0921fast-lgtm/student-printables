@@ -65,6 +65,7 @@ const locales = {
     ],
     footer: "版权所有 2026 Free Printable Student Templates",
     sheetSubtitle: "打印后填写，或在打印窗口中保存为 PDF。",
+    customNote: "提示：下方打印模板中的标题和说明文字可以点击后自定义。",
     fields: ["姓名：", "日期：", "目标："],
     table: ["任务", "课程", "截止日期", "备注", "完成"],
     includedItems: ["清晰的填写区域", "学习任务记录", "日期和备注栏", "可打印的表格"],
@@ -119,6 +120,7 @@ const locales = {
     ],
     footer: "版權所有 2026 Free Printable Student Templates",
     sheetSubtitle: "列印後填寫，或在列印視窗中儲存為 PDF。",
+    customNote: "提示：下方列印模板中的標題和說明文字可以點擊後自訂。",
     fields: ["姓名：", "日期：", "目標："],
     table: ["任務", "課程", "截止日期", "備註", "完成"],
     includedItems: ["清楚的填寫區域", "學習任務紀錄", "日期和備註欄", "可列印的表格"],
@@ -173,6 +175,7 @@ const locales = {
     ],
     footer: "Copyright 2026 Free Printable Student Templates",
     sheetSubtitle: "印刷して記入するか、PDF として保存できます。",
+    customNote: "ヒント：下の印刷テンプレートのタイトルと説明文はクリックして編集できます。",
     fields: ["名前：", "日付：", "目標："],
     table: ["タスク", "科目", "期限", "メモ", "完了"],
     includedItems: ["書き込みやすい欄", "学習タスクの記録", "日付とメモ欄", "印刷用ワークシート"],
@@ -227,6 +230,7 @@ const locales = {
     ],
     footer: "Copyright 2026 Free Printable Student Templates",
     sheetSubtitle: "인쇄해서 작성하거나 PDF로 저장할 수 있습니다.",
+    customNote: "팁: 아래 인쇄 템플릿의 제목과 설명 문구를 클릭해 직접 수정할 수 있습니다.",
     fields: ["이름:", "날짜:", "목표:"],
     table: ["할 일", "과목", "마감일", "메모", "완료"],
     includedItems: ["작성하기 쉬운 영역", "학습 과제 기록", "날짜와 메모 칸", "인쇄용 워크시트"],
@@ -281,6 +285,7 @@ const locales = {
     ],
     footer: "Copyright 2026 Free Printable Student Templates",
     sheetSubtitle: "Imprime la hoja o guárdala como PDF desde tu navegador.",
+    customNote: "Consejo: puedes hacer clic en el título y el subtítulo de la plantilla de abajo para personalizarlos antes de imprimir.",
     fields: ["Nombre:", "Fecha:", "Meta:"],
     table: ["Tarea", "Materia", "Fecha límite", "Notas", "Hecho"],
     includedItems: ["Espacios claros para escribir", "Registro de tareas de estudio", "Campos de fecha y notas", "Hoja lista para imprimir"],
@@ -335,6 +340,7 @@ const locales = {
     ],
     footer: "Copyright 2026 Free Printable Student Templates",
     sheetSubtitle: "Imprimez la fiche ou enregistrez-la en PDF depuis votre navigateur.",
+    customNote: "Astuce : cliquez sur le titre et le sous-titre du modèle ci-dessous pour les personnaliser avant l'impression.",
     fields: ["Nom :", "Date :", "Objectif :"],
     table: ["Tâche", "Matière", "Date limite", "Notes", "Fait"],
     includedItems: ["Zones claires à remplir", "Suivi des tâches d'étude", "Champs de date et de notes", "Fiche prête à imprimer"],
@@ -1112,6 +1118,7 @@ function renderPage(code, cfg, file, key) {
   const title = cfg.titles[key];
   const related = pages.filter(([relatedFile]) => relatedFile !== file).slice(0, 3);
   const printableCss = key === "exam study checklist" ? "../printable-worksheets.css?v=checkboxes-1" : "../printable-worksheets.css";
+  const customNote = key === "cornell notes template" ? `\n      <p class="custom-note">${esc(cfg.customNote)}</p>` : "";
   return `<!DOCTYPE html>
 <html lang="${cfg.htmlLang}">
 <head>
@@ -1146,7 +1153,7 @@ function renderPage(code, cfg, file, key) {
     ${renderSeoContent(code, title)}
     <section class="card download-box">
       <h2>${esc(cfg.download)}</h2>
-      <p class="download-note">${esc(cfg.sheetSubtitle)}</p>
+      <p class="download-note">${esc(cfg.sheetSubtitle)}</p>${customNote}
       <button class="print-button" type="button" onclick="window.print()">${esc(cfg.print)}</button>
       <div class="printable-sheet">
         ${renderWorksheet(code, cfg, key, title)}

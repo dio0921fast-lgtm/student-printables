@@ -20,6 +20,17 @@
   margin-bottom: 18px;
 }
 
+.custom-note {
+  display: inline-block;
+  margin: 0 0 14px;
+  padding: 10px 12px;
+  border-left: 4px solid #0f8f8c;
+  border-radius: 6px;
+  background: #ecfeff;
+  color: #0f4f4d;
+  font-weight: 700;
+}
+
 .printable-sheet {
   background: #fff;
   color: #111827;
@@ -168,7 +179,8 @@
   .button,
   .print-button,
   .download-box > h2,
-  .download-note {
+  .download-note,
+  .custom-note {
     display: none !important;
   }
 
