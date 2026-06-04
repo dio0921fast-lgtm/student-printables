@@ -501,6 +501,54 @@ function pageDescription(cfg, title) {
   return `${title} - ${cfg.homeDescription}`;
 }
 
+function jsonForHtml(data) {
+  return JSON.stringify(data, null, 2).replace(/<\/script/gi, "<\\/script");
+}
+
+function renderStructuredData(code, cfg, file, title) {
+  const description = pageDescription(cfg, title);
+  const url = `${siteUrl}/${localePath(code, file)}`;
+  const inLanguage = cfg.htmlLang;
+  const graph = [
+    {
+      "@type": "WebPage",
+      "@id": `${url}#webpage`,
+      "url": url,
+      "name": title,
+      "description": description,
+      "inLanguage": inLanguage,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`,
+        "name": "Free Printable Student Templates",
+        "url": siteUrl,
+      },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${url}#faq`,
+      "url": url,
+      "name": `${title} FAQ`,
+      "inLanguage": inLanguage,
+      "mainEntity": cfg.faqItems.map(([question, answer]) => ({
+        "@type": "Question",
+        "name": question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": answer,
+        },
+      })),
+    },
+  ];
+
+  return `<script type="application/ld+json">
+${jsonForHtml({
+  "@context": "https://schema.org",
+  "@graph": graph,
+})}
+  </script>`;
+}
+
 const terms = {
   "zh-cn": {
     "Week of:": "周次：", "Name:": "姓名：", "Top goal:": "主要目标：", "Date:": "日期：", "Main goal:": "主要目标：", "Study time:": "学习时间：", "Class:": "课程：", "Term:": "学期：", "Goal:": "目标：", "Subject:": "科目：", "Exam date:": "考试日期：", "Target grade:": "目标成绩：", "Course:": "课程：", "Topic:": "主题：", "Student:": "学生：", "Grade:": "年级：", "School year:": "学年：", "Move-in date:": "入住日期：", "Dorm:": "宿舍：", "Month:": "月份：", "Reward:": "奖励：", "School:": "学校：", "Project:": "项目：", "Due date:": "截止日期：", "Reading goal:": "阅读目标：", "Essay type:": "作文类型：", "Semester:": "学期：", "Start date:": "开始日期：",
@@ -1069,6 +1117,7 @@ function renderPage(code, cfg, file, key) {
   <title>${esc(title)}</title>
   <meta name="description" content="${esc(pageDescription(cfg, title))}" />
   ${altLinks(file, code)}
+  ${renderStructuredData(code, cfg, file, title)}
   <link rel="stylesheet" href="../template-page.css" />
   <link rel="stylesheet" href="${printableCss}" />
 </head>
