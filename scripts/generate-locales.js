@@ -473,10 +473,14 @@ function languageSwitcher(file, active) {
     es: "Inicio",
     fr: "Accueil",
   };
+  const absolute = (href) => {
+    const clean = href.replace(/^\.\.\//, "");
+    return `${siteUrl}/${clean}`;
+  };
   const items = [
-    ["", homeLabels[active] || "Home", "../index.html"],
-    ["en", "English", `../${file}`],
-    ...Object.entries(locales).map(([code, cfg]) => [code, cfg.label, code === active ? file : `../${code}/${file}`]),
+    ["", homeLabels[active] || "Home", absolute("../index.html")],
+    ["en", "English", absolute(`../${file}`)],
+    ...Object.entries(locales).map(([code, cfg]) => [code, cfg.label, absolute(code === active ? `../${code}/${file}` : `../${code}/${file}`)]),
   ];
   return `<nav class="language-switcher" aria-label="Language selector">${items
     .map(([code, label, href]) => `<a href="${versioned(href)}"${code ? ` hreflang="${code}"` : ""}>${label}</a>`)
