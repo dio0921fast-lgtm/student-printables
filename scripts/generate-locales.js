@@ -700,7 +700,10 @@ function blankRows(count, cells) {
 }
 
 function renderWorksheet(code, cfg, key, title) {
-  const sheetTitle = `<h3>${esc(title)}</h3>\n        <p class="sheet-subtitle">${esc(cfg.sheetSubtitle)}</p>`;
+  const editable = key === "cornell notes template";
+  const editableAttrs = editable ? ` class="editable-print-text" contenteditable="true" spellcheck="false"` : "";
+  const subtitleAttrs = editable ? ` class="sheet-subtitle editable-print-text" contenteditable="true" spellcheck="false"` : ` class="sheet-subtitle"`;
+  const sheetTitle = `<h3${editableAttrs}>${esc(title)}</h3>\n        <p${subtitleAttrs}>${esc(cfg.sheetSubtitle)}</p>`;
   const common = {
     "weekly study planner": () => `${fieldRow(code, ["Week of:", "Name:", "Top goal:"])}\n        ${table(code, ["Day", "Classes", "Homework", "Study Block", "Done"], [["Monday"], ["Tuesday"], ["Wednesday"], ["Thursday"], ["Friday"], ["Saturday"], ["Sunday"]])}`,
     "daily study planner": () => `${fieldRow(code, ["Date:", "Main goal:", "Study time:"])}\n        ${boxes(code, [["Top priorities"], ["Homework due"], ["Study schedule"], ["Notes and reminders"]])}`,

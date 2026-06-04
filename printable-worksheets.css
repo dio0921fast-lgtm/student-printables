@@ -42,6 +42,17 @@
   color: #4b5563;
 }
 
+.editable-print-text {
+  border-radius: 6px;
+  outline: 1px dashed transparent;
+  outline-offset: 4px;
+}
+
+.editable-print-text:hover,
+.editable-print-text:focus {
+  outline-color: #0f8f8c;
+}
+
 .field-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -186,5 +197,11 @@
     margin: 0 !important;
     border-radius: 0 !important;
     page-break-inside: avoid;
+  }
+
+  .editable-print-text,
+  .editable-print-text:hover,
+  .editable-print-text:focus {
+    outline: 0 !important;
   }
 }
