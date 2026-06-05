@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 const root = path.resolve(__dirname, "..");
-const siteUrl = "https://dio0921fast-lgtm.github.io/student-printables";
+const siteUrl = "https://printablestudy.com";
 
 function walk(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {

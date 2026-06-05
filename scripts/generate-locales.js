@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 const root = path.resolve(__dirname, "..");
-const siteUrl = "https://dio0921fast-lgtm.github.io/student-printables";
+const siteUrl = "https://printablestudy.com";
 
 const pages = [
   ["weekly-study-planner-printable.html", "Weekly Study Planner Printable", "weekly study planner"],
