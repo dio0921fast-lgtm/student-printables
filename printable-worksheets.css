@@ -97,6 +97,30 @@
   font-size: 14px;
 }
 
+.weekly-study-planner-table {
+  table-layout: fixed;
+}
+
+.weekly-study-planner-table .day-col {
+  width: 14%;
+}
+
+.weekly-study-planner-table .classes-col {
+  width: 21%;
+}
+
+.weekly-study-planner-table .homework-col {
+  width: 28%;
+}
+
+.weekly-study-planner-table .study-block-col {
+  width: 27%;
+}
+
+.weekly-study-planner-table .done-col {
+  width: 10%;
+}
+
 .worksheet-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
