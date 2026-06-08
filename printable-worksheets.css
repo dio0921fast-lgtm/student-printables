@@ -169,6 +169,16 @@
   border-radius: 3px;
 }
 
+.related-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.related-links .button {
+  margin-top: 0;
+}
+
 .faq-section h3 {
   margin: 18px 0 6px;
   font-size: 20px;
