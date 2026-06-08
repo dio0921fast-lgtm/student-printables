@@ -3,11 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Free Printable Student Templates</title>
+    <title>Free Printable Study Planners and Student Templates</title>
     <meta
       name="description"
-      content="Download free printable student templates including study planners, homework trackers, grade trackers, class schedules, reading logs, and college packing lists."
+      content="Download free printable study planners, homework trackers, checklists, class schedules, Cornell notes, grade trackers, reading logs, and student organization templates."
     />
+    <link rel="canonical" href="https://printablestudy.com/" />
     <link
       rel="alternate"
       hreflang="en"
@@ -48,6 +49,21 @@
       hreflang="x-default"
       href="https://printablestudy.com/index.html"
     />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Printable Study",
+        "url": "https://printablestudy.com/",
+        "description": "Free printable study planners, homework trackers, checklists, class schedules, notes templates, and student organization worksheets.",
+        "inLanguage": "en",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Printable Study",
+          "url": "https://printablestudy.com/"
+        }
+      }
+    </script>
     <style>
       * {
         box-sizing: border-box;
@@ -249,6 +265,44 @@
 
       .category-entry {
         margin-bottom: 42px;
+      }
+
+      .popular-entry {
+        margin: 0 0 44px;
+        padding: 26px;
+        background: rgba(255, 255, 255, 0.86);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: 0 10px 26px rgba(23, 32, 51, 0.06);
+      }
+
+      .popular-entry h2 {
+        margin: 0 0 8px;
+        font-size: 26px;
+        line-height: 1.2;
+      }
+
+      .popular-entry p {
+        max-width: 720px;
+        margin: 0 0 18px;
+        color: var(--muted);
+      }
+
+      .popular-links {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 12px;
+      }
+
+      .popular-links a {
+        display: block;
+        padding: 13px 15px;
+        background: #ffffff;
+        border: 1px solid #d4e8ff;
+        border-radius: 8px;
+        color: var(--blue);
+        font-weight: 800;
+        text-decoration: none;
       }
 
       .category-grid {
@@ -559,8 +613,11 @@
       <div class="nav-inner">
         <a class="brand" href="index.html">Student Printables</a>
         <div class="nav-links">
+          <a href="#categories">Categories</a>
+          <a href="#popular-pages">Popular</a>
           <a href="#templates">Templates</a>
           <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
         </div>
       </div>
     </nav>
@@ -590,7 +647,7 @@
           </p>
         </div>
 
-        <div class="category-entry" aria-label="Template categories">
+        <div id="categories" class="category-entry" aria-label="Template categories">
           <div class="category-grid">
             <a class="category-link" href="study-planners.html"
               >Study Planners <span>10 templates</span></a
@@ -612,6 +669,27 @@
             >
           </div>
         </div>
+
+        <section id="popular-pages" class="popular-entry">
+          <h2>Popular Printable Student Templates</h2>
+          <p>
+            Start with these high-use printable pages for planning homework,
+            studying for exams, taking notes, tracking grades, and organizing
+            school schedules.
+          </p>
+          <div class="popular-links">
+            <a href="weekly-study-planner-printable.html">Weekly Study Planner Printable</a>
+            <a href="homework-tracker-printable.html">Homework Tracker Printable</a>
+            <a href="exam-study-checklist.html">Exam Study Checklist Printable</a>
+            <a href="cornell-notes-template.html">Cornell Notes Template Printable</a>
+            <a href="student-planner-printable.html">Student Planner Printable</a>
+            <a href="weekly-homework-planner.html">Weekly Homework Planner Printable</a>
+            <a href="exam-revision-timetable.html">Exam Revision Timetable Printable</a>
+            <a href="grade-calculator-worksheet.html">Grade Calculator Worksheet Printable</a>
+            <a href="class-attendance-tracker.html">Class Attendance Tracker Printable</a>
+            <a href="book-report-template.html">Book Report Template Printable</a>
+          </div>
+        </section>
 
         <section class="template-category" id="study-planners">
           <h3 class="category-heading">Study Planners</h3>
