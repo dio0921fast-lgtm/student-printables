@@ -541,6 +541,35 @@
         border-radius: 8px;
       }
 
+      .seo-depth {
+        margin-top: 42px;
+      }
+
+      .seo-depth-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+
+      .seo-depth-card {
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 22px;
+        box-shadow: 0 10px 26px rgba(23, 32, 51, 0.06);
+      }
+
+      .seo-depth-card h3 {
+        margin: 0 0 8px;
+        font-size: 20px;
+        line-height: 1.25;
+      }
+
+      .seo-depth-card p {
+        margin: 0;
+        color: var(--muted);
+      }
+
       .feature h2 {
         margin: 0 0 8px;
         font-size: 18px;
@@ -568,7 +597,8 @@
 
         .nav-inner,
         .intro,
-        .feature-band {
+        .feature-band,
+        .seo-depth-grid {
           display: block;
         }
 
@@ -581,6 +611,10 @@
         }
 
         .feature {
+          margin-bottom: 18px;
+        }
+
+        .seo-depth-card {
           margin-bottom: 18px;
         }
 
@@ -1002,6 +1036,51 @@
 
           </div>
         </section>
+      </section>
+
+      <section class="seo-depth" aria-label="How to use printable student templates">
+        <div class="intro">
+          <div>
+            <p class="section-kicker">Printable study tools</p>
+            <h2 class="section-title">
+              Free student printables for planning, tracking, and studying.
+            </h2>
+          </div>
+          <p>
+            Printable Study is built for students who want simple paper
+            worksheets instead of another app. Each page can be opened in a
+            browser, printed, filled in by hand, or saved as a PDF.
+          </p>
+        </div>
+
+        <div class="seo-depth-grid">
+          <article class="seo-depth-card">
+            <h3>Who these printables are for</h3>
+            <p>
+              The templates work for middle school, high school, college,
+              homeschool, tutoring, and independent study. Students can use
+              them to organize homework, revision, class notes, reading,
+              grades, supplies, and longer projects.
+            </p>
+          </article>
+          <article class="seo-depth-card">
+            <h3>How to choose a template</h3>
+            <p>
+              Start with a weekly study planner if you need an overview of the
+              week, a homework tracker if assignments are the main problem, or
+              a checklist if you want a quick printable routine for exam prep
+              or supplies.
+            </p>
+          </article>
+          <article class="seo-depth-card">
+            <h3>Printing and reusing pages</h3>
+            <p>
+              Most templates are designed for US Letter and A4 paper. Print a
+              fresh copy for each week, class, book, exam, or semester, or save
+              the page as a PDF and keep a reusable digital copy.
+            </p>
+          </article>
+        </div>
       </section>
 
       <section class="feature-band" aria-label="Site features">
