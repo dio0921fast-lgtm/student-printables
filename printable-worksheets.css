@@ -40,6 +40,29 @@
   margin-top: 22px;
 }
 
+.print-sheet {
+  background: #fff;
+  color: #111827;
+  border: 2px solid #111827;
+  border-radius: 8px;
+  padding: 24px;
+  margin-top: 18px;
+  overflow-x: auto;
+}
+
+.print-sheet h3 {
+  margin: 0 0 6px;
+  font-size: 28px;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.print-sheet > p {
+  margin: 0 0 18px;
+  text-align: center;
+  color: #4b5563;
+}
+
 .printable-sheet h3 {
   margin: 0 0 6px;
   font-size: 28px;
@@ -83,8 +106,16 @@
   margin-top: 14px;
 }
 
+.printable-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 14px;
+}
+
 .worksheet-table th,
-.worksheet-table td {
+.worksheet-table td,
+.printable-table th,
+.printable-table td {
   border: 1px solid #111827;
   padding: 10px;
   height: 42px;
@@ -92,9 +123,133 @@
   vertical-align: top;
 }
 
-.worksheet-table th {
+.worksheet-table th,
+.printable-table th {
   background: #eef2ff;
   font-size: 14px;
+}
+
+.printable-table td:first-child,
+.worksheet-table td:first-child {
+  font-weight: 700;
+}
+
+.template-field-line {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 18px 0;
+}
+
+.template-field-line span,
+.template-line {
+  display: block;
+  min-height: 38px;
+  border-bottom: 1px solid #111827;
+  font-weight: 700;
+}
+
+.template-section-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.template-section-box {
+  min-height: 130px;
+  border: 1px solid #111827;
+  padding: 12px;
+}
+
+.template-section-box.large {
+  min-height: 180px;
+}
+
+.template-section-box.full {
+  grid-column: 1 / -1;
+}
+
+.template-section-box strong {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.checkbox-group {
+  border: 1px solid #111827;
+  padding: 12px;
+  min-height: 190px;
+}
+
+.checkbox-group h4 {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+
+.checkbox-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.checkbox-list li {
+  position: relative;
+  margin: 0 0 8px;
+  padding-left: 28px;
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.checkbox-list li::before,
+.print-check {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 15px;
+  height: 15px;
+  border: 2px solid #172033;
+  border-radius: 2px;
+  background: #fff;
+}
+
+.cornell-notes-sheet {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  border: 1px solid #111827;
+  margin-top: 16px;
+}
+
+.cornell-notes-sheet > div {
+  border: 1px solid #111827;
+  padding: 12px;
+}
+
+.cornell-cues,
+.cornell-notes-main {
+  min-height: 360px;
+}
+
+.cornell-summary,
+.cornell-questions {
+  min-height: 120px;
+}
+
+.cornell-summary {
+  grid-column: 1 / -1;
+}
+
+.note-lines p {
+  min-height: 24px;
+  margin: 8px 0 0;
+  border-bottom: 1px solid #cbd5e1;
 }
 
 .weekly-study-planner-table {
@@ -217,12 +372,25 @@
 @media (max-width: 700px) {
   .field-row,
   .worksheet-grid,
-  .cornell-preview {
+  .cornell-preview,
+  .template-field-line,
+  .template-section-grid,
+  .checkbox-grid,
+  .cornell-notes-sheet {
     grid-template-columns: 1fr;
   }
 
   .cornell-preview > section {
     grid-column: auto;
+  }
+
+  .template-section-box.full,
+  .cornell-summary {
+    grid-column: auto;
+  }
+
+  .print-sheet {
+    overflow-x: auto;
   }
 
   .checklist-columns {
@@ -238,7 +406,7 @@
   header,
   footer,
   nav,
-  .card:not(.download-box),
+  .card:not(.download-box):not(.print-preview-card),
   .button,
   .print-button,
   .download-box > h2,
@@ -259,7 +427,8 @@
   }
 
   .download-box,
-  .card.download-box {
+  .card.download-box,
+  .print-preview-card {
     display: block !important;
     border: 0 !important;
     box-shadow: none !important;
@@ -268,10 +437,17 @@
     background: white !important;
   }
 
-  .printable-sheet {
+  .printable-sheet,
+  .print-sheet {
     margin: 0 !important;
     border-radius: 0 !important;
     page-break-inside: avoid;
+    overflow: visible !important;
+  }
+
+  .print-preview-card > h2,
+  .print-preview-card > p {
+    display: none !important;
   }
 
   .editable-print-text,
