@@ -139,6 +139,30 @@
   margin-bottom: 8px;
 }
 
+.cornell-preview {
+  display: grid;
+  grid-template-columns: 32% 68%;
+  border: 1px solid #111827;
+}
+
+.cornell-preview > div,
+.cornell-preview > section {
+  min-height: 260px;
+  padding: 12px;
+  border: 1px solid #111827;
+}
+
+.cornell-preview > section {
+  grid-column: 1 / -1;
+  min-height: 110px;
+}
+
+.cornell-preview p {
+  min-height: 28px;
+  margin: 12px 0 0;
+  border-bottom: 1px solid #111827;
+}
+
 .checklist-columns {
   columns: 2;
   padding-left: 20px;
@@ -192,8 +216,13 @@
 
 @media (max-width: 700px) {
   .field-row,
-  .worksheet-grid {
+  .worksheet-grid,
+  .cornell-preview {
     grid-template-columns: 1fr;
+  }
+
+  .cornell-preview > section {
+    grid-column: auto;
   }
 
   .checklist-columns {

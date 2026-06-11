@@ -78,6 +78,22 @@ ol li {
   background: #1d46ad;
 }
 
+.breadcrumb {
+  margin: 0 0 18px;
+  color: #5f6b7a;
+  font-size: 15px;
+}
+
+.breadcrumb a {
+  color: #2457d6;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.intro-card p {
+  margin-top: 0;
+}
+
 .related-links {
   display: flex;
   flex-wrap: wrap;
