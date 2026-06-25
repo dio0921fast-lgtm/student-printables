@@ -11,8 +11,26 @@
   margin: 10px 12px 0 0;
 }
 
+.download-pdf-button {
+  display: inline-block;
+  background: #2457d6;
+  color: white;
+  border: 0;
+  padding: 14px 22px;
+  border-radius: 8px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  margin: 10px 12px 0 0;
+  text-decoration: none;
+}
+
 .print-button:hover {
   background: #0b7471;
+}
+
+.download-pdf-button:hover {
+  background: #1d47ad;
 }
 
 .download-note {
@@ -409,6 +427,7 @@
   .card:not(.download-box):not(.print-preview-card),
   .button,
   .print-button,
+  .download-pdf-button,
   .download-box > h2,
   .download-note,
   .custom-note {
